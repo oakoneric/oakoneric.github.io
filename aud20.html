@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Algorithmen und Datenstrukturen Winter 2020/21</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+							<header id="header">
+								<a href="index.html" class="logo"><strong>Tutorials</strong> by Eric Kunze</a>
+								<ul class="icons">
+									<li><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/" class="icon solid fa-home"><span class="label">Home</span></a></li>
+									<li><a href="mailto:eric.kunze@mailbox.tu-dresden.de" class="icon solid fa-envelope"><span class="label">Mail</span></a></li>
+									<li><a href="https://github.com/oakoneric/algorithmen-datenstrukturen-ws20" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									<li><a href="https://www.instagram.com/oakoneric/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+								</ul>
+							</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Algorithmen & Datenstrukturen</h1>
+										<h2>Winter 2020/21</h2>
+									</header>
+
+									<span class="image main"><img src="images/bg4b.jpg" alt="" /></span>
+
+									<h2>Inhalte der Übungen</h2>
+									<p>
+										Im Rahmen der zur Lehrveranstaltung gehörenden Übungen wenden wir das in der Vorlesung erlernte Wissen an und versuchen mit vielen Beispielen eine anschauliche Sicht auf die Thematik zu werfen.
+									</p>
+									<p>
+										Dabei beschäftigen wir uns im ersten Teil mit Grundlagen der formalen Sprachtheorie und wenden diese an. Dazu gehören zum Beispiel Syntaxdiagramme, der Rücksprungalgorithmus, EBNF und Fixpunktsemantik.
+										Die Kenntnisse nutzen wir anschließend um uns mit der Programmiersprache C vertraut zu machen und in dieser einfache Datenstrukturen kennenzulernen. Thematisiert werden schlussendlich auch verkettete Listen und Bäume.
+									</p>
+									<p>
+										Im zweiten Teil behandeln wir grundlegende Algorithmen aus dem Themenbereichen
+										<ul>
+											<li>Sortieren (Quicksort und Heapsort)</li>
+											<li>Suchen und Ersetzen (KMP-Algorithmus und Levenshtein-Dinstanz)</li>
+											<li>Graphalgorithmen (Breiten- und Tiefensuche, topologisches Sortieren, kürzeste Wege, algebraisches Pfadproblem).</li>
+											<li>EM-Algorithmus</li>
+										</ul>
+									</p>
+
+									<h2>Informationen</h2>
+									<p>
+										Im Folgenden werdet ihr meine in den Übungen erarbeiteten Lösungsvorschläge finden. Wer schon vorher einen ersten Eindruck gewinnen will, kann sich die Materialien der letzten Semester ansehen.
+									<!--
+										Im Folgenden sind meine in den Übungen erarbeiteten Lösungsvorschläge zu finden. Diese Lösungen wurden nicht vom Lehrstuhl erstellt und können damit trotz gründlicher Arbeit noch Fehler enthalten. Die Slides und den zugehörigen Latex-Code dazu findet ihr in meinem entsprechenden Github-Repository. Findet ihr einen Fehler in meinen Lösungen, dann fühlt euch eingeladen mir dies mitzuteilen oder direkt selbst mit einem Request zu beheben.
+									-->
+									</p>
+									<p>
+										Bitte beachtet stets die aktuellen Informationen auf der <a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/" target="_blank">Website der Lehrveranstaltung</a>.
+										Bei Fragen oder Problemen könnt ihr euch an <a href="mailto:eric.kunze@mailbox.tu-dresden.de">mich</a> oder an <a href="mailto:thomas.ruprecht@tu-dresden.de">Thomas Ruprecht</a> wenden.
+									</p>
+									<p>
+										Informationen zu Übungsverlegungen infolge von Feiertagen oder anderen Ursachen werden auf der <a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/" target="_blank">Lehrveranstaltungswebsite</a> und hier veröffentlicht.
+									</p>
+
+									<h2>Übungsmaterial</h2>
+
+									<p>
+										Die folgenden Materialien habe ich größtenteils in meiner Freizeit erstellt. Damit sind auch (Tipp-) Fehler keinesfalls ausgeschlossen. Die zur Verfügung gestellten Folien sollen keineswegs den aktiven Besuch der Übungen ersetzen, sondern vielmehr eine Hilfestellung sein um sich während der Übung auf das Verständnis konzentrieren zu können.
+									</p>
+
+									<h3>Teil 1: Formale Sprachen</h3>
+
+									<div class="table-wrapper">
+										<table>
+										<!-- table class="alt" -->
+											<thead>
+												<tr>
+													<th>Blatt</th>
+													<th>Inhalte</th>
+													<th>Download</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut01.pdf" target="_blank">1</a></td>
+													<td><strong>Einführung & grundlegende Begriffe</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut02.pdf" target="_blank">2</a></td>
+													<td><strong>Syntaxdiagramme & Rücksprungalgorithmus</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut03.pdf" target="_blank">3</a></td>
+													<td><strong>EBNF & Fixpunktsemantik</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut04.pdf" target="_blank">4</a></td>
+													<td><strong>EBNF & Fixpunktsemantik</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+
+									<h3>Teil 2: Programmieren in C</h3>
+
+									<p>
+										Leider haben wir in den Übungen nicht die Zeit um allen einen funktionsfähigen Compiler und ein optimales Setup zu garantieren. Daher bitte ich euch die Informationen auf der <a href="https://www.orchid.inf.tu-dresden.de/teaching/2019ws/aud/">Lehrveranstaltungswebsite</a> zu beachten. Außerdem habe ich unter dem folgenden Button einige Hinweise zusammengetragen. Wie immer sind natürliche auch Google und YouTube sehr gute Quellen für weitere Hilfe. Im Zweifelsfall hilft euch sicher auch der iFSR.
+									</p>
+
+									<p align="center">
+										<a href="aud-hints-c.html" class="button">Hinweise zum Programmieren mit C</a></li>
+									</p>
+
+									<div class="table-wrapper">
+										<table>
+										<!-- table class="alt" -->
+											<thead>
+												<tr>
+													<th>Blatt</th>
+													<th>Inhalte</th>
+													<th>Download</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut05.pdf" target="_blank">5</a></td>
+													<td><strong>Einführung in die Programmiersprache C</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut06.pdf" target="_blank">6</a></td>
+													<td><strong>Pulsierender Speicher</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut07.pdf" target="_blank">7</a></td>
+													<td><strong>Pulsierender Speicher & Listen</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut08.pdf" target="_blank">8</a></td>
+													<td><strong>Listen, Bäume & Sortieren</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+
+
+									<h3>Teil 3: Algorithmen</h3>
+
+									<div class="table-wrapper">
+										<table>
+										<!-- table class="alt" -->
+											<thead>
+												<tr>
+													<th>Blatt</th>
+													<th>Inhalte</th>
+													<th>Download</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut09.pdf" target="_blank">9</a></td>
+													<td><strong>Sortieren, KMP, Levenshtein</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut10.pdf" target="_blank">10</a></td>
+													<td><strong>KMP, Levenshtein, AVL-Bäume</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut11.pdf" target="_blank">11</a></td>
+													<td><strong>AVL, Breiten- & Tiefensuche, Floyd-Warshall</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut12.pdf" target="_blank">12</a></td>
+													<td><strong>Floyd-Warshall & algebraisches Pfadproblem</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut13.pdf" target="_blank">13</a></td>
+													<td><strong>Prozessproblem</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+												<tr>
+													<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ws/aud/tut14.pdf" target="_blank">14</a></td>
+													<td><strong>EM-Algorithmus</strong>
+													</td>
+													<td width=300>
+													<!--
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit disabled">Slides</a>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit disabled">Handout</a>
+														<br><br>
+														<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit disabled">Video</a>
+													-->
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Home</a></li>
+										<li><a href="lag20.html">Lineare Algebra Winter 2019/20</a></li>
+										<li><a href="aud20.html">Algorithmen & Datenstrukturen Winter 2020/21</a></li>
+										<li><a href="prog20.html">Programmierung Sommer 2020</a></li>
+										<li><a href="index.html#overview">früher</a></li>
+										<!-- <li>
+											<span class="opener">Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li> -->
+									</ul>
+								</nav>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<h4><a href="impressum.html">Impressum</a></h4>
+									<p class="copyright">&copy; Eric Kunze. All rights reserved.<br>
+										Images: <a href="https://unsplash.com">Unsplash</a> <br>
+										Design: <a href="https://html5up.net">HTML5 UP</a>.
+									</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
