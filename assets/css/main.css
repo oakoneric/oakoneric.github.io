@@ -2800,6 +2800,8 @@ button:disabled,
   #main > footer {
     padding-left: 5em;
     padding-right: 5em;
+    display: block;
+    height: 5em;
   }
 }
 
