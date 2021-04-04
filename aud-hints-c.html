@@ -14,108 +14,120 @@
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Tutorials</strong> by Eric Kunze</a>
-									<ul class="icons">
-										<li><a href="https://www.orchid.inf.tu-dresden.de/teaching/" class="icon solid fa-home"><span class="label">Home</span></a></li>
-										<li><a href="mailto:eric.kunze@mailbox.tu-dresden.de" class="icon solid fa-envelope"><span class="label">Mail</span></a></li>
-										<li><a href="https://github.com/oakoneric/" class="icon brands fa-github"><span class="label">Github</span></a></li>
-										<li><a href="https://www.instagram.com/oakoneric/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									</ul>
-								</header>
+					<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Tutorials</strong> by Eric Kunze</a>
+						<ul class="icons">
+							<li><a href="https://www.orchid.inf.tu-dresden.de/teaching/" class="icon solid fa-home"><span class="label">Home</span></a></li>
+							<li><a href="mailto:eric.kunze@mailbox.tu-dresden.de" class="icon solid fa-envelope"><span class="label">Mail</span></a></li>
+							<li><a href="https://github.com/oakoneric/" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://www.instagram.com/oakoneric/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</header>
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Programmieren in C</h1>
-									</header>
+					<!-- Content -->
+					<section>
+						<header class="main">
+							<h1>Programmieren in C</h1>
+						</header>
 
-									<p align="justify">
-										In der Übung verwende ich die GNU Compiler Collection (GCC) zusammen mit Notepad++ als Editor. Wie ihr euch selbst C-fähig macht, ist euch selbst überlassen.
-									</p>
-									<p align="justify">
-										Unter Linux ist die Installation von GCC recht einfach mit dem Command <code>sudo apt-get install build-essential</code>. Weitere Information zu GCC findet ihr <a href="https://wiki.ubuntuusers.de/GCC/">hier</a>.
-									</p>
-									<p align="justify">
-										Die Installation unter Windows ist ein wenig schwieriger und kann auf verschiedenen Wegen erfolgen:
-									<ul>
-										<li><a href="https://wiki.freitagsrunde.org/C_(GCC_unter_Windows)">Hier</a> findet ihr eine recht gute Anleitung. Diese nutzt <a href="http://www.mingw.org/">MinGW</a>.</li>
-										<li>Alternativ könnt ihr euch auch <a href="https://www.cygwin.com/install.html">Cygwin</a> anschauen - ein Tutorial findet ihr beispielsweise <a href="https://warwick.ac.uk/fac/sci/moac/people/students/peter_cock/cygwin/part2/">hier</a>.</li>
-										<li>Eine dritte Möglichkeit ist <a href="http://tdm-gcc.tdragon.net/index.php/">tdm-gcc</a>.</li>
-									</ul>
-										Auf jeden Fall findet ihr dazu auch zahlreiche YouTube-Tutorials. Wenn alle Wege scheitern, könnt ihr auch mal beim iFSR vorbeigehen, die helfen euch bei Installationsproblemen mich fachkundigem Rat weiter.
-									</p>
-									<p align="justify">
-										Mit dem Befehl <code>gcc -v</code> kann getestet werden, ob der Compiler bereits installiert ist.
-									</p>
-									<p align="justify">
-										Als Alternative zum Compilieren auf der Konsole könnt ihr auch einen Online-Compiler ansehen. Ein auf den ersten Blick relativ guter scheint <a href="https://www.onlinegdb.com/online_c_compiler">dieser</a> zu sein.
-									</p>
-									<p align="justify">
-										Den Quelltext schreibt ihr stets in eine Datei mit der Endung <code>.c</code>, beispielsweise <code>test.c</code>. Dann navigiert ihr in der Konsole in das Verzeichnis, wo ihr die Datei gespeichert habt (mittels Befehl <code>cd</code>). Dort angekommen könnt ihr den Compile-Vorgang starten mit <code>gcc test.c</code>. Das erzeugt eine ausführbare Datei, die den Namen <code>a.out</code> (Linux) oder <code>a.exe</code> (Windows) trägt. Diese könnt ihr mit <code>./a.out</code> bzw. <code>./a.exe</code> ausführen. Soll die ausführbare Datei anders heißen, nutzt man die Option <code>-o neuerDateiname</code> zusätzlich, d.h. <code>gcc -o testDatei test.c</code> liefert <code>testDatei</code> bzw. <code>testDatei.exe</code> und die startet ihr dann wie üblich mit <code>./testDatei</code> bzw. <code>./testDatei.exe</code>.
-									</p>
-									<p align="justify">
-										Weitere Informationen findet ihr auch auf der <a href="https://www.orchid.inf.tu-dresden.de/teaching/2019ws/aud/">Lehrveranstaltungswebsite</a>.
-									</p>
+						<p align="justify">
+							In der Übung verwende ich die GNU Compiler Collection (GCC) zusammen mit Notepad++ als Editor. Wie ihr euch selbst C-fähig macht, ist euch selbst überlassen.
+						</p>
+						<p align="justify">
+							Unter Linux ist die Installation von GCC recht einfach mit dem Command <code>sudo apt-get install build-essential</code>. Weitere Information zu GCC findet ihr <a href="https://wiki.ubuntuusers.de/GCC/">hier</a>.
+						</p>
+						<p align="justify">
+							Die Installation unter Windows ist ein wenig schwieriger und kann auf verschiedenen Wegen erfolgen:
+						<ul>
+							<li><a href="https://wiki.freitagsrunde.org/C_(GCC_unter_Windows)">Hier</a> findet ihr eine recht gute Anleitung. Diese nutzt <a href="http://www.mingw.org/">MinGW</a>.</li>
+							<li>Alternativ könnt ihr euch auch <a href="https://www.cygwin.com/install.html">Cygwin</a> anschauen - ein Tutorial findet ihr beispielsweise <a href="https://warwick.ac.uk/fac/sci/moac/people/students/peter_cock/cygwin/part2/">hier</a>.</li>
+							<li>Eine dritte Möglichkeit ist <a href="http://tdm-gcc.tdragon.net/index.php/">tdm-gcc</a>.</li>
+						</ul>
+							Auf jeden Fall findet ihr dazu auch zahlreiche YouTube-Tutorials. Wenn alle Wege scheitern, könnt ihr auch mal beim iFSR vorbeigehen, die helfen euch bei Installationsproblemen mich fachkundigem Rat weiter.
+						</p>
+						<p align="justify">
+							Mit dem Befehl <code>gcc -v</code> kann getestet werden, ob der Compiler bereits installiert ist.
+						</p>
+						<p align="justify">
+							Als Alternative zum Compilieren auf der Konsole könnt ihr auch einen Online-Compiler ansehen. Ein auf den ersten Blick relativ guter scheint <a href="https://www.onlinegdb.com/online_c_compiler">dieser</a> zu sein.
+						</p>
+						<p align="justify">
+							Den Quelltext schreibt ihr stets in eine Datei mit der Endung <code>.c</code>, beispielsweise <code>test.c</code>. Dann navigiert ihr in der Konsole in das Verzeichnis, wo ihr die Datei gespeichert habt (mittels Befehl <code>cd</code>). Dort angekommen könnt ihr den Compile-Vorgang starten mit <code>gcc test.c</code>. Das erzeugt eine ausführbare Datei, die den Namen <code>a.out</code> (Linux) oder <code>a.exe</code> (Windows) trägt. Diese könnt ihr mit <code>./a.out</code> bzw. <code>./a.exe</code> ausführen. Soll die ausführbare Datei anders heißen, nutzt man die Option <code>-o neuerDateiname</code> zusätzlich, d.h. <code>gcc -o testDatei test.c</code> liefert <code>testDatei</code> bzw. <code>testDatei.exe</code> und die startet ihr dann wie üblich mit <code>./testDatei</code> bzw. <code>./testDatei.exe</code>.
+						</p>
+						<p align="justify">
+							Weitere Informationen findet ihr auch auf der <a href="https://www.orchid.inf.tu-dresden.de/teaching/2019ws/aud/">Lehrveranstaltungswebsite</a>.
+						</p>
 
-							</section>
+					</section>
 
-						</div>
-					</div>
+				</div> <!-- end inner -->
+				<footer></footer>
+			</div> <!-- end main -->
 
-					<!-- Sidebar -->
-						<div id="sidebar">
-							<div class="inner">
+				<!-- Sidebar -->
+				<div id="sidebar">
+					<div class="inner">
 
-								<!-- Menu -->
-								  <nav id="menu">
-								    <header class="major">
-								      <h2>Menu</h2>
-								    </header>
-								    <ul>
-								      <li><a href="index.html">Home</a></li>
-								      <li><a href="prog20.html">Programmierung Sommer 2020</a></li>
-								      <li><a href="aud19.html">Algorithmen & Datenstrukturen Winter 2019/20</a></li>
-								      <li><a href="prog19.html">Programmierung Sommer 2019</a></li>
-								      <!-- <li>
-								        <span class="opener">Submenu</span>
-								        <ul>
-								          <li><a href="#">Lorem Dolor</a></li>
-								          <li><a href="#">Ipsum Adipiscing</a></li>
-								          <li><a href="#">Tempus Magna</a></li>
-								          <li><a href="#">Feugiat Veroeros</a></li>
-								        </ul>
-								      </li> -->
-								    </ul>
-								  </nav>
+						<!-- Menu -->
+						<nav id="menu">
+							<header class="major">
+								<h2>Menu</h2>
+							</header>
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="prog21.html">
+										<div class=menu-item-title>Programmierung</div> 
+										<div class="menu-item-subtitle">Sommer 2021</div>
+									</a>
+								</li>
+								<li>
+									<a href="lag20.html">
+										<div class="menu-item-title">Lineare Algebra</div>
+										<div class="menu-item-subtitle">Winter 2020/21</div>
+									</a>
+								</li>
+								<li>
+									<a href="aud20.html">
+										<div class="menu-item-title">Algorithmen & Datenstrukturen</div>
+										<div class="menu-item-subtitle">Winter 2020/21</div>
+									</a>
+								</li>
+								<li>
+									<a href="index.html#overview">
+									<div class="menu-item-title">Früher</div>
+									</a>
+								</li>
+							</ul>
+						</nav>
 
-								<!-- Footer -->
-								  <footer id="footer">
-								    <h4><a href="impressum.html">Impressum</a></h4>
-								    <p class="copyright">&copy; Eric Kunze. All rights reserved.<br>
-								      Images: <a href="https://unsplash.com">Unsplash</a> <br>
-								      Design: <a href="https://html5up.net">HTML5 UP</a>.
-								    </p>
-								  </footer>
+						<!-- Footer -->
+						<footer id="footer">
+							<h4><a href="impressum.html">Impressum</a></h4>
+							<p class="copyright">&copy; Eric Kunze. All rights reserved.<br>
+								Images: <a href="https://unsplash.com">Unsplash</a> <br>
+								Design: <a href="https://html5up.net">HTML5 UP</a>.
+							</p>
+						</footer>
 
-							</div>
-						</div>
+					</div> <!-- end inner -->
+				</div> <!-- end sidebar -->
 
-			</div>
+		</div> <!-- end wrapper -->
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
