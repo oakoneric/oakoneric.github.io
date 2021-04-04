@@ -1912,7 +1912,9 @@ button,
   }
   @media screen and (max-width: 1680px) {
     #main > .inner {
-      padding: 0 0 0.1em 0 ; }
+      padding: 0 0 0.1em 0 ; 
+      min-height: calc(100vh - 5em); // 5em footer height
+    }
       #main > .inner > section {
         padding: 5em 5em 3em 5em ; } 
     #main > footer {
@@ -2069,8 +2071,10 @@ button,
       color: $HIGHLIGHT1 !important; }
 #sidebar > .inner > footer {
   position: fixed;
+  background-color: $MYDARKGRAY;
   bottom: 1em;
   color: $TEXT_WHITE;
+  width: calc(26em - 4.44444em);
 }
 #sidebar > .inner > footer .copyright {
   color: $TEXT_WHITE;
@@ -2090,6 +2094,9 @@ button,
       #sidebar > .inner {
         padding: 1.66667em 1.66667em 1.33333em 1.66667em ;
         width: 24em; }
+        #sidebar > .inner > footer {
+          width: calc(24em - 2 * 1.66667em);
+        }
         #sidebar > .inner > .alt {
           margin: -1.66667em 0 3.33333em -1.66667em;
           padding: 1.66667em;
@@ -2372,9 +2379,19 @@ button,
     margin-top: 0;
     padding-top: 0; }
 
+  /* 
+  #menu ul li a .menu-item-title{
+
+  } 
+  */
+  #menu ul li a .menu-item-subtitle {
+    font-size: .8em;
+    font-style: italic;
+  }
 
 /* Summary */
 summary {
+  list-style-type: none;
   padding: 1em;
   //background: $MYLIGHTGRAY;
   border: solid 2px $MYLIGHTGRAY;
@@ -2390,14 +2407,13 @@ summary {
 summary:hover {
   background: $MYLIGHTGRAY_FW;
 }
-
-summary::-webkit-details-marker {
-  // background: url("/down.svg") center no-repeat;
-  content: "\25AE"; 
+summary::before {
+  display: inline-block;
+  text-align: center;
   font-family: "Font Awesome 5 Free";
-  color: transparent;
-  width: 17px;
-  height: 17px;
+  content: '\f101'; 
+  color: $TEXT_BLACK;
+  width: 1em;
 }
 
 details[open] {
@@ -2413,9 +2429,13 @@ details[open] summary {
   background-color: $MYLIGHTGRAY_FW;
 }
 
-details[open] summary::-webkit-details-marker {
-  background: url("/up.svg") center no-repeat;
-  color: transparent;
+details[open] summary::before {
+  display: inline-block;
+  text-align: center;
+  font-family: "Font Awesome 5 Free";
+  content: '\f103'; 
+  color: $TEXT_BLACK;
+  width: 1em;
 }
 
 @-webkit-keyframes sweep {
@@ -2442,11 +2462,11 @@ details[open] summary::-webkit-details-marker {
 
 /* Video */
 video {
+  display: block;
+  position: relative;
   margin-bottom: 1em;
   border-radius: 0.375em;
   border: 0;
-  display: inline-block;
-  position: relative;
 }
 
 
