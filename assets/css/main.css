@@ -3397,6 +3397,24 @@ summary {
   transition: background-color .3s;
 }
 
+summary .title {
+  display: inline-block;
+  border: 0;
+  color: #3d4449;
+  font-family: "Roboto Slab", serif;
+  font-size: 1.25em;
+  line-height: 1.5;
+  margin: 0 0 0 0;
+}
+
+summary .subtitle {
+  display: block;
+  font-style: italic;
+  border: 0;
+  color: #3d4449;
+  margin: 0 0 0 2em;
+}
+
 summary:hover {
   background: #3d44491A;
 }
@@ -3407,7 +3425,7 @@ summary::before {
   font-family: "Font Awesome 5 Free";
   content: '\f101';
   color: #363636;
-  width: 1em;
+  width: 2em;
 }
 
 details[open] {
@@ -3424,12 +3442,8 @@ details[open] summary {
 }
 
 details[open] summary::before {
-  display: inline-block;
-  text-align: center;
   font-family: "Font Awesome 5 Free";
   content: '\f103';
-  color: #363636;
-  width: 1em;
 }
 
 @-webkit-keyframes sweep {
@@ -3467,7 +3481,7 @@ section h1, h2, h3, h4, h5, h6 {
   border-bottom: solid 1px #f69200;
 }
 
-section .title {
+header > .title {
   color: #3d4449;
   font-family: "Roboto Slab", serif;
   font-size: 4em;
@@ -3477,7 +3491,7 @@ section .title {
   line-height: 1.3;
 }
 
-section .subtitle {
+header > .subtitle {
   color: #3d4449;
   font-family: "Roboto Slab", serif;
   font-size: 1.75em;
@@ -3488,23 +3502,23 @@ section .subtitle {
 }
 
 @media screen and (max-width: 1680px) {
-  section .title {
+  header > .title {
     font-size: 3.5em;
   }
 }
 
 @media screen and (max-width: 980px) {
-  section .title {
+  header > .title {
     font-size: 3.25em;
   }
 }
 
 @media screen and (max-width: 736px) {
-  section .title {
+  header > .title {
     font-size: 2em;
     line-height: 1.4;
   }
-  section .subtitle {
+  header > .subtitle {
     font-size: 1.5em;
   }
 }
