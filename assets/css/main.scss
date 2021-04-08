@@ -151,7 +151,7 @@ em, i {
   font-style: italic; }
 
 p {
-  margin: 0 0 2em 0;
+  margin: 0 0 1em 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1298,7 +1298,7 @@ ul {
   padding-left: 1em; 
 }
   p + ul {
-    margin-top: -1.5em;
+    margin-top: -1em;
     margin-bottom: .5em;
   }
   ul li {
@@ -1312,6 +1312,9 @@ ul {
       ul.alt li:first-child {
         border-top: 0;
         padding-top: 0; }
+      ul.alt li:last-child {
+        border-bottom: 0;
+        padding-bottom: 0; }
 
 dl {
   margin: 0 0 2em 0; }
