@@ -170,7 +170,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto Slab", serif;
   font-weight: 700;
   line-height: 1.5;
-  margin: 0 0 1em 0;
+  margin: 2em 0 1em 0;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -3521,5 +3521,24 @@ header > .subtitle {
   header > .subtitle {
     font-size: 1.5em;
   }
+}
+
+.exercise-content ul li {
+  margin: 1em 0 1em 0;
+}
+
+.button-group {
+  text-align: center;
+}
+
+.video-wrapper {
+  text-align: center;
+  padding: 1em 1em 1em 1em;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 /*# sourceMappingURL=main.css.map */
