@@ -2779,12 +2779,12 @@ button:disabled,
 }
 
 #main > .inner {
-  padding: 0 em 0.1em 6em;
+  padding: 0 0 0.1em 0em;
   margin: 0 auto;
 }
 
 #main > .inner > section {
-  padding: 6em 0 4em 0;
+  padding: 5em 5em 3em 5em;
   border-top: solid 2px rgba(210, 215, 217, 0.75);
 }
 
@@ -2796,7 +2796,8 @@ button:disabled,
   background-color: #3d444977;
   padding-bottom: 1.5em;
   padding-top: 1.5em;
-  padding-left: 4em;
+  padding-left: 5em;
+  padding-right: 5em;
 }
 
 @media screen and (max-width: 1680px) {
@@ -3119,7 +3120,7 @@ button:disabled,
   display: flex;
   background: #3d444977;
   border-bottom: solid 5px #f69200;
-  padding: 6em 0 1em 0;
+  padding: 6em 5em 1em 5em;
   position: relative;
 }
 
