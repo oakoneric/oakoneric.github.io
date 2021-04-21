@@ -63,6 +63,12 @@
 						<h2 id="news">News</h2>
 						<div class="box">
 							<ul class="alt">
+								<li><strong>21.04.2021:</strong>
+									Die Materialien für Übung 2 sind nun online. 
+									Beachtet bitte die Operatorprioritäten, v.a. die in der Übung diskutierte 
+									<code>f x:xs == (f x) : xs /= f (x:xs)</code>.
+									Die Aufgabe 3 zu den algebraischen Datentypen werden wir in der nächsten Woche besprechen - ihr findet aber auch eine ausführliche Erläuterung in den Materialien unten.
+								</li>
 								<li><strong>18.04.2021:</strong>
 									Für Übung 2 findet ihr unten Templates zum Download (zip-Archiv), die euch mühsames Abtippen ersparen sollen. 
 									In den Übungen werde ich diese Templates als Startpunkt verwenden.
@@ -397,26 +403,151 @@ fib_help x y n = fib_help y (x+y) (n-1)<!--
 
 									<li>
 										<i class="fa-li fa fa-video"></i>
-										<!--<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/video/tut01-di.mp4" target="_blank">-->Videoaufzeichnung der Übung<!--</a> (Dienstag)-->
+										<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/video/tut02-mi.mp4" target="_blank">Videoaufzeichnung der Übung</a> (Mittwoch)
 									</li>
 
 
 									<li>
 										<i class="fa-li fa fa-edit"></i>
 										<div style="text-align: left;">
-											<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02.pdf" class="button primary disabled">Slides</a>
-											<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02_handout.pdf" class="button disabled">Handout</a>
+											<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02.pdf" class="button primary">Slides</a>
+											<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02_handout.pdf" class="button">Handout</a>
 											&nbsp;&nbsp;&nbsp;
-											<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02_code.zip" target="_blank" class="button icon solid fa-download disabled">Code</a>
+											<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02_code.zip" target="_blank" class="button icon solid fa-download">Code</a>
 										</div>
+										
+										<ul>
+											<li>
+												ausführliche Erklärung zu
+												<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02_aufgabe3.pdf">Aufgabe 3</a>
+											</li>
+											<li>
+												Slides mit Anmerkungen vom
+												<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02_notes_di.pdf">Dienstag</a>
+												und 
+												<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02_notes_mi.pdf">Mittwoch</a>
+											</li>
+										</ul>
 									</li>
-									<!--
+									
 									<li>
 										<i class="fa-li fa fa-edit"></i>
-										<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02_aufgabe3.pdf">ausführliche Erklärung zu Aufgabe 3</a>
-									</li>
-									-->
+										<details>
+											<summary class="inline">Lösungen</summary>
+											
+											<ul>
+												<li>
+													<strong>Aufgabe 1</strong>: Listenoperationen
+													<ol>
+														<li>eine Liste umkehren
+															<pre><code><!--
+-->rev :: [Int] -> [Int]
+rev [] = []
+rev (x:xs) = rev xs ++ [x]<!--
+															--></code></pre>
+														</li>
+														<li>Sortierung einer Liste prüfen
+															<pre><code><!--
+-->isOrd' :: [Int] -> Bool
+isOrd' [] = True
+isOrd' [x] = True
+isOrd' (x:y:xs) = x <= y && isOrd' (y:xs)<!--
+															--></code></pre>
+														</li>
+														<li>(sortierte) Listen zusammenfügen
+															<pre><code><!--
+-->merge :: [Int] -> [Int] -> [Int]
+merge [] ys = ys
+merge xs [] = xs
+merge (x:xs) (y:ys)
+	| x < y = x : merge xs (y:ys)
+	| otherwise = y : merge (x:xs) ys<!--
+															  --></code></pre>
+														</li>
+														<li>(unendliche) Liste der Fibonacci-Zahlen
+															<pre><code><!--
+-->fib :: Int -> Int
+fib 0 = 1
+fib 1 = 1
+fib n = fib (n-1) + fib (n-2)
+
+fib' :: Int -> Int
+fib' i = stack 1 1 i
+	where stack f0 f1 0 = f0
+	      stack f0 f1 i = stack f1 (f0 + f1) (i-1)
+
+fibs :: [Int]
+fibs = fibAppend 0
+	where fibAppend x = fib x : fibAppend (x+1)<!--
+															--></code></pre>
+															Testen kann man diese Funktion beispielsweise mittels <code>take 7 fibs</code>, was uns die ersten sieben Fibonacci-Zahlen zurückgibt. 
+															<code>take</code> ist dabei eine Funktion aus der Standard-Bibliothek <code>Prelude</code> vom Typ <code>take :: Int -> [Int] -> [Int]</code>, d.h. man kann mit dieser Funktion nicht ein Intervall von gewünschten Zahlen angeben (wie eine Frage in der Übung war), siehe auch <a href="http://zvon.org/other/haskell/Outputprelude/take_f.html">hier</a>.
+															Man kann nun zwischen den beiden Varianten <code>fib</code> und <code>fib'</code> umschalten und die Laufzeitunterschiede (vgl. auch Übung 1, Aufgabe 3) vergleichen.
+														</li>
+													</ol>
+												</li>
+												<li><strong>Aufgabe 2:</strong> Zeichen & Zeichenketten
+													<ol>
+														<li>Präfix-Test - Wir testen ob ein String Präfix eines weiteren Strings ist.
+															<pre><code><!--
+-->isPrefix :: String -> String -> Bool
+isPrefix [] _ = True
+isPrefix _ [] = False
+isPrefix (p:ps) (c:cs) = p == c && isPrefix ps cs<!--
+															--></code></pre>
+														</li>
+														<li>Wir testen das Vorkommen eines Patterns in einem gegebenen String.
+															<pre><code><!--
+-->countPattern :: String -> String -> Int
+countPattern "" "" = 1
+countPattern _  "" = 0
+countPattern xs yys@(y:ys)
+	| isPrefix xs yys = 1 + countPattern xs ys
+	| otherwise       = countPattern xs ys <!--
+															--></code></pre>
 									
+														</li>
+													</ol>
+												</li>
+												<li><strong>Aufgabe 3:</strong> algebraische Datentypen
+													<ol>
+														<li>Beispielbaum
+															<pre><code><!--
+-->mytree :: BinTree
+mytree = Branch 0 
+		 ( Nil )
+		 ( Branch 3 
+		 	( Branch 1 Nil Nil )
+		 	( Branch 5 Nil Nil )
+		 )<!--												
+															--></code></pre>
+														</li>
+														<li>Test auf Baum-Gleichheit
+															<pre><code><!--
+-->equal :: BinTree -> BinTree -> Bool
+equal Nil              Nil              = True
+equal Nil              (Branch y l2 r2) = False
+equal (Branch x l1 r1) Nil              = False
+equal (Branch x l1 r1) (Branch y l2 r2) = (x == y) && (equal l1 l2) && (equal r1 r2) <!--
+															--></code></pre>
+														</li>
+														<li>Einfügen in einen Suchbaum
+															<pre><code><!--
+-->insert :: BinTree -> [Int] -> BinTree
+insert t     [] = t
+insert t (x:xs) = insert t' xs
+	where t' = insertSingle t x
+	      insertSingle Nil            x = Branch x Nil Nil
+	      insertSingle (Branch y l r) x
+	    	  | x < y     = Branch y (insertSingle l x) r
+	    	  | otherwise = Branch y l                  (insertSingle r x)<!--
+															--></code></pre>
+														</li>
+													</ol>
+												</li>
+											</ul>
+										</details>
+									</li>
 									
 								</ul>
 							</div>
