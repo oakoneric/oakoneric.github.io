@@ -3434,7 +3434,7 @@ summary::before {
 }
 
 .inline {
-  padding: .3em;
+  padding: 0em;
   border: 0;
   margin-bottom: .5em;
   border-radius: .3em;
