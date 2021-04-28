@@ -63,6 +63,12 @@
 						<h2 id="news">News</h2>
 						<div class="box">
 							<ul class="alt" style="text-align: justify;">
+								<li><strong>28.04.2021:</strong>
+									Das Material für Übung 3 ist jetzt verfügbar. 
+									Ich habe noch ein kurzes Video zur Aufgabe 3 gedreht, das kurz die Idee erklärt. 
+									Außerdem findet ihr eine Text-Erklärung zu den Funktionen höherer Ordnung in den Materialien.
+									Kleiner Hinweis zum Inhalt: ich hatte in der Übung behauptet, dass in Aufgabe 2 beim Filtern der geraden Zahlen eine <code>length</code> Funktion fehle - das ist natürlich Quatsch, da habe ich mich von den <code>evenNodes</code> verwirren lassen :)
+								</li>
 								<li><strong>21.04.2021:</strong>
 									Die Materialien für Übung 2 sind nun online. 
 									Auf Nachfrage lade ich auch die annotierten Slides hoch (nachträglich auch noch für die erste Woche).
@@ -623,9 +629,81 @@ insert t (x:xs) = insert t' xs
 												<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut03/tut03_notes_mi.pdf">Mittwoch</a>
 											</li>
 										</ul>
-										
 									</li>
 									
+									<li>
+										<i class="fa-li fa fa-edit"></i>
+										<details>
+											<summary class="inline">Lösungen</summary>
+											
+											<ul>
+												<li>
+													<strong>Aufgabe 1</strong>: Bäume mit beliebig vielen Kindern - <code>data RoseTree = Node Int [RoseTree]</code>
+													<ol>
+														<li>Anzahl der Blätter zählen:
+															<pre><code><!--
+-->countLeaves :: RoseTree -> Int
+countLeaves (Node _ [] )    = 1
+countLeaves (Node _ [t])    = countLeaves t
+countLeaves (Node x (t:ts)) = countLeaves t + countLeaves (Node x ts)<!--
+															--></code></pre>
+														</li>
+														<li>Prüfen, ob ein RoseTree immer eine gerade Anzahl an Kindern hat <br>
+															<p align="justify">
+																Variante 1: durch Abspalten von immer zwei Bäumen aus der Liste können wir am Ende feststellen, ob die Liste gerade Länge (es bleibt <code>[]</code> übrig) oder ungerade Länge (es bleibt eine einelementige Liste <code>[t]</code> übrig) hatte
+															</p>
+															<pre><code><!--
+-->evenNodes :: RoseTree -> Bool
+evenNodes (Node _  []       ) = True
+evenNodes (Node x  [t]      ) = False
+evenNodes (Node x (t1:t2:ts)) = evenNodes (Node x ts) && evenNodes t1 && evenNodes t2<!--
+															--></code></pre>
+															<p align="justify">
+																Variante 2: Wir prüfen explizit, ob die Länge der Liste gerade ist (mittels <code>length</code>-Funktion) und testen das erste Listenelement mit <code>evenNodes'</code>, die <code>RoseTree</code> verarbeiten kann, sowie die Restliste mit einer Funktion <code>evenNodes''</code>, die Listen <code>[RoseTree]</code> verarbeiten kann.
+															</p>
+															<pre><code><!--
+-->evenNodes' :: RoseTree -> Bool
+evenNodes' (Node _ []) = True
+evenNodes' (Node _ ts) = mod (length ts) 2 == 0 && evenNodes'' ts
+    where
+        evenNodes'' :: [RoseTree] -> Bool
+        evenNodes'' []     = True
+        evenNodes'' (t:ts) = evenNodes' t && evenNodes'' ts<!--
+															--></code></pre>
+														</li>
+													</ol>
+												</li>
+												<li><strong>Aufgabe 2:</strong> Funktionen höherer Ordnung
+													<p align="justify">
+														Für diese Aufgabe gibt es viele verschiedene Varianten, ich erwähne hier nur einige davon. Entgegen meiner Behauptung in den Übungen benötigt man natürlich beim Filtern der geraden Zahlen keine <code>length</code>-Funktion; da hab ich mich von den <code>evenNodes</code> von oben verwirren lassen ;)
+													</p>
+													<pre><code><!--
+-->f :: [Int] -> Int
+f xs = foldr product 1 (map square (filter even' xs))
+	where even' x = mod x 2 == 0
+	      square x = x * x
+	      product x y = x * y
+
+f' :: [Int] -> Int
+f' xs = foldr (*) 1 (map (^2) (filter even xs))
+
+f'' :: [Int] -> Int
+f'' = foldr (*) 1 . map (^2) . filter even
+
+f''' :: [Int] -> Int
+f''' = foldr (*) 1 . map (^2) . filter ((== 0) . (`mod` 2))<!--
+													--></code></pre>
+												</li>
+												<li><strong>Aufgabe 3:</strong> Faltung einer Liste von links
+													<pre><code><!--
+-->foldleft :: (Int -> Int -> Int) -> Int -> [Int] -> Int
+foldleft f x []     = x
+foldleft f x (y:ys) = foldleft f (f x y) ys<!--												
+													--></code></pre>
+												</li>
+											</ul>
+										</details>
+									</li>
 								</ul>
 							</div>
 						</details>
