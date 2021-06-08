@@ -44,6 +44,7 @@
 
 						<span class="image main"><img src="images/bg6c.jpg" alt="" /></span>
 
+						<a href="#uebungsuebersicht" class="button large fit">Abkürzung zum Übungsmaterial</a>
 
 						<h2>Inhalte der Übungen</h2>
 						<p align="justify"> 
@@ -63,6 +64,11 @@
 						<h2 id="news">News</h2>
 						<div class="box">
 							<ul class="alt" style="text-align: justify;">
+								<li><strong>09.06.2021:</strong>
+									Unten findet ihr die Materialien aus Übung 8 zur Logikprogrammierung.
+									Beachtet bitte, dass die Zeilennummern in den SLD-Refutationen sich zwischen den Mitschriften und den Slides unterscheiden.
+									Das liegt einfach an der automatischen Nummerierung in den Slides. In jedem Fall sollten die Angaben konsistent sein.
+								</li>
 								<li><strong>02.06.2021:</strong>
 									Die Materialien aus Übung 7 sind nun unten zu finden.
 									Zur Klammer-Frage aus der Dienstag-Übung: um den rekursiven Aufruf in Aufgabe 1c müssen Klammern gesetzt werden.
@@ -240,7 +246,7 @@
 
 
 
-						<h2>Übungsübersicht</h2>
+						<h2 id="uebungsuebersicht">Übungsübersicht</h2>
 
 						<p align="justify">
 							Im Folgenden findet ihr das gesamte Material meiner Übungen und den Vorlesungsinhalten. 
@@ -1165,33 +1171,118 @@ tmap f (Branch x l r) = Branch (f x) (tmap f l) (tmap f r)<!--
 
 									<li>
 										<i class="fa-li fa fa-video"></i>
-										<a class="isDisabled" href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/video/tut07-mi.mp4" target="_blank">Videoaufzeichnung der Übung (Mittwoch)</a>
+										<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/video/tut08-mi.mp4" target="_blank">Videoaufzeichnung der Übung (Mittwoch)</a>
 									</li>
 
 
 									<li>
 										<i class="fa-li fa fa-edit"></i>
-										<div style="text-align: left;">
-											<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut08/tut08.pdf" class="button primary disabled">Slides</a>
-											<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut08/tut08_handout.pdf" class="button disabled">Handout</a>
+										<div style="text-align: left; margin-bottom: 2em;">
+											<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut08/tut08.pdf" class="button primary">Slides</a>
+											<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut08/tut08_handout.pdf" class="button">Handout</a>
 										</div>
-										<!--
-										<ul>
-											<li>
-												Mitschriften vom Dienstag: 
-												<a  href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut07/tut07_notes-di-slides.pdf">Slides</a>
-												und 
-												<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut07/tut07_notes-di-notebook.pdf">Notizbuch</a>
-											</li>
-											<li>
-												Mitschriften vom Mittwoch: 
-												<a  href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut07/tut07_notes-mi-slides.pdf">Slides</a>
-												und 
-												<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut07/tut07_notes-mi-notebook.pdf">Notizbuch</a>
-											</li>
-										</ul>
-										-->
+										
+										<p>
+											<ul>
+												<li>
+													Mitschriften vom Dienstag: 
+													<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut08/tut08_notes-di-notebook.pdf">Notizbuch</a>
+												</li>
+												<li>
+													Mitschriften vom Mittwoch: 
+													<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut08/tut08_notes-mi-notebook.pdf">Notizbuch</a>
+												</li>
+											</ul>
+										</p>
+
+										<p style="text-align: justify;">
+											<strong>Hinweis:</strong>
+											Die Zeilenangaben in den SLD-Refutationen können sich zwischen den Mitschriften und Slides unterscheiden, sollten aber in jedem Fall konsistent sein.
+											Grund dafür sind Leerzeilen in der Originaldatei. Die unten stehenden Lösungen orientieren sich an den Slides.
+										</p>
 									</li>
+
+									<li>
+										<i class="fa-li fa fa-edit"></i>
+										<details>
+											<summary class="inline">Lösungen - Aufgabe 1</summary>
+											<ol>
+													<li><p>Abbildung der Kantenrelation des gegebenen Graphen durch ein Prädikat <code>edge</code></p>
+														<pre><code><!--
+-->edge(1, 4).
+edge(1, 2).
+edge(3, 2).
+edge(4, 3).
+edge(1, 1).<!--
+														--></code></pre>
+													</li>
+													<li><p>Pfade als zweistelliges Prädikt <code>path</code></p>
+														<pre><code><!--
+-->path(U, U).
+path(U, W) :- edge(U, V), path(V, W).<!--
+														--></code></pre>
+													</li>
+													<li><p>SLD-Refutationen für das Goal <code>?- path(4, X).</code></p>
+														<pre><code><!--
+-->           ?- path(4,X).
+{ X = 4 }  ?- .                          % 7 <!--
+														--></code></pre>
+														<pre><code><!--
+-->           ?- path(4,X).
+           ?- edge(4,W), path(W,X).     % 8
+{ W = 3 }  ?- path(3,X).                % 5
+{ X = 3 }  ?- .                         % 6 <!--
+														--></code></pre>
+														<pre><code><!--
+-->           ?- path(4,X).
+           ?- edge(4,W), path(W,X).     % 8 
+{ W = 3 }  ?- path(3,X).                % 5
+           ?- edge(3,U), path(U,X).     % 8 
+{ U = 2 }  ?- path(2,X).                % 4
+{ X = 2 }  ?- .                         % 7 <!--
+														--></code></pre>
+														<p>Damit ist also \( X \in \{ 2,3,4 \} \).</p>
+													</li>														
+											</ol>
+										</details>
+
+										<details>
+											<summary class="inline">Lösungen - Aufgabe 2</summary>
+											<ol>
+													<li><p>Prädikat <code>even</code>, das alle geraden Zahlen enthält</p>
+														<pre><code><!--
+-->even(0).
+even(s(s(N))) :- even(N).<!--
+														--></code></pre>
+													</li>
+													<li><p>Prädikt <code>div2</code>, dass alle Paare \( ( n, \lfloor \frac n 2 \rfloor ) \) enthält</p>
+														<pre><code><!--
+-->div2(0, 0).
+div2(s(0), 0).
+div2(s(s(N)), s(M)) :- div2(N, M).<!--
+														--></code></pre>
+													</li>
+													<li><p>SLD-Refutation für das Goal <code>?- div2(<3>, <1>).</code></p>
+														<pre><code><!--
+-->?- div2(<3>, <1>).
+?- div2(<1>, 0)           % 12
+?- .                      % 11 <!--
+														--></code></pre>
+													<li> <p>Zusatz: Prädikat <code>div</code>, dass alle Tripel \( (n, m, \lfloor \frac n m \rfloor ) \) enthält</p>
+														<pre><code><!--
+-->lt(0, s(M)) :- nat(M).
+lt(s(N), s(M)) :- lt(N, M).
+
+div(0, M, 0) :- lt(0, M).
+div(N, M, 0) :- lt(N, M).
+div(N, M, s(Q)) :- lt(0, M), sum(M, V, N), div(V, M, Q).<!--
+														--></code></pre>
+													</li>
+													<li><p>Zusatz: SLD-Refutation für das Goal <code>?- div(<3>,<2>,<1>)</code>: siehe Slides</p>									
+											</ol>
+										</details>
+									</li>
+											
 								</ul>
 							</div>
 						</details>
