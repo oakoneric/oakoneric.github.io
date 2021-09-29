@@ -1,116 +1,96 @@
-<!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Programmierung Sommer 2021</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-	</head>
+---
+layout: tutorial-base
+title: Testpage
+---
 
-	<body class="is-preload">
+<!-- Content -->
+<section>
+  <header>
+    <div class="title">Title</div>
+    <div class="subtitle">Untertitle</div>
+  </header>
 
-		<div id="wrapper"> <!-- Wrapper -->
-			<div id="main"> <!-- Main -->
-				<div class="inner"> <!-- inner -->
+  <h2>Überschrift 2</h2>
 
-					<header id="header"> <!-- Header -->
-						<a href="index.html" class="logo"><strong>Tutorials</strong> by Eric Kunze</a>
-						<ul class="icons">
-							<li><a href="index.html" class="icon solid fa-home"><span class="label">Home</span></a></li>
-							<li><a href="mailto:eric.kunze@mailbox.tu-dresden.de" class="icon solid fa-envelope"><span class="label">Mail</span></a></li>
-							<li><a href="https://github.com/oakoneric/programmierung-ss21" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="https://www.instagram.com/oakoneric/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://t.me/oakoneric" class="icon brands fa-telegram"><span class="label">Telegram</span></a></li>
-						</ul>
-					</header>
+  Das hier wird noch zu einer Liste werden:
+  <ul>
+    <li>Grundlagen der funktionalen Programmierung in Haskell</li>
+    <li>Unifikationsalgorithmus</li>
+    <li>Beweis von Programmeigenschaften mit struktureller Induktion</li>
+    <li>Lambda-Kalkül</li>
+    <li>Logikprogrammierung in Prolog</li>
+    <li>Abstrakte Maschinen AM0 und AM1 sowie deren Übersetzung von/nach C</li>
+    <li>Beweis von Programmeigenschaften mit dem Hoare-Kalkül</li>
+    <li>Abstrakte Maschinen mit Haskell</li>
+  </ul>
 
-					<!-- Content -->
-					<section>
-						<header>
-							<div class="title">Title</div>
-							<div class="subtitle">Untertitle</div>
-						</header>
+  <h2>Überschrift 2</h2>
+  <p>
+    Hier steht unter anderem auch ein
+    <a href="https://www.orchid.inf.tu-dresden.de/teaching/2021ss/prog/">Link</a
+    >.
+  </p>
 
-						<h2>Überschrift 2</h2>
-						<p>
-							Das hier wird noch zu einer Liste werden:
-							<ul>
-								<li>Grundlagen der funktionalen Programmierung in Haskell</li>
-								<li>Unifikationsalgorithmus</li>
-								<li>Beweis von Programmeigenschaften mit struktureller Induktion</li>
-								<li>Lambda-Kalkül</li>
-								<li>Logikprogrammierung in Prolog</li>
-								<li>Abstrakte Maschinen AM0 und AM1 sowie deren Übersetzung von/nach C</li>
-								<li>Beweis von Programmeigenschaften mit dem Hoare-Kalkül</li>
-								<li>Abstrakte Maschinen mit Haskell</li>
-							</ul>
-						</p>
+  <h2>Übungen</h2>
 
-						<h2>Überschrift 2</h2>
-						<p>
-							Hier steht unter anderem auch ein <a href="https://www.orchid.inf.tu-dresden.de/teaching/2021ss/prog/">Link</a>.
-						</p>
+  {% for tut in site.pages %} {% if tut.type == 'prog21' %}
+  <details>
+    <summary>
+      <div class="title">Woche {{tut.nr}}: {{tut.title}}</div>
+      <div class="subtitle">{{tut.date}}</div>
+    </summary>
 
-						
-						<footer>
-							Hier steht section footer text.
-						</footer>
+    <div class="exercise-content">
+      <ul class="fa-ul">
+        <li>
+          <i class="fa-li fa fa-video"></i>
+          <a href="{{tut.vl-video}}" target="_blank">Vorlesungsvideo</a>
+        </li>
 
-					</section>
+        <li>
+          <i class="fa-li fa fa-pen"></i>
+          <a href="{{tut.ue-blatt}}" target="_blank">Übungsblatt {{tut.nr}}</a>
+        </li>
 
-				</div> <!-- end inner -->
+        {% if tut.templates %}
+        <li>
+          <i class="fa-li fa fa-code"></i>
+          <a href="tut.templates"
+            >Coding Templates <span class="icon solid fa-download"></span
+          ></a>
+        </li>
+        {% endif %}
 
-				<footer>
-					Hier steht main footer text.
-				</footer>
-			</div> <!-- end main -->
+        <li>
+          <i class="fa-li fa fa-video"></i>
+          <a href="{{tut.ue-video}}" target="_blank">
+            Videoaufzeichnung der Übung
+          </a>
+        </li>
 
-			<!-- Sidebar -->
-			<div id="sidebar">
-				<div class="inner">
+        <li>
+          <i class="fa-li fa fa-edit"></i>
+          <div style="text-align: left">
+            <a href="{{tut.slides}}" class="button primary">Slides</a>
+            <a href="{{tut.handout}}" class="button">Handout</a>
 
-					<!-- Menu -->
-					<nav id="menu">
-						<header class="major">
-							<h2>Menu</h2>
-						</header>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="lag20.html">Lineare Algebra Winter 2019/20</a></li>
-							<li><a href="aud20.html">Algorithmen & Datenstrukturen Winter 2020/21</a></li>
-							<li><a href="prog20.html">Programmierung Sommer 2020</a></li>
-							<li><a href="index.html#overview">früher</a></li>
-						</ul>
-					</nav>
+            {% if tut.code %} &nbsp;&nbsp;&nbsp;
+            <a
+              href="{{tut.code}}"
+              target="_blank"
+              class="button icon solid fa-download"
+            >
+              Code
+            </a>
+            {% endif %}
+          </div>
+        </li>
 
-					<!-- Footer -->
-					<footer id="footer">
-						<h4><a href="impressum.html">Impressum</a></h4>
-						<p class="copyright">&copy; Eric Kunze. All rights reserved.<br>
-							Images: <a href="https://unsplash.com">Unsplash</a> <br>
-							Design: <a href="https://html5up.net">HTML5 UP</a>.
-						</p>
-					</footer>
+        {{ tut.content }}
+      </ul>
+    </div>
+  </details>
+  {% endif %} {% endfor %}
 
-				</div> <!-- end inner -->
-			</div> <!-- end sidebar -->
-
-		</div> <!-- end wrapper -->
-
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
-	</body>
-</html>
+  <footer>Hier steht section footer text.</footer>
+</section>
