@@ -1,0 +1,521 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title> Programmierung 2020  </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+    <a href="index.html" class="logo"><strong>Tutorials</strong> by Eric Kunze</a>
+    <ul class="icons">
+        <li><a href="index.html" class="icon solid fa-home"><span class="label">Home</span></a></li>
+        <li><a href="mailto:eric.kunze@mailbox.tu-dresden.de" class="icon solid fa-envelope"><span class="label">Mail</span></a></li>
+        <li><a href="https://github.com/oakoneric/" class="icon brands fa-github"><span class="label">Github</span></a></li>
+        <li><a href="https://www.instagram.com/oakoneric/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="https://t.me/oakoneric" class="icon brands fa-telegram"><span class="label">Telegram</span></a></li>
+    </ul>
+</header>
+
+					<!-- Content -->
+					<!-- Content -->
+<section>
+	<header class="main">
+		<div class="title">Programmierung</div>
+		<div class="subtitle">Sommer 2020</div>
+	</header>
+
+	<span class="image main"><img src="images/bg3b.jpg" alt="" /></span>
+
+	<a href="#uebungen" class="button large fit">Abkürzung zum Übungsmaterial</a>
+	<br><br><br><br>
+
+	<h2>Inhalte der Übungen</h2>
+	<p align="justify">
+		Im Rahmen der zur Lehrveranstaltung gehörenden Übungen wenden wir das in der Vorlesung erlernte Wissen an und versuchen mit vielen Beispielen eine anschauliche Sicht auf die folgenden Thematiken zu werfen:
+		<ul>
+			<li>Grundlagen der funktionalen Programmierung in Haskell</li>
+			<li>Unifikationsalgorithmus</li>
+			<li>Beweis von Programmeigenschaften mit struktureller Induktion</li>
+			<li>Lambda-Kalkül</li>
+			<li>Logikprogrammierung in Prolog</li>
+			<li>Abstrakte Maschinen AM0 und AM1 sowie deren Übersetzung von/nach C</li>
+			<li>Beweis von Programmeigenschaften mit dem Hoare-Kalkül</li>
+			<li>Abstrakte Maschinen mit Haskell</li>
+		</ul>
+	</p>
+
+
+
+	<h2>Informationen</h2>
+	<p align="justify">
+		Bitte beachtet stets die aktuellen Informationen auf der <a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/">Website der Lehrveranstaltung</a>.
+		Bei Fragen oder Problemen könnt ihr euch an <a href="mailto:eric.kunze@mailbox.tu-dresden.de">mich</a> oder an <a href="mailto:thomas.ruprecht@tu-dresden.de">Thomas Ruprecht</a> wenden.
+	</p>
+	<p align="justify">
+		Aufgrund der Schließung der TU Dresden sind wir auf alternative Lehrmethoden angewiesen. Ich habe zusätzlich zum offiziellen Angebot des Lehrstuhls ein eigenes (privates) Konzept entwickelt. Dabei möchte ich meine Präsenzübungen so realitätsnah wie möglich in Online-Formate übertragen. <!--Beachtet dazu die <a href="#tools">aktuellen Informationen</a>.-->
+	</p>
+
+	<h2>Praktische Aufgaben</h2>
+
+	<p align="justify">
+		Leider haben wir in den Übungen nicht die Zeit um allen einen funktionsfähigen Compiler und ein optimales Setup zu garantieren. Daher bitte ich euch die Informationen auf der <a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/">Lehrveranstaltungswebsite</a> zu beachten. Außerdem habe ich <a href="prog-hints-haskell.html">hier</a> und <a href="prog-hints-prolog.html">hier</a> einige Hinweise zusammengetragen. Wie immer sind natürliche auch Google und YouTube sehr gute Quellen für weitere Hilfe. Im Zweifelsfall hilft euch sicher auch der iFSR.
+	</p>
+
+	<p align="center">
+		<a href="prog-hints-haskell.html" class="button">Hinweise zu Haskell</a>
+		<a href="prog-hints-prolog.html" class="button">Hinweise zu Prolog</a>
+	</p>
+
+	<h2>Literaturempfehlungen</h2>
+	<p align="justify">
+		<ul>
+			<li><a href="http://learnyouahaskell.com/" target="_blank"><strong>Learn You a Haskell For Great Good!</strong></a> <br>
+				Ein sehr gut geschriebenes Buch, kann ich nur empfehlen einmal reinzusehen. Erklärt sehr ausführlich und kurzweilig. Damit sollte jeder Haskell verstehen können.</li>
+			<li><a href="http://book.realworldhaskell.org/read/" target="_blank"><strong>Real World Haskell</strong></a> <br>
+			Ebenso ein sehr gutes Buch, deckt aber wesentlich mehr Inhalte ab, als wir brauchen werden.</li>
+		</ul>
+		Beide Bücher sind frei online verfügbar, sogar ohne VPN und ohne SLUB-Zugang, also perfekt für diese Zeit.
+	</p>
+
+	<h2 id="uebungen">Online-Übungen</h2>
+
+	<ul align="justify" class="alt">
+		<li>
+			Ich werde hier Informationen und Materialien für meine Online-Übungen zur Verfügung stellen. Sollten größere Fehler oder organisatorische Probleme auftreten, benachrichtige ich euch zusätzlich noch per Mail.
+		</li>
+		<li>Kürzere Fragen könnt ihr mir gern auch auf Telegram stellen. Ihr findet mich unter <code>@oakoneric</code>. Dort antworte ich erfahrungsgemäß etwas schneller als auf E-Mails.</li>
+	<!---
+		<li><strong>Zugang zu meinem OneNote Notizbuch:</strong> <a href="https://1drv.ms/u/s!AqWWJEMTncRCgc1Ro5FNYeKF2hRSGQ" target="_blank">[hier]</a> Achtung - den Zugang werde ich nach der Prüfung deaktivieren, dann sind nur noch die unten bei den jeweiligen Übungen verlinkten Exporte verfügbar.</li>
+	-->
+	</ul>
+
+	<h3 id="probeklausur">Probeklausur</h3>
+	<p align="justify">
+		Die Probeklausur findet ihr <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/probeklausur/probeklausur.pdf">hier</a>. Die Zugangsdaten sind die gleichen wie für die Videos. <br>
+		Die bearbeiteten Aufgaben könnt ihr mir per <a href="mailto:eric.kunze@mailbox.tu-dresden.de">Mail</a> senden, dann kann ich sie euch korrigieren. Eine Besprechung der Probeklausur machen wir nur, wenn wirklich Bedarf besteht, d.h. meldet mir diesen gern, sobald ihr Probleme habt.
+		Die Klausur ist in meinen Augen realistisch, aber trotzdem relativ anspruchsvoll. Zeitlich solltet ihr nicht deutlich mehr als 50 bis 60 Minuten benötigen.
+	</p>
+
+	<h3 id="evaluation">Evaluation</h3>
+
+	Wie in jedem Semester gab es auch diesmal eine Lehrveranstaltungsevaluation, an der einige teilgenommen haben. Ich danke allen für das Feedback (positiv und negativ) und freue mich auch weiterhin auf Kritik und Verbesserungsvorschläge von eurer Seite.
+
+	<p align="center">
+		<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/Evaluation-Kunze-Programmierung2020.pdf" class="button primary">Evaluation der Übungen</a>
+	</p>
+
+	<!--
+	<h3 id="tools">Aktuelle Informationen</h3>
+	<p align="justify">
+		[10.07.2020 16:45] Materialien für Übung 13 (Mitschriften auf den Folien und Video) sind online. Die 14. Übung werden wir nicht wie gewohnt abhalten, sondern nur noch eure Wünsche und Fragen bearbeiten. Dazu werden wir auch einen anderen Termin nutzen (nächsten Freitag ist SWT-Probeklausur). Teilt mir eure Wünsche bitte vorher mit!
+	</p>
+	<p align="justify">
+		[03.07.2020 17:00] Materialien für Übung 12 (Mitschriften und Video) sind online. Zoom-Link für Übung 13 ist aktualisiert.
+	</p>
+	<p align="justify">
+		[28.06.2020 15:00] Ich habe in Übung 11, Aufgabe 2, Teil (a) noch die fehlende Symboltabelle hinzugefügt.
+	</p>
+	<p align="justify">
+		[26.06.2020 17:30] Materialien (Mitschriften und Video) für Übung 11 sind hochgeladen.
+	</p>
+	<p align="justify">
+		[19.06.2020 16:15] Materialien (Mitschriften und Video) für Übung 10 sind hochgeladen.
+	</p>
+	<p align="justify">
+		[12.06.2020 17:25] Materialien (Mitschriften und Video) für Übung 9 sind hochgeladen. Zoom-Link für nächste Woche ist auch schon aktualisiert.
+	</p>
+	<p align="justify">
+		[09.06.2020 12:00] Der Zoom-Link zum nächsten Meeting ist aktualisiert.
+	</p>
+	<p align="justify">
+		[31.05.2020 12:00] Ich habe eine Datei zur Division in Prolog hinzugefügt, die die Herangehensweise bisschen besser darstellen soll. Den Link dazu findet ihr unten bei den anderen Materialien.
+	</p>
+	<p align="justify">
+		[29.05.2020 16:45] Die Probeklausur findet ihr <a href="#probeklausur">oben</a>.
+	</p>
+	<p align="justify">
+		[29.05.2020 16:45] Das Video für Übung 8 ist online. Mitschriften habe ich diesmal keine hochgeladen, da dort nicht viel mehr Inhalt war. Die Lösungen findet ihr ohnehin vollständig in den Slides.
+	</p>
+	<p align="justify">
+		[28.05.2020 19:45] Die Materialien für Übung 8 sind nun online. Bitte beachtet die Info unten: Ich habe geplant viel im Split-Screen-Modus zu arbeiten. Daher wäre sicher ein großer Bildschirm von Vorteil :)
+	</p>
+	<p align="justify">
+		[22.05.2020 16:15] Notizen und Video von Übung 6 sind online.
+	</p>
+	<p align="justify">
+		[18.05.2020 23:00] Erster Klammerfehler: Übungsblatt 6, Aufgabe 1b, fünfter Term. Die Lösung auf den Slides hatte einen kleinen Fehler in der Zeile vor "unendliche Rekursion". Statt
+		<code>(&lambda; h . h h ((&lambda; x . h (x x)) (&lambda; x . h (x x)))) (+ 1 5)</code>
+		muss es
+		<code>(&lambda; h . h <strong>(</strong> h ((&lambda; x . h (x x)) (&lambda; x . h (x x)))<strong>)</strong>) (+ 1 5)</code>
+		heißen. In der Übung hatte ich nicht ganz so weit reduziert, da sollte es nach wie vor stimmen.
+	</p>
+	<p align="justify">
+		[16.05.2020 18:50] Das Video von Übung 6 ist online.
+	</p>
+	<p align="justify">
+		[15.05.2020 18:40] Die Mitschriften aus Übung 6 sind hochgeladen.
+	</p>
+	<p align="justify">
+		[14.05.2020 17:00] Die Slides für Übung 6 sind fertig und hochgeladen. Die noch fehlende Lösung wurde ergänzt. Achtung! Vielleicht sind kleine Fehler drin - das lässt sich im Klammerchaos nie ganz ausschließen. Wenn ihr welche findet, dann gebt bitte Bescheid.
+	</p>
+	<p align="justify">
+		[13.05.2020 21:45] Eine Vorabversion der Slides für Übung 6 sind nun verfügbar. Es fehlt noch die Lösung für Aufgabe 1b.
+	</p>
+	<p align="justify">
+		[10.05.2020 13:45] Arndt hat das fünfte Video ein bisschen zurechtgeschnitten und trotzdem die Dateigröße beibehalten können. Vielen Dank!
+	</p>
+	<p align="justify">
+		[09.05.2020 09:50] Das Video der fünften Übung ist (passwortgeschützt) unten zu finden.
+	</p>
+	<p align="justify">
+		[08.05.2020 19:00] Die Mitschriften von Blatt 4 (Aufgabe 4) und die Mitschriften zum aktuellen Übungsblatt 5 sind unten veröffentlicht. Außerdem hab ich anstelle der Slides ein Info-PDF zur Induktion hochgeladen.
+	</p>
+	<p align="justify">
+		[07.05.2020 20:15] Der Zoom-Button unten ist aktualisiert. Aufgrund anhaltender technischer Probleme wird es diese Woche vorerst keine Slides geben. Ich reiche die nach, sobald ich die Möglichkeit dafür habe.
+	</p>
+	<p align="justify">
+		[03.05.2020 19:00] Das Video vom Freitag, 01. Mai, zum vierten Übungsblatt ist online.
+	</p>
+	<p align="justify">
+		[01.05.2020 17:45] Ich habe eine kleine Verbesserung in den Slides und in der Musterlösung vorgenommen. Die <code>depth</code>-Funktion sieht im Rekursionsfall so aus:
+		<code>depth (Branch _ l r) = 1 + min (depth l) (depth r)</code>
+		Außerdem sind die Notizen aus der Übung veröffentlicht.
+	</p>
+	<p align="justify">
+		[27.04.2020 09:00] Das erste Video und die Videoaufzeichnungen der Livestreams sind nun passwortgeschützt verfügbar. Die Zugangsdaten habt ihr per Mail erfahren.
+	</p>
+-->
+
+<!--
+	<p align="justify">
+		<a href="https://us02web.zoom.us/j/82710047655?pwd=d01iY0dya2svSXo4TWlkbHA4bVBVQT09" class="button primary disabled">ZOOM</a> &nbsp nächster Termin: tba
+	</p>
+-->
+
+
+	<div class="table-wrapper">
+		<table>
+		<!-- table class="alt" -->
+			<thead>
+				<tr>
+					<th>Blatt</th>
+					<th>Inhalte</th>
+					<th>Download</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut01.pdf" target="_blank">1</a></td>
+					<td><strong>Einführung in Haskell</strong>
+						<ul>
+							<li>Die Folien sind um ein paar ausführliche Hinweise ergänzt im Vergleich zu den im Video verwendeten Folien.</li>
+					</td>
+					<td width=300>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01.pdf" class="button primary fit">Slides</a>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut01/tut01_handout.pdf" class="button fit">Handout</a>
+						<br><br>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut01.mp4" target="_blank" class="button fit">Video</a>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut02.pdf" target="_blank">2</a></td>
+					<td align="justify"><strong>Haskell: Listen, Zeichenketten & Bäume</strong>
+						<ul>
+							<li>Meine Notizen sind in meinem OneNote-Notizbuch zu finden. Den Link dorthin findet ihr bisschen weiter oben.</li>
+							<li>Video der Freitagsübung: <a href ="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut02.mp4" target="_blank">[hier]</a> (Zugangsdaten erhaltet ihr per Mail). Danke an der Stelle an Tobias!</li>
+							<li>Mitschrift der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut02/tut02_notes.pdf" target="_blank">[hier]</a></li>
+							<li>kommentierte Musterlösung zu Aufgabe 3 (Bäume): <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut02/tut02-aufgabe3.pdf" target="_blank">[hier]</a>
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut02/tut02.pdf" class="button primary fit">Slides</a>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut02/tut02_handout.pdf" class="button fit">Handout</a> <br><br>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut02/tut02-templates.zip" class="button icon solid fit fa-download">Code Templates [zip]</a> <br><br>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut02/tut02-solution.zip" class="button icon solid fit fa-download">Code Lösungen [zip]</a> <br><br>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut03.pdf" target="_blank">3</a></td>
+					<td align="justify"><strong>Haskell: Bäume & Funktionen höherer Ordnung</strong>
+						<ul>
+							<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut03.mp4" target="_blank">[hier]</a> (Zugangsdaten werden per Mail mitgeteilt)</li>
+							<li>Mitschrift der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut03/tut03_notes.pdf" target="_blank">[hier]</a></li>
+							<li>kommentierte Musterlösung zu Aufgabe 2 & 3 (Funktionen höherer Ordnung): <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut03/tut03-higherOrderFunctions.pdf" target="blank">[hier]</a></li>
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut03/tut03.pdf" class="button primary fit">Slides</a>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut03/tut03_handout.pdf" class="button fit">Handout</a> <br><br>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut03/tut03-template.hs" class="button fit">Code Templates [.hs]</a> <br><br>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut03/tut03-solution.hs" class="button fit">Code Lösungen [.hs]</a> <br><br>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut04.pdf" target="_blank">4</a></td>
+					<td align="justify"><strong>Haskell: Typpolymorphie & Unifikationsalgorithmus</strong>
+						<ul>
+							<!-- <li>Wir nutzen Zoom. Beachtet die Info <a href="#tools">oben</a>. -->
+							<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut04.mp4" target="_blank">[hier]</a></li>
+							<li>Mitschrift der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut04/tut04_notes-slides.pdf" target="_blank">[Slides-Notes]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut04/tut04_notes-aufgabe3.pdf" target="_blank">[Aufgabe 3]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut04/tut04_notes-aufgabe4.pdf" target="_blank">[Aufgabe 4]</a></li>
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut04/tut04.pdf" class="button primary fit">Slides</a>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut04/tut04_handout.pdf" class="button fit">Handout</a> <br><br>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut04/tut04-template.hs" class="button fit">Code Templates [.hs]</a> <br><br>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut04/tut04-solution.hs" class="button fit">Code Lösungen [.hs]</a> <br><br>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut05.pdf" target="_blank">5</a></td>
+					<td align="justify"><strong>Beweis von Programmeigenschaften - Induktion</strong>
+						<ul>
+							<!-- <li>Wir nutzen Zoom. Beachtet die Info <a href="#tools">oben</a>. -->
+							<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut05.mp4" target="_blank">[hier]</a> (Danke an Arndt!)</li>
+							<li>Mitschrift der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut05/tut05_notes-aufgabe1.pdf" target="_blank">[Aufgabe 1]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut05/tut05_notes-aufgabe2.pdf" target="_blank">[Aufgabe 2]</a></li>
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut05/tut05-induction.pdf" class="button primary fit">Induktion</a>
+						<!-- <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut04/tut04_handout.pdf" class="button primary icon disabled solid fa-download">Handout</a> <br><br> -->
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut06.pdf" target="_blank">6</a></td>
+					<td align="justify"><strong>Der Lambda-Kalkül</strong>
+						<ul>
+							<!--<li>Wir nutzen Zoom. Beachtet die Info <a href="#tools">oben</a>. -->
+							<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut06.mp4" target="_blank">[hier]</a> Danke Arndt!</li>
+							<li>Mitschriften: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut06/tut06_notes-slides.pdf" target="_blank">[Slides]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut06/tut06_notes-aufgabe1.pdf" target="_blank">[Aufgabe 1]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut06/tut06_notes-aufgabe2.pdf" target="_blank">[Aufgabe 2]</a></li>
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut06/tut06.pdf" class="button primary fit">Slides</a>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut06/tut06_handout.pdf" class="button fit">Handout</a>
+						<!-- <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut04/tut04_handout.pdf" class="button primary icon disabled solid fa-download">Handout</a> <br><br> -->
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut07.pdf" target="_blank">7</a></td>
+					<td align="justify"><strong>Der Lambda-Kalkül</strong>
+						<ul>
+							<!--<li>Wir nutzen Zoom. Beachtet die Info <a href="#tools">oben</a>.-->
+							<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut07.mp4" target="_blank">[hier]</a>
+							<li>Mitschriften: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut07/tut07_notes-slides.pdf" target="_blank">[Slides]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut07/tut07_notes-aufgabe1.pdf" target="_blank">[Aufgabe 1]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut07/tut07_notes-aufgabe2.pdf" target="_blank">[Aufgabe 2]</a></li>
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut07/tut07.pdf" class="button primary fit">Slides</a>
+						<!--<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut07/tut07_handout.pdf" class="button primary icon solid fa-download">Handout</a>-->
+						<!-- <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut04/tut04_handout.pdf" class="button primary icon disabled solid fa-download">Handout</a> <br><br> -->
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut08.pdf" target="_blank">8</a></td>
+					<td align="justify"><strong>Prolog</strong>
+						<ul>
+							<!--<li>Wir nutzen Zoom. Beachtet die Info <a href="#tools">oben</a>.-->
+							<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut08.mp4" target="_blank">[hier]</a>
+							<li>Beispiele: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut08/tut08-example_family.pl" target="_blank">[Familienstammbaum]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut08/tut08-example_arithmetik.pl" target="_blank">[Arithmetik]</a></li>
+							<li>Lösung (Code) zu <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut08/tut08-01.pl" target="_blank">[Aufgabe 1]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut08/tut08-02.pl" target="_blank">[Aufgabe 2]</a></li>
+							<li>Die Lösungen zu den (schriftlichen) Aufgaben findet ihr in den Slides, da meine Mitschriften  keinen sonderlichen Mehrwert enthalten. Ansonsten findet ihr sie auch im OneNote-Notizbuch (Link siehe oben).</li>
+							<li>Informationen zur Probeklausur: <a href="#probeklausur">oben</a></li>
+							<li>Etwas bessere Erklärung für die Division in Prolog: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut08/tut08-prologDivision.pdf" target="_blank">[hier]</a>
+							<!--<li>Mitschriften: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut08/tut08_notes-slides.pdf" target="_blank">[Slides]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut08/tut08_notes-aufgabe1.pdf" target="_blank">[Aufgabe 1]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut08/tut08_notes-aufgabe2.pdf" target="_blank">[Aufgabe 2]</a></li> -->
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut08/tut08.pdf" class="button primary fit">Slides</a>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut08/tut08_handout.pdf" class="button fit">Handout</a> <br><br>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut08/" class="button fit">Code</a> <br><br>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut09.pdf" target="_blank">9</a></td>
+					<td align="justify"><strong>Prolog</strong>
+						<ul>
+							<!--<li>Wir nutzen Zoom. Beachtet die Info <a href="#tools">oben</a>.-->
+							<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut09.mp4" target="_blank">[hier]</a>
+							<li>Lösung (Code) zu <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut09/tut09-01.pl" target="_blank">[Aufgabe 1]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut09/tut09-02.pl" target="_blank">[Aufgabe 2]</a></li>
+							<li>Mitschriften: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut09/tut09_notes-slides.pdf" target="_blank">[Slides]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut09/tut09_notes-aufgabe1b.pdf" target="_blank">[Aufgabe 1b]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut09/tut09_notes-aufgabe3.pdf" target="_blank">[Aufgabe 3]</a></li>
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut09/tut09.pdf" class="button primary fit">Slides</a>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut09/tut09_handout.pdf" class="button fit">Handout</a> <br><br>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut09/" class="button fit">Code</a> <br><br>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut10.pdf" target="_blank">10</a></td>
+					<td align="justify"><strong>Abstrakte Maschine AM0</strong>
+						<ul>
+							<!--<li>Wir nutzen Zoom. Beachtet die Info <a href="#tools">oben</a>-->
+							<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut10.mp4" target="_blank">[hier]</a>
+							<li>Mitschriften: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut10/tut10_notes-slides.pdf" target="_blank">[Slides]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut10/tut10_notes-aufgabe1.pdf" target="_blank">[Aufgabe 1]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut10/tut10_notes-aufgabe2.pdf" target="_blank">[Aufgabe 2]</a></li>
+							<li>Eine ausführliche Erklärung zu den baumstruktutrierten Adressen (habe ich im letzten Jahr mal erstellt): <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut10/am0_baumAdressen.pdf" target="_blank">[hier]</a></li>
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut10/tut10.pdf" class="button primary fit">Slides</a>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut10/tut10_handout.pdf" class="button fit">Handout</a>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut11.pdf" target="_blank">11</a></td>
+					<td align="justify"><strong>Abstrakte Maschine AM1</strong>
+						<ul>
+							<!--<li>Wir nutzen Zoom. Beachtet die Info <a href="#tools">oben</a>-->
+							<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut11.mp4" target="_blank">[hier]</a>
+							<li>Mitschriften: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut11/tut11_notes-slides.pdf" target="_blank">[Slides]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut11/tut11_notes-aufgabe1.pdf" target="_blank">[Aufgabe 1]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut11/tut11_notes-aufgabe2.pdf" target="_blank">[Aufgabe 2]</a></li>
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut11/tut11.pdf" class="button primary fit">Slides</a>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut11/tut11_handout.pdf" class="button fit">Handout</a>
+						<br><br>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut11/tut11_am1_befehlssemantik.pdf" class="button fit">Befehlssemantik</a>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut12.pdf" target="_blank">12</a></td>
+					<td align="justify"><strong>Hoare-Kalkül</strong>
+						<ul>
+							<!--<li>Wir nutzen Zoom. Beachtet die Info <a href="#tools">oben</a>-->
+							<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut12.mp4" target="_blank">[hier]</a>
+							<li>Mitschriften: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut12/tut12_notes-aufgabe1.pdf" target="_blank">[Aufgabe 1]</a> & <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut12/tut12_notes-aufgabe2.pdf" target="_blank">[Aufgabe 2]</a></li>
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut12/tut12.pdf" class="button primary fit">Slides</a>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut12/tut12_handout.pdf" class="button fit">Handout</a>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut13.pdf" target="_blank">13</a></td>
+					<td align="justify"><strong>H0 - ein einfacher Kern von Haskell</strong>
+						<ul>
+							<!--<li>Wir nutzen Zoom. Beachtet die Info <a href="#tools">oben</a>-->
+							<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut13.mp4" target="_blank">[hier]</a>
+							<li>Mitschriften: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut13/tut13_notes.pdf" target="_blank">[hier]</a>
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut13/tut13.pdf" class="button primary fit">Slides</a>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut13/tut13_handout.pdf" class="button fit">Handout</a>
+					</td>
+				</tr>
+				<tr>
+					<td><a href="https://www.orchid.inf.tu-dresden.de/teaching/2020ss/prog/tut14.pdf" target="_blank">14</a></td>
+					<td align="justify"><strong>Zusammenfassung aller großen Inhalte</strong>
+						<ul>
+							<li>Wir werden nicht mehr alle Übungen durchsprechen, sondern nur diejenigen, bei denen ihr Probleme habt. Am besten ihr teilt mir die Aufgabenwünsche vorher mit!
+							<!--<li>Video der Freitagsübung: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/video/tut14.mp4" target="_blank">[hier]</a>
+							<li>Mitschriften: <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut14/tut14_notes-slides.pdf" target="_blank">[hier]</a>-->
+						</ul>
+					</td>
+					<td>
+						<a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/tut14/tut14.pdf" class="button primary fit disabled">Lösungen</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div> <!-- end table-wrapper -->
+
+</section>
+
+				</div> <!-- end inner -->
+
+				<footer>
+					
+				</footer>
+			</div> <!-- end main -->
+
+			<!-- Sidebar -->
+			<div id="sidebar">
+				<div class="inner">
+
+					<!-- Menu -->
+					<nav id="menu">
+    <header class="major">
+        <h2>Menu</h2>
+    </header>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="prog21.html">
+                <div class=menu-item-title>Programmierung</div> 
+                <div class="menu-item-subtitle">Sommer 2021</div>
+            </a>
+        </li>
+        <li>
+            <a href="lag20.html">
+                <div class="menu-item-title">Lineare Algebra</div>
+                <div class="menu-item-subtitle">Winter 2020/21</div>
+            </a>
+        </li>
+        <li>
+            <a href="aud20.html">
+                <div class="menu-item-title">Algorithmen & Datenstrukturen</div>
+                <div class="menu-item-subtitle">Winter 2020/21</div>
+            </a>
+        </li>
+        <li>
+            <a href="index.html#overview">
+            <div class="menu-item-title">Früher</div>
+            </a>
+        </li>
+        <!-- <li>
+            <span class="opener">Submenu</span>
+            <ul>
+                <li><a href="#">Lorem Dolor</a></li>
+                <li><a href="#">Ipsum Adipiscing</a></li>
+                <li><a href="#">Tempus Magna</a></li>
+                <li><a href="#">Feugiat Veroeros</a></li>
+            </ul>
+        </li> -->
+    </ul>
+</nav>
+
+					<!-- Footer -->
+					<footer id="footer">
+    <h4><a href="impressum.html">Impressum</a></h4>
+    <p class="copyright">&copy; Eric Kunze. All rights reserved.<br>
+        Images: <a href="https://unsplash.com">Unsplash</a> <br>
+        Design: <a href="https://html5up.net">HTML5 UP</a>.
+    </p>
+</footer>
+
+				</div> <!-- end inner -->
+			</div> <!-- end sidebar -->
+
+		</div> <!-- end wrapper -->
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+	</body>
+</html>

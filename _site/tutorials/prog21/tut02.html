@@ -1,0 +1,162 @@
+<li>
+  <ul>
+    <li>
+      ausführliche Erklärung zu
+      <a
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02_aufgabe3.pdf"
+        >Aufgabe 3</a
+      >
+    </li>
+    <li>
+      Slides mit Anmerkungen vom
+      <a
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02_notes_di.pdf"
+        >Dienstag</a
+      >
+      und
+      <a
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut02/tut02_notes_mi.pdf"
+        >Mittwoch</a
+      >
+    </li>
+  </ul>
+</li>
+
+<li>
+  <i class="fa-li fa fa-edit"></i>
+  <details>
+    <summary class="inline">Lösungen</summary>
+
+    <ul>
+      <li>
+        <strong>Aufgabe 1</strong>: Listenoperationen
+        <ol>
+          <li>
+            eine Liste umkehren
+            <pre><code><!--
+-->rev :: [Int] -> [Int]
+rev [] = []
+rev (x:xs) = rev xs ++ [x]<!--
+                                    --></code></pre>
+          </li>
+          <li>
+            Sortierung einer Liste prüfen
+            <pre><code><!--
+-->isOrd' :: [Int] -> Bool
+isOrd' [] = True
+isOrd' [x] = True
+isOrd' (x:y:xs) = x <= y && isOrd' (y:xs)<!--
+                                    --></code></pre>
+          </li>
+          <li>
+            (sortierte) Listen zusammenfügen
+            <pre><code><!--
+-->merge :: [Int] -> [Int] -> [Int]
+merge [] ys = ys
+merge xs [] = xs
+merge (x:xs) (y:ys)
+| x < y = x : merge xs (y:ys)
+| otherwise = y : merge (x:xs) ys<!--
+                                        --></code></pre>
+          </li>
+          <li>
+            (unendliche) Liste der Fibonacci-Zahlen
+            <pre><code><!--
+-->fib :: Int -> Int
+fib 0 = 1
+fib 1 = 1
+fib n = fib (n-1) + fib (n-2)
+
+fib' :: Int -> Int
+fib' i = stack 1 1 i
+where stack f0 f1 0 = f0
+stack f0 f1 i = stack f1 (f0 + f1) (i-1)
+
+fibs :: [Int]
+fibs = fibAppend 0
+where fibAppend x = fib x : fibAppend (x+1)<!--
+                                    --></code></pre>
+            Testen kann man diese Funktion beispielsweise mittels
+            <code>take 7 fibs</code>, was uns die ersten sieben Fibonacci-Zahlen
+            zurückgibt. <code>take</code> ist dabei eine Funktion aus der
+            Standard-Bibliothek <code>Prelude</code> vom Typ
+            <code>take :: Int -> [Int] -> [Int]</code>, d.h. man kann mit dieser
+            Funktion nicht ein Intervall von gewünschten Zahlen angeben (wie
+            eine Frage in der Übung war), siehe auch
+            <a href="http://zvon.org/other/haskell/Outputprelude/take_f.html"
+              >hier</a
+            >. Man kann nun zwischen den beiden Varianten <code>fib</code> und
+            <code>fib'</code> umschalten und die Laufzeitunterschiede (vgl. auch
+            Übung 1, Aufgabe 3) vergleichen.
+          </li>
+        </ol>
+      </li>
+      <li>
+        <strong>Aufgabe 2:</strong> Zeichen & Zeichenketten
+        <ol>
+          <li>
+            Präfix-Test - Wir testen ob ein String Präfix eines weiteren Strings
+            ist.
+            <pre><code><!--
+-->isPrefix :: String -> String -> Bool
+isPrefix [] _ = True
+isPrefix _ [] = False
+isPrefix (p:ps) (c:cs) = p == c && isPrefix ps cs<!--
+                                    --></code></pre>
+          </li>
+          <li>
+            Wir testen das Vorkommen eines Patterns in einem gegebenen String.
+            <pre><code><!--
+-->countPattern :: String -> String -> Int
+countPattern "" "" = 1
+countPattern _  "" = 0
+countPattern xs yys@(y:ys)
+| isPrefix xs yys = 1 + countPattern xs ys
+| otherwise       = countPattern xs ys <!--
+                                    --></code></pre>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <strong>Aufgabe 3:</strong> algebraische Datentypen
+        <ol>
+          <li>
+            Beispielbaum
+            <pre><code><!--
+-->mytree :: BinTree
+mytree = Branch 0 
+( Nil )
+( Branch 3 
+( Branch 1 Nil Nil )
+( Branch 5 Nil Nil )
+)<!--												
+                                    --></code></pre>
+          </li>
+          <li>
+            Test auf Baum-Gleichheit
+            <pre><code><!--
+-->equal :: BinTree -> BinTree -> Bool
+equal Nil              Nil              = True
+equal Nil              (Branch y l2 r2) = False
+equal (Branch x l1 r1) Nil              = False
+equal (Branch x l1 r1) (Branch y l2 r2) = (x == y) && (equal l1 l2) && (equal r1 r2) <!--
+                                    --></code></pre>
+          </li>
+          <li>
+            Einfügen in einen Suchbaum
+            <pre><code><!--
+-->insert :: BinTree -> [Int] -> BinTree
+insert t     [] = t
+insert t (x:xs) = insert t' xs
+where t' = insertSingle t x
+insertSingle Nil            x = Branch x Nil Nil
+insertSingle (Branch y l r) x
+| x < y     = Branch y (insertSingle l x) r
+| otherwise = Branch y l                  (insertSingle r x)<!--
+                                    --></code></pre>
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </details>
+</li>

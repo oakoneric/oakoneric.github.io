@@ -1,0 +1,64 @@
+@import url(fontawesome-all.min.css);
+
+summary {
+    padding: 1em;
+    background: #ffda05;
+    margin-bottom: 1em;
+    cursor: pointer;
+    outline: none;
+    border-radius: .3em;
+    font-weight: bold;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+  }
+  
+  summary:hover {
+    background: #ffbc05;
+  }
+  
+  summary::-webkit-details-marker {
+    // background: url("/down.svg") center no-repeat;
+    content: "\25AE"; 
+    font-family: "Font Awesome 5 Free";
+    color: transparent;
+    width: 17px;
+    height: 17px;
+  }
+  
+  details[open] {
+    margin-bottom: 2em;
+  }
+
+  details[open] summary ~ * {
+    -webkit-animation: sweep .5s ease-in-out;
+            animation: sweep .5s ease-in-out;
+  }
+  
+  details[open] summary::-webkit-details-marker {
+    background: url("/up.svg") center no-repeat;
+    color: transparent;
+  }
+  
+  
+  @-webkit-keyframes sweep {
+    from {
+      opacity: 0;
+      margin-top: -10px;
+    }
+    to {
+      opacity: 1;
+      margin-top: 0;
+    }
+  }
+  
+  @keyframes sweep {
+    from {
+      opacity: 0;
+      margin-top: -10px;
+    }
+    to {
+      opacity: 1;
+      margin-top: 0;
+    }
+  }
+  /*# sourceMappingURL=test.css.map */
