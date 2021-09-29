@@ -1,0 +1,108 @@
+---
+type: prog21
+nr: 1
+title: Einführung in Haskell
+date: 12.04. bis 16.04.2021
+
+ue-blatt: https://www.orchid.inf.tu-dresden.de/teaching/2021ss/prog/tut01.pdf
+
+slides: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut01/tut01.pdf
+handout: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut01/tut01_handout.pdf
+code: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut01/tut01_code.zip
+
+vl-video: https://www.orchid.inf.tu-dresden.de/videos/e-learning/prog-01-nz1wPQ5M.mp4
+ue-video: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/video/tut01-di.mp4
+---
+
+<li>
+  <ul>
+    <li>
+      Slides mit Anmerkungen vom
+      <a
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut01/tut01_notes_di.pdf"
+        >Dienstag</a
+      >
+      und
+      <a
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut01/tut01_notes_mi.pdf"
+        >Mittwoch</a
+      >
+    </li>
+  </ul>
+</li>
+<li>
+  <i class="fa-li fa fa-edit"></i>
+  <details>
+    <summary class="inline">Lösungen</summary>
+
+    <ul>
+      <li><strong>Aufgabe 1</strong>: siehe Slides</li>
+      <li>
+        <strong>Aufgabe 2</strong>
+        <p style="text-align: justify">
+          Wir berechnen die Fakultät \(n! = \prod_{i=1}^n i\).
+        </p>
+        <pre><code><!--
+-->-- Aufgabe 2(a)
+fac :: Int -> Int
+fac 0 = 1
+fac n = n * fac (n-1)<!--
+    --></code></pre>
+        <p style="text-align: justify">
+          Wir summieren Fakultäten auf, d.h. berechnen
+          \(\operatorname{sumFacs}(n,m) = \sum_{i=n}^m i!\). Dabei können wir
+          wahlweise die obere Grenze oder die untere Grenze "rausziehen".
+        </p>
+        <pre><code><!--
+-->-- Aufgabe 2(b)
+sumFacs :: Int -> Int -> Int
+sumFacs n m
+| n > m = 0
+| otherwise = fac n + sumFacs (n+1) m
+
+sumFacs' :: Int -> Int -> Int
+sumFacs' n m
+| n > m = 0
+| otherwise = fac m + sumFacs' n (m-1)<!--
+    --></code></pre>
+      </li>
+      <li>
+        <strong>Aufgabe 3</strong>
+        <p style="text-align: justify">
+          Wir berechnen die Fibonacci-Zahlen und nutzen dafür die bereits
+          gegebene Rekursionsvorschrift \(f_n = f_{n-1} + f_{n-2}\) mit den
+          Startwerten \(f_0 = 1\) und \(f_1 = 1\).
+        </p>
+        <pre><code><!--
+-->fib :: Int -> Int
+fib 0 = 1
+fib 1 = 1
+fib n = fib (n-1) + fib (n-2)
+
+fib' :: Int -> Int
+fib' n = fib_help 1 1 n
+
+fib_help :: Int -> Int -> Int -> Int
+fib_help x _ 0 = x
+fib_help x y n = fib_help y (x+y) (n-1)<!--
+    --></code></pre>
+        <p style="text-align: justify">
+          Wenn man mittels <code>:set +s</code> die Laufzeitmessung in GHCi
+          aktiviert und <code>fib n</code> für große <code>n</code> versucht zu
+          berechnen, wird man feststellen, dass das sehr lange dauert. Daher
+          kann man eine alternative Variante implementieren, die drei
+          "Speicherplätze" nutzt und somit ein iteratives Verfahren nachahmt
+          (vgl. Slides).
+        </p>
+        <pre><code><!--
+-->fib' :: Int -> Int
+fib' n = fib_help 1 1 n
+
+fib_help :: Int -> Int -> Int -> Int
+fib_help x _ 0 = x
+fib_help x y n = fib_help y (x+y) (n-1)<!--
+    --></code></pre>
+      </li>
+    </ul>
+  </details>
+</li>

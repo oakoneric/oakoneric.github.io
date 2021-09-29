@@ -1,0 +1,177 @@
+---
+type: prog21
+nr: 4
+title: Haskell - Typpolymorphie und Unifikation
+date: 03.05. bis 07.05.2021
+
+ue-blatt: https://www.orchid.inf.tu-dresden.de/teaching/2021ss/prog/tut04.pdf
+templates: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut04/tut04_template.hs
+
+slides: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut04/tut04.pdf
+handout: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut04/tut04_handout.pdf
+code: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut04/tut04_solution.hs
+
+vl-video: https://www.orchid.inf.tu-dresden.de/videos/e-learning/prog-04-f1549r84.mp4
+ue-video: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/video/tut04-di.mp4
+---
+
+<li>
+  <ul>
+    <li>
+      Mitschriften vom Dienstag:
+      <a
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut04/tut04_notes-di-slides.pdf"
+        >Slides</a
+      >
+      und
+      <a
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut04/tut04_notes-di-notebook.pdf"
+        >Notizbuch</a
+      >
+    </li>
+    <li>
+      Mitschriften vom Mittwoch:
+      <a
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut04/tut04_notes-mi-slides.pdf"
+        >Slides</a
+      >
+      und
+      <a
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut04/tut04_notes-mi-notebook.pdf"
+        >Notizbuch</a
+      >
+    </li>
+  </ul>
+</li>
+<li>
+  <i class="fa-li fa fa-edit"></i>
+  <details>
+    <summary class="inline">Lösungen - Aufgabe 1</summary>
+
+    Wir betrachten den polymorphen Datentyp
+    <code
+      >data BinTree a = Branch a (BinTree a) (BinTree a) | Leaf a deriving
+      Show</code
+    >.
+    <ol>
+      <li>
+        Beispielbaum
+        <pre><code><!--
+-->testTree :: BinTree Int
+testTree = Branch 5
+(Leaf 1)
+(Branch 12
+(Branch 4
+(Leaf 0)
+(Leaf 0))
+(Branch 12
+(Leaf 0)
+(Leaf 1)))<!--
+                            --></code></pre>
+      </li>
+      <li>
+        minimale Tiefe eines Baumes
+        <pre><code><!--
+-->depth :: BinTree a -> Int
+depth (Leaf   _    ) = 1
+depth (Branch _ l r) = 1 + min (depth l) (depth r)
+-- Hinweis: Die Funktion min ist in der Haskell-Standardbibliothek vorhanden<!--
+                            --></code></pre>
+      </li>
+      <li>
+        Beschriftungen eines Baumes durch Beschriftungsfolge ersetzen
+        <pre><code><!--
+-->paths :: BinTree a -> BinTree [a]
+paths = go []
+where go :: [a] -> BinTree a -> BinTree [a]
+go prefix (Leaf   x    ) = Leaf   (prefix ++ [x])
+go prefix (Branch x l r) = Branch (prefix ++ [x]) (go (prefix ++ [x]) l) (go (prefix ++ [x]) r)<!--
+                            --></code></pre>
+      </li>
+      <li>
+        <code>map</code>-Funktion für Bäume
+        <pre><code><!--
+-->tmap :: (a -> b) -> BinTree a -> BinTree b
+tmap f (Leaf   x    ) = Leaf   (f x)
+tmap f (Branch x l r) = Branch (f x) (tmap f l) (tmap f r)<!--
+                            --></code></pre>
+      </li>
+    </ol>
+  </details>
+
+  <details>
+    <summary class="inline">Lösungen - Aufgabe 2</summary>
+
+    Das Folgende sind nur kurze Lösungen, die ausführlicheren Lösungen findet
+    ihr in den Slides bzw. den Mitschriften der Übung.
+
+    <ul>
+      <li>
+        <strong>Teil (a):</strong>
+        \begin{align*} \definecolor{highlight}{rgb}{.96,.57,0}
+        \newcommand{\col}[1]{\textcolor{highlight}{#1}}
+        &\left\{\left(\begin{array}{lcrlcl} \col{\sigma(}\sigma(&x_1&,\alpha)
+        \col{,} &\ \sigma(&\gamma(x_3) &, x_3)\col{)} \\ \col{\sigma(}\sigma(
+        &\gamma(x_2)&,\alpha) \col{,} &\ \sigma(&x_2 &, x_3)\col{)}
+        \end{array}\right)\right\}\\ %
+        \overset{\text{Dek.}}{\Longrightarrow}\quad %
+        &\left\{\left(\begin{array}{lcr} \col{\sigma(} & x_1 & \col{,}
+        \alpha\col{)} \\ \col{\sigma(} & \gamma(x_2) & \col{,} \alpha\col{)}
+        \end{array}\right), \left(\begin{array}{lcr} \col{\sigma(}& \gamma(x_3)
+        & \col{,} x_3)\col{)} \\ \col{\sigma(}& x_2 & \col{,} x_3)\col{)}
+        \end{array}\right)\right\} \\ \overset{\text{Dek.}}{\Longrightarrow^2}
+        \quad % &\left\{ \begin{pmatrix} x_1 \\ \gamma(x_2) \end{pmatrix} ,
+        \begin{pmatrix} \alpha \\ \alpha \end{pmatrix} , \begin{pmatrix}
+        \gamma(x_3) \\ x_2 \end{pmatrix} , \col{\begin{pmatrix} x_3 \\ x_3
+        \end{pmatrix}} \right\} \\ \overset{\text{El.}}{\Longrightarrow} \quad %
+        &\left\{ \begin{pmatrix} x_1 \\ \gamma(x_2) \end{pmatrix} ,
+        \col{\begin{pmatrix} \alpha \\ \alpha \end{pmatrix}} , \begin{pmatrix}
+        \gamma(x_3) \\ x_2 \end{pmatrix} \right\} \\
+        \overset{\text{Dek.}}{\Longrightarrow} \quad % &\left\{ \begin{pmatrix}
+        x_1 \\ \gamma(x_2) \end{pmatrix} , \col{\begin{pmatrix} \gamma(x_3) \\
+        x_2 \end{pmatrix}} \right\} \\ \overset{\text{Vert.}}{\Longrightarrow}
+        \quad % &\left\{ \begin{pmatrix} x_1 \\ \gamma(\col{x_2}) \end{pmatrix}
+        , \begin{pmatrix} \col{x_2} \\ \gamma(x_3) \end{pmatrix} \right\} \quad
+        ({\text{Occur check: } \textcolor{cdgray}{x_2 \text{ kommt nicht in }
+        \gamma(x_3) \text{ vor}}})\\ % \overset{\text{Subst.}}{\Longrightarrow}
+        \quad &\left\{ \begin{pmatrix} x_1 \\ \gamma(\gamma(x_3)) \end{pmatrix}
+        , \begin{pmatrix} x_2 \\ \gamma(x_3) \end{pmatrix} \right\} \end{align*}
+        allgemeinster Unifikator: \begin{align*} x_1 &\mapsto
+        \gamma(\gamma(x_3)) \\ x_2 &\mapsto \gamma(x_3) \\ x_3 &\mapsto x_3
+        \end{align*}
+      </li>
+      <li>
+        <strong>Teil (b):</strong>
+        Zwei weitere Unifikatoren finden wir durch die konkrete Belegung der
+        "freien" Variable \(x_3\): \begin{align*} x_1 &\mapsto
+        \gamma(\gamma(\alpha)) & x_1 &\mapsto \gamma(\gamma(\gamma(\alpha))) \\
+        x_2 &\mapsto \gamma(\alpha) & x_2 &\mapsto \gamma(\gamma(\alpha)) \\ x_3
+        &\mapsto \alpha & x_3 &\mapsto \gamma(\alpha) \end{align*}
+      </li>
+      <li>
+        <strong>Teil (c):</strong>
+        Der Occur check schlägt für die Terme \( t_1 = x_1 \) und \( t_2 =
+        \gamma(x_1) \) fehl, da \( x_1 \) in \( t_2 = \gamma(x_1) \) vorkommt.
+        Würden wir hier substituieren, liefen wir in eine Endlosrekursion.
+      </li>
+      <li>
+        <strong>Teil (d):</strong>
+        Gegeben seien folgende Typausdrücke: \begin{align*} t_1 &= \texttt{(a ,
+        [a])} \\ t_2 &= \texttt{(Int , [Double])} \\ t_3 &= \texttt{(b , c)}
+        \end{align*}
+        <ul>
+          <li>\(t_1\) und \(t_2\) sind nicht unifizierbar</li>
+          <li>
+            \(t_2\) und \(t_3\) sind unifizierbar mit \(\texttt{b} \mapsto
+            \texttt{Int}\), \(\texttt{c} \mapsto \texttt{[Double]}\)
+          </li>
+          <li>
+            \(t_1\) und \(t_3\) sind unifizierbar mit \(\texttt{a} \mapsto
+            \texttt{a}\), \(\texttt{b} \mapsto \texttt{a}\), \(\texttt{c}
+            \mapsto \texttt{[a]}\)
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </details>
+</li>
