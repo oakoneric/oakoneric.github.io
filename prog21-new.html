@@ -1,0 +1,381 @@
+---
+layout: tutorial-base
+title: Programmierung 2021
+---
+
+<!-- Content -->
+<section>
+  <header class="main">
+    <div class="title">Programmierung</div>
+    <div class="subtitle">Sommer 2021</div>
+  </header>
+
+  <span class="image main"><img src="images/bg6c.jpg" alt="" /></span>
+
+  <a href="#uebungsuebersicht" class="button large fit"
+    >Abkürzung zum Übungsmaterial</a
+  >
+
+  <h2>Inhalte der Übungen</h2>
+  <p style="text-align: justify">
+    Im Rahmen der zur Lehrveranstaltung gehörenden Übungen wenden wir das in der
+    Vorlesung erlernte Wissen an und versuchen die Theorie an Beispielen zu
+    illustrieren:
+  </p>
+  <ul>
+    <li>Grundlagen der funktionalen Programmierung in Haskell</li>
+    <li>Unifikationsalgorithmus</li>
+    <li>Beweis von Programmeigenschaften mit struktureller Induktion</li>
+    <li>Lambda-Kalkül</li>
+    <li>Logikprogrammierung in Prolog</li>
+    <li>Abstrakte Maschinen AM0 und AM1 sowie deren Übersetzung von/nach C</li>
+    <li>Beweis von Programmeigenschaften mit dem Hoare-Kalkül</li>
+    <li>Abstrakte Maschinen mit Haskell</li>
+  </ul>
+
+  <h2 id="news">News</h2>
+  <div class="box">
+    <ul class="alt" style="text-align: justify">
+      <li>
+        <strong>09.08.2021:</strong>
+        Es gibt inzwischen Musterlösungen zu den Wiederholungsaufgaben von Übung
+        14. Diese findet ihr unten verlinkt. Außerdem findet ihr unten die
+        Hinweise zur Online-Klausur zusammengefasst. Wer die Probeklausur am
+        02.08.2021 verpasst hat, der findet im OPAL-Kurs die Aufgaben incl.
+        Musterlösung unter dem Reiter "Übungsblätter".
+      </li>
+      <li>
+        <strong>09.06.2021:</strong>
+        Unten findet ihr die Materialien aus Übung 8 zur Logikprogrammierung.
+        Beachtet bitte, dass die Zeilennummern in den SLD-Refutationen sich
+        zwischen den Mitschriften und den Slides unterscheiden. Das liegt
+        einfach an der automatischen Nummerierung in den Slides. In jedem Fall
+        sollten die Angaben konsistent sein.
+      </li>
+      <li>
+        <strong>02.06.2021:</strong>
+        Die Materialien aus Übung 7 sind nun unten zu finden. Zur Klammer-Frage
+        aus der Dienstag-Übung: um den rekursiven Aufruf in Aufgabe 1c müssen
+        Klammern gesetzt werden. Außerdem findet vom 31.05. bis zum 20.06.2021
+        die Lehrveranstaltungsevaluation statt. Ich würde mich freuen, wenn ihr
+        daran teilnehmt und Feedback zur Übung hinterlasst. Den Link findet ihr
+        unten in den Materialien.
+      </li>
+      <li>
+        <strong>19.05.2021:</strong>
+        Das Material für Übung 6 ist online. Die Aufgabe 2 ist einem
+        zusätzlichen kleinen Video ausgelagert. Ich habe gerade noch einmal alle
+        Links zu Slides, Handouts und Notizen getestet - bei mir funktionierten
+        alle. Sollte ich da etwas übersehen haben, dann schreibt mir gern eine
+        Nachricht, welcher Link nicht funktioniert. :)
+      </li>
+      <li>
+        <strong>28.04.2021:</strong> Das Material für Übung 3 ist jetzt
+        verfügbar. Ich habe noch ein kurzes Video zur Aufgabe 3 gedreht, das
+        kurz die Idee erklärt. Außerdem findet ihr eine Text-Erklärung zu den
+        Funktionen höherer Ordnung in den Materialien. Kleiner Hinweis zum
+        Inhalt: ich hatte in der Übung behauptet, dass in Aufgabe 2 beim Filtern
+        der geraden Zahlen eine <code>length</code> Funktion fehle - das ist
+        natürlich Quatsch, da habe ich mich von den
+        <code>evenNodes</code> verwirren lassen :)
+      </li>
+      <li>
+        <strong>21.04.2021:</strong> Die Materialien für Übung 2 sind nun
+        online. Auf Nachfrage lade ich auch die annotierten Slides hoch
+        (nachträglich auch noch für die erste Woche). Ich bearbeite diese
+        Notizen nicht nochmal, d.h. es können Markierungen zu Fragen enthalten
+        sein, die nicht mit der eigentlichen Aufgabe verbunden sind - lasst euch
+        also nicht verwirren. <br />
+        Beachtet bitte die Operatorprioritäten, v.a. die in der Übung
+        diskutierte
+        <code>f x:xs == (f x) : xs /= f (x:xs)</code>. <br />
+        Die Aufgabe 3 zu den algebraischen Datentypen werden wir in der nächsten
+        Woche besprechen - ihr findet aber auch eine ausführliche Erläuterung in
+        den Materialien unten.
+      </li>
+      <li>
+        <strong>18.04.2021:</strong>
+        Für Übung 2 findet ihr unten Templates zum Download (zip-Archiv), die
+        euch mühsames Abtippen ersparen sollen. In den Übungen werde ich diese
+        Templates als Startpunkt verwenden.
+      </li>
+      <li>
+        <strong>10.04.2021:</strong>
+        Am Montag beginnt das Semester - pünktlich gibt es auch von mir einige
+        wichtige Infos auf dieser Seite. Auch in diesem Semester werden die
+        Übungen online stattfinden müssen. Dafür werde ich weiter Zoom nutzen
+        und freue mich euch in einer meiner Übungen am Dienstag oder Mittwoch,
+        jeweils in der 2. DS, begrüßen zu dürfen.
+      </li>
+      <li>
+        <strong>31.03.2021:</strong>
+        Die Website befindet sich noch im Aufbau.
+      </li>
+    </ul>
+  </div>
+
+  <blockquote>
+    <p style="text-align: justify">
+      Ich bemühe mich stets euch das Lernen so angenehm, unterhaltsam und
+      einfach wie möglich zu machen. Das ist mein eigener Anspruch und dafür
+      opfere ich auch gern mal meine Freizeit. Ein Beispiel, wofür relativ viel
+      Zeit drauf gegangen ist, seht ihr gerade vor euren Augen: diese Website.
+      Sie ist sicher nicht perfekt und sicher auch nicht notwendig, um euch eine
+      Übung zu bieten. Ebenso ensteht mein ganzes Material wie Slides und
+      Mitschriften nicht mal eben so. Vielleicht hat der ein oder andere schon
+      erkannt, worauf es hinaus laufen soll: wenn du Lust und das nötige
+      Kleingeld dafür hast, würde ich mich sehr freuen, wenn du meine Arbeit
+      unterstützt und mir vielleicht einen Kaffee oder ein Mensaessen
+      spendierst. Aber versteht mich bitte nicht falsch: ich mache das alles
+      wirklich super gerne und habe auch meinen Spaß daran - und Geld wird auf
+      meine Arbeit nie einen Einfluss haben. Und ja, für meine Tutorentätigkeit
+      werde ich auch als studentische Hilfskraft bezahlt - mit vier bzw. fünf
+      Stunden für zwei Übungen deckt das aber gerade einmal die Übungszeit und
+      ein wenig Vorbereitung ab.
+    </p>
+    <div style="display: inline; text-align: right">
+      <form
+        action="https://www.paypal.com/donate"
+        method="post"
+        target="_blank"
+      >
+        <input type="hidden" name="hosted_button_id" value="P8KY8G9E6XKDY" />
+        <input
+          type="submit"
+          value="Spendier' mir einen PayPal-Kaffee"
+          class="primary"
+          border="0"
+          name="submit"
+          alt="Spendiere mir einen PayPal-Kaffee"
+        />
+      </form>
+    </div>
+  </blockquote>
+
+  <h2>Informationen</h2>
+
+  <p style="text-align: justify">
+    Bitte beachtet stets die Informationen auf der
+    <a href="https://www.orchid.inf.tu-dresden.de/teaching/2021ss/prog/"
+      >Website der Lehrveranstaltung</a
+    >
+    sowie im zugehörigen
+    <a
+      href="https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/29487333379?3"
+      >OPAL-Kurs</a
+    >. Bei Fragen oder Problemen könnt ihr euch an
+    <a href="mailto:eric.kunze@mailbox.tu-dresden.de">mich</a> oder an
+    <a href="mailto:thomas.ruprecht@tu-dresden.de">Thomas Ruprecht</a> wenden.
+    Mich erreicht ihr auch schnell und problemlos via Telegram
+    <code><a href="https://t.me/oakoneric">@oakoneric</a></code
+    >.
+  </p>
+
+  <p style="text-align: justify">
+    Die in meinen Übungen verwendeten Materialien habe ich größtenteils in
+    meiner Freizeit erstellt. Sie stammen insbesondere nicht vom Lehrstuhl und
+    können damit trotz gründlicher Arbeit noch Fehler enthalten. Die Slides und
+    den zugehörigen Latex-Code dazu findet ihr in meinem entsprechenden
+    Github-Repository. Findet ihr einen Fehler in meinen Lösungen, dann fühlt
+    euch eingeladen mir dies mitzuteilen oder direkt selbst mit einem Request zu
+    beheben.
+  </p>
+  <p style="text-align: justify">
+    Ich werde versuchen stets die aktuellen Vorlesungen und Übungsblätter zu
+    verlinken, um ein einheitliches System zu erhalten - mal sehen wie gut das
+    funktioniert. Für die verlinkten Materialien vom Lehrstuhl gelten die
+    entsprechenden Hinweise auf der
+    <a href="https://www.orchid.inf.tu-dresden.de/teaching/2021ss/prog/"
+      >Website der Lehrveranstaltung</a
+    >
+    und im OPAL-Kurs.
+  </p>
+  <p style="text-align: justify">
+    Zur Klausurvorbereitung findet ihr auf dem
+    <a
+      href="https://ftp.ifsr.de/klausuren/Grundstudium/Programmierung/"
+      target="_blank"
+      >FTP-Server</a
+    >
+    vom iFSR einige <strong>Altklausuren</strong>. Ihr benötigt dafür eine
+    <a
+      href="https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn"
+      target="_blank"
+      >VPN-Verbindung</a
+    >
+    ins Uni-Netz.
+  </p>
+
+  <h2 id="online-uebungen">Online-Übungen</h2>
+
+  <p style="text-align: justify">
+    Die Übungen werden in diesem Semester ausschließlich digital gehalten. Meine
+    Online-Übungen finden wöchentlich zu folgenden Zeiten statt:
+  </p>
+  <ul>
+    <li>Dienstag, 2. Doppelstunde: 9<sup>20</sup> bis 10<sup>50</sup> Uhr</li>
+    <li>Mittwoch, 2. Doppelstunde: 9<sup>20</sup> bis 10<sup>50</sup> Uhr</li>
+  </ul>
+  <p style="text-align: justify">
+    Ich werde dafür die Plattform Zoom nutzen Der Zugangslink bleibt stets der
+    gleiche - ihr findet ihn hier und im OPAL-Kurs.
+  </p>
+
+  <div style="text-align: center">
+    <p style="width: 50%">
+      <a
+        href="https://us02web.zoom.us/j/86288374492?pwd=NDJiQmcrQmh3N2J2TVVUSlRwNkVqQT09"
+        target="_blank"
+        class="button primary fit"
+        >zum Meeting</a
+      >
+    </p>
+  </div>
+
+  <p style="text-align: justify">
+    Nach jedem Meeting stelle ich die Notizen, verwendeten Folien und eine
+    Aufzeichnung des Meetings (sofern niemand etwas dagegen hat) online. Ihr
+    findet das gesamte Material unten in der Übungsübersicht. Die Zugangsdaten
+    zu den Videos habt ihr per Mail erfahren (oder schreibt mich an, wenn ihr
+    später dazu gestoßen seid).
+  </p>
+
+  <h3 id="evaluation">Evaluation</h3>
+  <p style="text-align: justify">
+    Wie in jedem Semester gibt es auch diesmal eine
+    Lehrveranstaltungsevaluation. Ich freue mich über eure Teilnahme und euer
+    Feedback. Die Umfrage ist komplett anonym, also lasst gern auch kritische
+    Worte da. :)
+  </p>
+  <p style="text-align: center">
+    <a
+      href="https://befragung.zqa.tu-dresden.de/uz/sl/0Z8601w39VSo"
+      class="button primary"
+      >Lehrveranstaltungsevaluation</a
+    >
+  </p>
+
+  <h2>Praktische Aufgaben</h2>
+
+  <p style="text-align: justify">
+    Leider haben wir in den Übungen nicht die Zeit um allen einen
+    funktionsfähigen Compiler und ein optimales Setup zu garantieren. Daher
+    bitte ich euch die Informationen auf der
+    <a href="https://www.orchid.inf.tu-dresden.de/teaching/2021ss/prog/"
+      >Lehrveranstaltungswebsite</a
+    >
+    zu beachten. Wie immer sind natürliche auch Google und YouTube sehr gute
+    Quellen für weitere Hilfe. Im Zweifelsfall hilft euch sicher auch der iFSR.
+    Außerdem habe ich euch einige Hinweise zusammengetragen:
+  </p>
+  <p style="text-align: center">
+    <a href="prog-hints-haskell.html" class="button">Hinweise zu Haskell</a>
+    &nbsp;&nbsp;
+    <a href="prog-hints-prolog.html" class="button">Hinweise zu Prolog</a>
+  </p>
+
+  <p style="text-align: justify">
+    Für das <strong>Selbststudium</strong> gibt es zwei sehr gute Bücher, die
+    ich euch empfehlen möchte. Beide Bücher sind frei online verfügbar, sogar
+    ohne VPN und ohne SLUB-Zugang.
+  </p>
+  <ul>
+    <li>
+      <strong>Learn You a Haskell For Great Good!</strong>
+      Ein sehr gut geschriebenes Buch, kann ich nur empfehlen einmal
+      reinzusehen. Erklärt sehr ausführlich und kurzweilig. Damit sollte jeder
+      Haskell verstehen können. Eine Online-Version des Buches findet ihr
+      <a href="http://learnyouahaskell.com/" target="_blank">hier</a>.
+    </li>
+    <li>
+      <strong>Real World Haskell</strong>
+      Ebenso ein sehr gutes Buch, deckt aber wesentlich mehr Inhalte ab, als wir
+      brauchen werden. Die Online-Version gibt's
+      <a href="http://book.realworldhaskell.org/read/" target="_blank">hier</a>.
+    </li>
+  </ul>
+
+  <!-- <h3 id="probeklausur">Probeklausur</h3>
+	<p>
+		Die Probeklausur findet ihr <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss20/probeklausur/probeklausur.pdf">hier</a>. Die Zugangsdaten sind die gleichen wie für die Videos. <br>
+		Die bearbeiteten Aufgaben könnt ihr mir per <a href="mailto:eric.kunze@mailbox.tu-dresden.de">Mail</a> senden, dann kann ich sie euch korrigieren. Eine Besprechung der Probeklausur machen wir nur, wenn wirklich Bedarf besteht, d.h. meldet mir diesen gern, sobald ihr Probleme habt.
+		Die Klausur ist in meinen Augen realistisch, aber trotzdem relativ anspruchsvoll. Zeitlich solltet ihr nicht deutlich mehr als 50 bis 60 Minuten benötigen.
+	</p> 
+	-->
+
+  <h2 id="uebungsuebersicht">Übungsübersicht</h2>
+
+  <p style="text-align: justify">
+    Im Folgenden findet ihr das gesamte Material meiner Übungen und den
+    Vorlesungsinhalten. Die Vorlesungsvideos sind urheberrechtlich seitens der
+    Professur geschützt und keinsweg mein Eigentum. Es sind die Hinweise im
+    OPAL-Kurs einzuhalten. Um die Vorlesungsvideos abzurufen benötigt ihr eine
+    <a
+      href="https://tu-dresden.de/zih/dienste/service-katalog/arbeitsumgebung/zugang_datennetz/vpn"
+      target="_blank"
+      >VPN-Verbindung</a
+    >
+    ins Uni-Netz. Meine Übungsvideos sind ein wenig passwortgeschützt - die
+    Zugangsdaten erfahrt ihr in den Übungen oder ihr schreibt mir.
+  </p>
+
+  {% for tut in site.pages %} {% if tut.type == 'prog21' %}
+  <details>
+    <summary>
+      <div class="title">Woche {{tut.nr}}: {{tut.title}}</div>
+      <div class="subtitle">{{tut.date}}</div>
+    </summary>
+
+    <div class="exercise-content">
+      <ul class="fa-ul">
+        <li>
+          <i class="fa-li fa fa-video"></i>
+          <a href="{{tut.vl-video}}" target="_blank">Vorlesungsvideo</a>
+        </li>
+
+        <li>
+          <i class="fa-li fa fa-pen"></i>
+          <a href="{{tut.ue-blatt}}" target="_blank">Übungsblatt {{tut.nr}}</a>
+        </li>
+
+        {% if tut.templates %}
+        <li>
+          <i class="fa-li fa fa-code"></i>
+          <a href="tut.templates"
+            >Coding Templates <span class="icon solid fa-download"></span
+          ></a>
+        </li>
+        {% endif %}
+
+        <li>
+          <i class="fa-li fa fa-video"></i>
+          <a href="{{tut.ue-video}}" target="_blank">
+            Videoaufzeichnung der Übung
+          </a>
+          {% if tut.ue-video-extra %} {{tut.ue-video-extra}} {% endif %}
+        </li>
+
+        <li>
+          <i class="fa-li fa fa-edit"></i>
+          <div style="text-align: left">
+            <a href="{{tut.slides}}" class="button primary">Slides</a>
+            <a href="{{tut.handout}}" class="button">Handout</a>
+
+            {% if tut.code %} &nbsp;&nbsp;&nbsp;
+            <a
+              href="{{tut.code}}"
+              target="_blank"
+              class="button icon solid fa-download"
+            >
+              Code
+            </a>
+            {% endif %}
+          </div>
+        </li>
+
+        {{ tut.content }}
+      </ul>
+    </div>
+  </details>
+  {% endif %} {% endfor %}
+</section>

@@ -1,166 +1,73 @@
-<!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Programmieren in Haskell</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+---
+layout: tutorial-base
+title: Programmieren in Haskell
+---
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<!-- Content -->
+<section>
+<header class="main">
+	<h1>Programmieren in Haskell</h1>
+</header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+<h3 class="major">Einstieg in Haskell</h3>
+In der Übung verwende ich den Glasgow Haskell Compiler. Wie ihr euch selbst Haskell-fähig macht, ist euch selbst überlassen. Eventuell hilfreiche Informationen dazu könnt ihr <a href="https://www.haskell.org/downloads/">hier</a> finden.
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Tutorials</strong> by Eric Kunze</a>
-									<ul class="icons">
-										<li><a href="https://www.orchid.inf.tu-dresden.de/teaching/" class="icon solid fa-home"><span class="label">Home</span></a></li>
-										<li><a href="mailto:eric.kunze@mailbox.tu-dresden.de" class="icon solid fa-envelope"><span class="label">Mail</span></a></li>
-										<li><a href="https://github.com/oakoneric/" class="icon brands fa-github"><span class="label">Github</span></a></li>
-										<li><a href="https://www.instagram.com/oakoneric/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									</ul>
-								</header>
+Wer nach Literatur zur Progrmmiersprache Haskell sucht, dem sei auf die folgenden Bücher hingewiesen:
+<ul>
+<li>Learn You a Haskell For Great Good!</li>
+<li>Real World Haskell</li>
+</ul>
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Programmieren in Haskell</h1>
-									</header>
+<p align="justify">
+Haskell-Dateien können in einem beliebigen Editor geschrieben werden. Zum Ausführen benötigt man z.B. den Glasgow Haskell Compiler <a href="https://www.haskell.org/ghc/">[Download hier]</a>. Dessen interaktive Oberfläche startet man in einem Terminal mit <code>ghci</code>. Anschließend kann man ähnlich wie in Matlab bereits Befehle mit den Standardfunktionen aus der Prelude-Bibliothek aufrufen (z.B. liefert die Eingabe <code>2+3</code> die Ausgabe <code>5</code>).
+</p>
+<p align="justify">
+Wir schreiben unsere Funktionen meist in Module, die bereits beim Start von <code>ghci</code> geladen werden können mit <code>ghci <i>modulname</i></code>. Später ist das Laden von Modulen mit <code>:load <i>modulname</i></code> möglich. Bereits geladenen Module können mit <code>:r</code> neu geladen werden. Für weitere Informationen kann man mit dem Befehl <code>:?</code> die Hilfefunktion starten.
+</p>
+<p align="justify">
+Ist das gewünscht Modul geladen, so können wir unsere Funktionen einfach mit den entsprechenden Argumenten ausführen, beispielsweise liefert die Eingabe <code>fac 3</code> das Ergebnis <code>6</code> (vgl. Aufgabe 1, <code>01_01_solution.hs</code>).
+</p>
 
-									<h3 class="major">Einstieg in Haskell</h3>
-                  In der Übung verwende ich den Glasgow Haskell Compiler. Wie ihr euch selbst Haskell-fähig macht, ist euch selbst überlassen. Eventuell hilfreiche Informationen dazu könnt ihr <a href="https://www.haskell.org/downloads/">hier</a> finden.
+<h3 class="major">Listen</h3>
 
-                  Wer nach Literatur zur Progrmmiersprache Haskell sucht, dem sei auf die folgenden Bücher hingewiesen:
-                  <ul>
-                    <li>Learn You a Haskell For Great Good!</li>
-                    <li>Real World Haskell</li>
-                  </ul>
-
-                  <p align="justify">
-                    Haskell-Dateien können in einem beliebigen Editor geschrieben werden. Zum Ausführen benötigt man z.B. den Glasgow Haskell Compiler <a href="https://www.haskell.org/ghc/">[Download hier]</a>. Dessen interaktive Oberfläche startet man in einem Terminal mit <code>ghci</code>. Anschließend kann man ähnlich wie in Matlab bereits Befehle mit den Standardfunktionen aus der Prelude-Bibliothek aufrufen (z.B. liefert die Eingabe <code>2+3</code> die Ausgabe <code>5</code>).
-                  </p>
-                  <p align="justify">
-                    Wir schreiben unsere Funktionen meist in Module, die bereits beim Start von <code>ghci</code> geladen werden können mit <code>ghci <i>modulname</i></code>. Später ist das Laden von Modulen mit <code>:load <i>modulname</i></code> möglich. Bereits geladenen Module können mit <code>:r</code> neu geladen werden. Für weitere Informationen kann man mit dem Befehl <code>:?</code> die Hilfefunktion starten.
-                  </p>
-                  <p align="justify">
-                    Ist das gewünscht Modul geladen, so können wir unsere Funktionen einfach mit den entsprechenden Argumenten ausführen, beispielsweise liefert die Eingabe <code>fac 3</code> das Ergebnis <code>6</code> (vgl. Aufgabe 1, <code>01_01_solution.hs</code>).
-                  </p>
-
-                  <h3 class="major">Listen</h3>
-
-                  <p align="justify">
-                    Listen sind in Haskell homogene Datentypen, d.h. alle Elemente einer Liste sind vom gleichen Datentyp.
-                  </p>
-                  <p align="justify">
-                    Wichtige Operatoren:
-                    <ul>
-                      <li> Der <b>cons-Operator</b> <code>:</code> trennt den <i>head</i> vom <i>tail</i> einer Liste, z.B.
-                        <pre><code>
+<p align="justify">
+Listen sind in Haskell homogene Datentypen, d.h. alle Elemente einer Liste sind vom gleichen Datentyp.
+</p>
+<p align="justify">
+Wichtige Operatoren:
+<ul>
+<li> Der <b>cons-Operator</b> <code>:</code> trennt den <i>head</i> vom <i>tail</i> einer Liste, z.B.
+<pre><code>
 [x1 , x2 , x3 , x4 , x5] = x1 : [x2 , x3 , x4 , x5]
-                         = x1 : x2 : [x3 , x4 , x5]
-                         = x1 : (x2 : [x3 , x4 , x5])
-                       </code></pre>
+= x1 : x2 : [x3 , x4 , x5]
+= x1 : (x2 : [x3 , x4 , x5])
+</code></pre>
 
-                      Beim Pattern Matching ist zu beachten, dass <code>[x]</code> auf das Pattern <code>(x:xs)</code> matched (da <code>x:[]</code>), aber <code>[]</code> matched nicht auf dieses Pattern, da kein abspaltbares Element <code>x</code> in <code>[]</code> existiert.
+Beim Pattern Matching ist zu beachten, dass <code>[x]</code> auf das Pattern <code>(x:xs)</code> matched (da <code>x:[]</code>), aber <code>[]</code> matched nicht auf dieses Pattern, da kein abspaltbares Element <code>x</code> in <code>[]</code> existiert.
 
-                    <li>Der <b>Verkettungsoperator</b> <code>++</code> verknüpft zwei Listen gleichen Typs miteinander, z.B. <pre><code>[x1 , x2 , x3] ++ [x4 , x5] = [x1 , x2 , x3 , x4 , x5]</code></pre>                  Dabei müssen alle Operatoren vom Typ Liste sein, d.h. um ein einzelnes Element anzuhängen, muss es in eine Liste geschrieben werden. Man beachte dabei den Unterschied zum cons-Operator.
-                      <pre><code>
+<li>Der <b>Verkettungsoperator</b> <code>++</code> verknüpft zwei Listen gleichen Typs miteinander, z.B. <pre><code>[x1 , x2 , x3] ++ [x4 , x5] = [x1 , x2 , x3 , x4 , x5]</code></pre>                  Dabei müssen alle Operatoren vom Typ Liste sein, d.h. um ein einzelnes Element anzuhängen, muss es in eine Liste geschrieben werden. Man beachte dabei den Unterschied zum cons-Operator.
+<pre><code>
 [x1] ++ [x2 , x3 , x4] = [x1 , x2 , x3 , x4]
-                       = x1 : [x2 , x3 , x4]
-                      </code></pre>
-                    </li>
-                  </ul>
-                </p>
-                <p align="justify">
-                  Insbesondere sind beide Operatoren <b>rechtsassoziativ</b>, d.h. <code>a : b : c = a : (b : c)</code> und <code>a ++ b ++ c = a ++ (b ++ c)</code>.
-                </p>
-                <p align="justify">
-                  Um exakte Laufzeiten zu erhalten, kann man vor dem Ausführen der Funktion mit dem Befehl <code>:set +s</code> die Laufzeitmessung in <code>ghci</code> aktivieren.
-                </p>
+= x1 : [x2 , x3 , x4]
+</code></pre>
+</li>
+</ul>
+</p>
+<p align="justify">
+Insbesondere sind beide Operatoren <b>rechtsassoziativ</b>, d.h. <code>a : b : c = a : (b : c)</code> und <code>a ++ b ++ c = a ++ (b ++ c)</code>.
+</p>
+<p align="justify">
+Um exakte Laufzeiten zu erhalten, kann man vor dem Ausführen der Funktion mit dem Befehl <code>:set +s</code> die Laufzeitmessung in <code>ghci</code> aktivieren.
+</p>
 
-								<h3 class="major">Zeichen und Zeichenketten</h3>
-								<p align="justify">
-									Wir müssen zwischen Zeichen (Characters) und Zeichenketten (Strings) unterscheiden.
-									<ul>
-										<li>Zeichen sind vom Typ <code>Char</code> und können mit einfachen Anführungszeichen <code>'</code> eingegeben werden, z.B. <code>'e'</code>, <code>'2'</code></li>
-										<li>Zeichenketten sind dagegen vom Typ <code>String</code> und werden mit doppelten Anführungszeichen <code>"</code> eingegeben, z.B. <code>"hallo"</code>, <code>"345"</code></li>
-									</ul>
-									Die Arbeit mit Zeichen und Zeichenketten unterscheidet sich nicht deutlich von der Arbeit mit Listen, denn Zeichenketten sind letztendlich nur Listen von Zeichen, d.h. <code>String = [Char]</code>
-								</p>
+	<h3 class="major">Zeichen und Zeichenketten</h3>
+	<p align="justify">
+		Wir müssen zwischen Zeichen (Characters) und Zeichenketten (Strings) unterscheiden.
+		<ul>
+			<li>Zeichen sind vom Typ <code>Char</code> und können mit einfachen Anführungszeichen <code>'</code> eingegeben werden, z.B. <code>'e'</code>, <code>'2'</code></li>
+			<li>Zeichenketten sind dagegen vom Typ <code>String</code> und werden mit doppelten Anführungszeichen <code>"</code> eingegeben, z.B. <code>"hallo"</code>, <code>"345"</code></li>
+		</ul>
+		Die Arbeit mit Zeichen und Zeichenketten unterscheidet sich nicht deutlich von der Arbeit mit Listen, denn Zeichenketten sind letztendlich nur Listen von Zeichen, d.h. <code>String = [Char]</code>
+	</p>
 
-							</section>
-
-						</div>
-						<footer></footer>
-					</div>
-
-					<!-- Sidebar -->
-						<div id="sidebar">
-							<div class="inner">
-
-								<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Home</a></li>
-										<li>
-											<a href="prog21.html">
-												<div class=menu-item-title>Programmierung</div> 
-												<div class="menu-item-subtitle">Sommer 2021</div>
-											</a>
-										</li>
-										<li>
-											<a href="lag20.html">
-												<div class="menu-item-title">Lineare Algebra</div>
-												<div class="menu-item-subtitle">Winter 2020/21</div>
-											</a>
-										</li>
-										<li>
-											<a href="aud20.html">
-												<div class="menu-item-title">Algorithmen & Datenstrukturen</div>
-												<div class="menu-item-subtitle">Winter 2020/21</div>
-											</a>
-										</li>
-										<li>
-											<a href="index.html#overview">
-											<div class="menu-item-title">Früher</div>
-											</a>
-										</li>
-									</ul>
-								</nav>
-
-								<!-- Footer -->
-								  <footer id="footer">
-								    <h4><a href="impressum.html">Impressum</a></h4>
-								    <p class="copyright">&copy; Eric Kunze. All rights reserved.<br>
-								      Images: <a href="https://unsplash.com">Unsplash</a> <br>
-								      Design: <a href="https://html5up.net">HTML5 UP</a>.
-								    </p>
-								  </footer>
-
-							</div>
-						</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
-</html>
+</section>
