@@ -1,0 +1,159 @@
+---
+type: prog21
+nr: 9
+title: Logikprogrammierung
+date: 14.06. bis 18.06.2021
+
+ue-blatt: https://www.orchid.inf.tu-dresden.de/teaching/2021ss/prog/tut09.pdf
+
+slides: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut09/tut09.pdf
+handout: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut09/tut09_handout.pdf
+code: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut09/tut09.pl
+
+vl-video: https://www.orchid.inf.tu-dresden.de/videos/e-learning/prog-09-jwe8iu4.mp4
+ue-video: https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/video/tut09-di.mp4
+---
+
+
+<li>
+  <i style="color: #f69200;" class="fa-li fa fa-exclamation-triangle"></i>
+  <p style="text-align: justify;">
+    Im Zeitraum vom 31.05. bis zum 20.06.2021 finden die Lehrveranstaltungsevaluationen statt. 
+    Ich würde mich sehr freuen, wenn ihr daran teilnehmt und die Übungen bewertet - gern auch mit Freitextkommentaren zu positiven und verbesserungswürdigen Aspekten.
+    Alle Antworten sind anonym.
+  </p>
+  <div style="text-align: left;">
+    <a href="https://befragung.zqa.tu-dresden.de/uz/sl/0Z8601w39VSo" class="button primary">Lehrveranstaltungsevaluation</a>
+  </div>
+</li>
+
+
+<li>
+  <p>
+    <ul>
+      <li>
+        Mitschriften vom  
+        <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut09/tut09_notes-di-notebook.pdf">Dienstag</a>
+        und
+        <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut09/tut09_notes-mi-notebook.pdf">Mittwoch</a>
+      </li>
+      <li>
+        In den Slides hatte ich nur Dinge unterstrichen, deswegen habe ich sie diesmal nicht mit hochgeladen.
+      </li>
+    </ul>
+  </p>
+
+  <p style="text-align: justify;">
+    <strong>Hinweis:</strong>
+    Die Zeilenangaben in den SLD-Refutationen können sich zwischen den Mitschriften und Slides unterscheiden, sollten aber in jedem Fall konsistent sein.
+    Grund dafür sind Leerzeilen in der Originaldatei. Die unten stehenden Lösungen orientieren sich an den Slides.
+  </p>
+</li>
+
+<li>
+  <i class="fa-li fa fa-edit"></i>
+  <details>
+    <summary class="inline">Lösungen - Aufgabe 1</summary>
+    <ol>
+        <li><p>Prüfen der Teillisteneigenschaft durch ein Prädikat <code>sublist</code></p>
+          <pre><code><!--
+-->nat (0).
+nat(s(X)) :- nat(X).
+
+listnat ([]).
+listnat ([X|XS]) :- nat(X), listnat(XS).
+
+prefix([]    , Ys )    :- listnat(Ys).
+prefix([X|Xs], [X|Ys]) :- nat(X), prefix(Xs, Ys).
+
+sublist(Xs   , [Y|Ys]) :- nat(Y), sublist(Xs, Ys).
+sublist(Xs   , Ys )    :- prefix(Xs, Ys).<!--
+          --></code></pre>
+        </li>
+        <li><p>SLD-Refutationen für das Goal <code>?- sublist([<4>|XS], [<5>, <4>, <3>]).</code></p>
+          <pre><code><!--
+-->           ?-  sublist ([<4>|Xs], [<5>, <4>, <3>]).
+?-  nat(<5>), sublist ([<4>|Xs], [<4>, <3>]). % 6
+?-* nat(0), sublist ([<4>|Xs], [<4>, <3>]).   % 2
+?-  sublist ([<4>|Xs], [<4>, <3>]).           % 1
+?-  prefix ([<4>|Xs], [<4>, <3>]).            % 7
+?-  nat(<4>), prefix(Xs , [<3>]).             % 10
+?-* nat(0), prefix(Xs , [<3>]).               % 2
+?-  prefix(Xs , [<3>]).                       % 1
+{Xs = []}  ?-  listnat ([<3>]).                          % 9
+?-  nat(<3>), listnat ([]).                   % 5
+?-* nat(0), listnat ([]).                     % 2
+?-  listnat ([]).                             % 1
+?-  .                                         % 4<!--
+          --></code></pre>
+          <pre><code><!--
+-->                ?-  sublist ([<4>|Xs], [<5>, <4>, <3>]).
+?-  nat(<5>), sublist ([<4>|Xs], [<4>, <3>]). 
+            % 6
+?-* nat(0), sublist ([<4>|Xs], [<4>, <3>]).  
+            % 2
+?-  sublist ([<4>|Xs], [<4>, <3>]).      % 1
+?-  prefix ([<4>|Xs], [<4>, <3>]).       % 7
+?-  nat(<4>), prefix(Xs , [<3>]).        % 10
+?-* nat(0), prefix(Xs , [<3>]).          % 2
+?-  prefix(Xs , [<3>]).                  % 1
+{Xs=[<3>|Xs1]}  ?-  nat(<3>), prefix(Xs1 , []).          % 10
+?-* nat(0), prefix(Xs1 , []).            % 2
+?-  prefix(Xs1 , []).                    % 1
+{Xs1 = []}      ?-  listnat ([]).                        % 9
+?-  .                                    % 4<!--
+          --></code></pre>
+        </li>														
+    </ol>
+  </details>
+
+  <details>
+    <summary class="inline">Lösungen - Aufgabe 2</summary>
+    <ol>
+        <li><p>Evaluierung eines binären Termbaums mit dem Prädikat <code>eval</code></p>
+          <pre><code><!--
+-->sum(0, Y, Y) :- nat(Y).
+sum(s(X), Y, s(S)) :- sum(X, Y, S).
+
+eval( X         , X ) :-  nat(X).
+eval( plus (L,R), X ) :-  eval(L, LE), eval(R, RE), sum(LE, RE,  X).
+eval( minus(L,R), X ) :-  eval(L, LE), eval(R, RE), sum(RE,  X, LE).<!--
+          --></code></pre>
+        </li>
+        <li><p>SLD-Refutation für das Goal <code>?- insert(&lt;t1&gt;, &lt;t2&gt;, X).</code></p>
+          <p style="font-style: italic; text-align: justify;">
+            Ausführlichere Hinweise zu Anschauung des Prädikats <code>insert</code> finden sich in den Slides.
+          </p>
+          <ol>
+            <li>
+              <pre><code><!--
+-->                           ?-  insert(&lt;t1&gt;, &lt;t2&gt;, X).
+{X = tree(a, LT1, RT1)}    ?-  insert(tree(b, nil, nil), &lt;t2&gt;, LT1), 
+insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 6
+{LT1 = tree(b, LT2, RT2)}  ?-  insert(nil , &lt;t2&gt;, LT2), 
+insert(nil, &lt;t2&gt;, RT2), 
+insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 6
+{LT2 = nil, RT2 = nil}     ?-* insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 4
+{RT1 = &lt;t2&gt;}               ?-  istree(&lt;t2&gt;).                           % 5
+?-* istree(nil), istree(nil), istree(nil).  % 2
+?-* .                                       % 4<!--
+              --></code></pre>
+            </li>
+            <li>
+              <pre><code><!--
+-->                           ?-  insert(&lt;t1&gt;, &lt;t2&gt;, X).
+{X = tree(a, LT1, RT1)}    ?-  insert(tree(b, nil, nil), &lt;t2&gt;, LT1), 
+insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 6
+{LT1 = tree(b, LT2, RT2)}  ?-  insert(nil , &lt;t2&gt;, LT2), 
+insert(nil, &lt;t2&gt;, RT2), 
+insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 6
+{LT2 = nil, RT2 = nil}     ?-* insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 4
+{RT1 = tree(v, LT3, RT3)}  ?-  insert(nil, &lt;t2&gt;, LT3),
+insert(nil, &lt;t2&gt;, RT3).                 % 6
+{RT3 = nil, LT3 = nil}     ?-* .                                       % 4<!--
+              --></code></pre>
+            </li>
+          </ol>
+    </ol>
+  </details>
+</li>
