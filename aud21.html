@@ -188,6 +188,18 @@ title: Algorithmen und Datenstrukturen 2021/22
 
   <h3>Teil 1: Formale Sprachen</h3>
 
+  {% for tut in site.pages %} {% if tut.type == 'aud21' %} {% if tut.section ==
+  "formale sprachen" %}
+  <details>
+    <summary>
+      <div class="title">Woche {{tut.nr}}: {{tut.title}}</div>
+      <div class="subtitle">{{tut.date}}</div>
+    </summary>
+
+    <div class="exercise-content">{{ tut.content }}</div>
+  </details>
+  {% endif %} {% endif %} {% endfor %}
+
   <h3>Teil 2: Programmieren in C</h3>
 
   <p style="text-align: justify">
