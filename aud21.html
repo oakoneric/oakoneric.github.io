@@ -221,5 +221,29 @@ title: Algorithmen und Datenstrukturen 2021/22
     >
   </p>
 
+  {% for tut in site.pages %} {% if tut.type == 'aud21' %} {% if tut.section ==
+  "programmieren mit c" %}
+  <details>
+    <summary>
+      <div class="title">Woche {{tut.nr}}: {{tut.title}}</div>
+      <div class="subtitle">{{tut.date}}</div>
+    </summary>
+
+    <div class="exercise-content">{{ tut.content }}</div>
+  </details>
+  {% endif %} {% endif %} {% endfor %}
+
   <h3>Teil 3: Algorithmen</h3>
+
+  {% for tut in site.pages %} {% if tut.type == 'aud21' %} {% if tut.section ==
+  "algorithmen" %}
+  <details>
+    <summary>
+      <div class="title">Woche {{tut.nr}}: {{tut.title}}</div>
+      <div class="subtitle">{{tut.date}}</div>
+    </summary>
+
+    <div class="exercise-content">{{ tut.content }}</div>
+  </details>
+  {% endif %} {% endif %} {% endfor %}
 </section>
