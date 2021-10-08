@@ -1,0 +1,153 @@
+---
+layout: tutorial-base
+title: Formale Systeme 2021/22
+---
+
+<!-- Content -->
+<section>
+  <header class="main">
+    <div class="title">Formale Systeme</div>
+    <div class="subtitle">Winter 2021/22</div>
+  </header>
+
+  <span class="image main"><img src="images/bg10b.jpg" alt="" /></span>
+
+  <div class="box" style="font-size: 1em; font-weight: 700">
+    Meine Übung findet am
+    <blockquote>
+      Freitag von 9<sup>20</sup> Uhr bis 10<sup>50</sup> Uhr (2. Doppelstunde)
+    </blockquote>
+    statt. Wegen gesetzlicher Bestimmungen ist noch nicht geklärt, ob ich die
+    Übung von Beginn an halten darf. Das wird im Laufe der ersten Woche geklärt.
+    Die Einschreibung erfolgt über
+    <a
+      href="https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/32157466641/CourseNode/101413613647390"
+      target="_blank"
+      >OPAL</a
+    >.
+  </div>
+
+  <!--
+		<div class="box">
+			<ol>
+				<li><a href="#inhalte">Inhalte der Übungen</a></li>
+				<li><a href="#news">News</a></li>
+				<li><a href="#informationen">Informationen</a></li>
+				<li><a href="#uebungsmaterial">Übungsmaterial</a></li>
+				<li><a href="#online-uebungen">Online-Übung</a></li>
+				<li><a href="#klausurvorbereitung">Klausurvorbereitung</a></li>
+				<li><a href="#uebungsuebersicht">Übungsübersicht</a></li>
+			</ol>
+		</div>
+	-->
+
+  <h2 id="inhalte">Inhalte der Übungen</h2>
+  <p style="text-align: justify">
+    Die Vorlesung "Formale Systeme" beschäftigt sich mit den Grundlagen der
+    formalen Sprachtheorie, wie sie in der Vorlesung "Algorithmen und
+    Datenstrukturen" bereits angeklungen ist, der Automatentheorie sowie der
+    Aussagenlogik. In den Übungen wollen wir die Erkenntnisse aus der Vorlesung
+    verstehen, anwenden und festigen.
+  </p>
+
+  <h2 id="news">News</h2>
+  <div class="box">
+    <ul class="alt">
+      <li>
+        <strong>05.10.2021:</strong>
+        Herzlich Willkommen im Kurs "Formale Systeme" im Wintersemester 2021/22.
+        Die Übungen starten ab dem 18.10.2021 in Präsenz oder online (je nach
+        Übungsgruppe). Meine Übung wird in Präsenz stattfinden. Jedoch kann es
+        sein, dass gestzliche Bestimmungen dazu führen, dass ich erst ab
+        November vor euch stehen darf. Ob dies wirklich der Fall sein wird und
+        wie die Zwischenzeit überbrückt wird, kann erst im Laufe der ersten
+        Vorlesungswoche geklärt werden.
+      </li>
+    </ul>
+  </div>
+
+  <h2 id="informationen">Informationen</h2>
+
+  <p style="text-align: justify">
+    Alle für die Lehrveranstaltungen relevanten Informationen findet ihr auf der
+    <a
+      href="https://iccl.inf.tu-dresden.de/web/Formale_Systeme_(WS2021)"
+      target="_blank"
+      >Website</a
+    >
+    bzw. im
+    <a
+      href="https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/32157466641/CourseNode/101413613644908"
+      target="_blank"
+      >OPAL-Kurs</a
+    >. Die Vorlesung wird online stattfinden und von Hannes Straß gehalten. Bei
+    Fragen oder Problemen könnt ihr euch im OPAL-Forum oder dem
+    <a href="https://matrix.to/#/#fs2021:tu-dresden.de" target="_blank"
+      >Matrix-Chat</a
+    >
+    austauschen - oder euch an
+    <a href="mailto:eric.kunze@tu-dresden.de">mich</a> oder an
+    <a href="https://iccl.inf.tu-dresden.de/web/D%C3%B6rthe_Arndt"
+      >Dörthe Arndt</a
+    >
+    wenden. Mich erreicht ihr auch schnell und problemlos via Telegram
+    <code><a href="https://t.me/oakoneric">@oakoneric</a></code
+    >.
+  </p>
+
+  <h2 id="uebungsmaterial">Übungsmaterial</h2>
+
+  <p style="text-align: justify">
+    Die Materialien zur Vorlesung und Übung seitens des Lehrstuhls findet ihr
+    auf der
+    <a
+      href="https://iccl.inf.tu-dresden.de/web/Formale_Systeme_(WS2021)"
+      target="_blank"
+      >Website</a
+    >
+    der Lehrveranstaltung.
+  </p>
+
+  <p style="text-align: justify">
+    Die in meinen Übungen verwendeten Materialien habe ich größtenteils in
+    meiner Freizeit erstellt. Sie stammen insbesondere nicht vom Lehrstuhl und
+    können damit trotz gründlicher Arbeit noch Fehler enthalten. Die Folien
+    sollen keineswegs den aktiven Besuch der Übungen ersetzen, sondern vielmehr
+    eine Hilfestellung sein um sich während der Übung auf das Verständnis
+    konzentrieren zu können und das Nacharbeiten zu erleichtern. Die Slides und
+    den zugehörigen Latex-Code dazu findet ihr in meinem entsprechenden
+    Github-Repository. Findet ihr einen Fehler in meinen Lösungen, dann fühlt
+    euch eingeladen mir dies mitzuteilen oder direkt selbst mit einem Request zu
+    beheben.
+  </p>
+
+  <h2 id="uebungsuebersicht">Übungsübersicht</h2>
+
+  <h3>Teil 1: Formale Sprachen & Automatentheorie</h3>
+
+  {% for tut in site.pages %} {% if tut.type == 'fs21' %} {% if tut.section ==
+  "formale sprachen und automatentheorie" %}
+  <details>
+    <summary>
+      <div class="title">Woche {{tut.nr}}: {{tut.title}}</div>
+      <div class="subtitle">{{tut.date}}</div>
+    </summary>
+
+    <div class="exercise-content">{{ tut.content }}</div>
+  </details>
+  {% endif %} {% endif %} {% endfor %}
+
+  <h3>Teil 2: Aussagenlogik</h3>
+
+  {% for tut in site.pages %} {% if tut.type == 'fs21' %} {% if tut.section ==
+  "aussagenlogik" %}
+  <details>
+    <summary>
+      <div class="title">Woche {{tut.nr}}: {{tut.title}}</div>
+      <div class="subtitle">{{tut.date}}</div>
+    </summary>
+
+    <div class="exercise-content">{{ tut.content }}</div>
+  </details>
+  {% endif %} {% endif %} {% endfor %}
+</section>
