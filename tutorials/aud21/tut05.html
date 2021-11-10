@@ -40,61 +40,60 @@ date: 08.11. bis 12.11.2021
 
     <li>
         <i class="fa-li fa fa-code"></i>
-        <a class="isDisabled" href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut05/tut05-templates.zip"
-          >Coding Templates <span class="icon solid fa-download"></span
+        <a
+            class="isDisabled"
+            href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut05/tut05-templates.zip"
+            >Coding Templates <span class="icon solid fa-download"></span
         ></a>
-      </li>
+    </li>
 
     <li>
         <i class="fa-li fa fa-edit"></i>
         <div style="text-align: left">
             <a
                 href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut05/tut05.pdf"
-                class="button primary disabled"
+                class="button primary"
                 >Slides</a
             >
             <a
                 href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut05/tut05_handout.pdf"
-                class="button disabled"
+                class="button"
                 >Handout</a
             >
             <a
-              style="margin-left: 2em;"
-              href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut05/tut05-code.zip"
-              target="_blank"
-              class="button icon solid fa-download disabled"
+                style="margin-left: 2em"
+                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut05/tut05-code.zip"
+                target="_blank"
+                class="button icon solid fa-download"
             >
-              Code
+                Code
             </a>
         </div>
     </li>
 
-    <li style="display: none;">
+    <li>
         <i class="fa-li fa fa-edit"></i>
         <details>
-          <summary class="inline">Lösungen</summary>
-      
-          <ul>
-            <li>
-              <strong>Aufgabe 1</strong>
-              <ol>
+            <summary class="inline">Lösungen</summary>
+
+            <ul>
                 <li>
-                  Ackermann-Funktion
-                  <pre><code><!--
+                    <strong>Aufgabe 1</strong>
+                    <ol style="list-style-type: lower-alpha">
+                        <li>
+                            Ackermann-Funktion
+                            <pre><code><!--
 -->#include &lt;stdio.h&gt;
 
 int ack(int x, int y){
-    int a;
     if ((x == 0) && (y >= 0))
         return y + 1;
     else if ((x > 0) && (y == 0)) 
         return ack(x-1, 1);
     else if ((x > 0) && (y > 0)){
-        a = ack(x, y-1);
-        return ack(x-1, a);
+        return ack(x-1, ack(x, y-1));
     }
 }
-
 
 int main() {
     int x = 0, y = 0, a;
@@ -111,10 +110,11 @@ int main() {
     return 0;
 }<!--
                               --></code></pre>
-                </li>
-                <li>
-                  Prüfen eines Strings (Character-Array) auf die Palindrom-Eigenschaft
-                  <pre><code><!--
+                        </li>
+                        <li>
+                            Prüfen eines Strings (Character-Array) auf die
+                            Palindrom-Eigenschaft
+                            <pre><code><!--
 -->#include &lt;stdio.h&gt;
 
 void palindrom(char feld[], int l, int *korrekt) {
@@ -159,40 +159,42 @@ int main() {
     return 0;
 }<!--
                     --></code></pre>
+                        </li>
+                    </ol>
                 </li>
-              </ol>
-            </li>
-            <li>
-              <strong>Aufgabe 2:</strong>
-              <pre><code><!--
+                <li>
+                    <strong>Aufgabe 2:</strong>
+                    <pre><code><!--
 -->#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
 
-int main() {
-	unsigned int guess, number, n;
+void swap(int *x, int *y) {  /* hier weist der Stern auf Zeiger hin */
+    int tmp;
 
-	scanf("%u", &n);
-	
-    number = 1 + rand() % n;
-	
-    while(1) {
-		printf("Zahl raten: ");
-		scanf("%u", &guess);
-		if (guess == number) {
-			printf("Sehr gut!\n");
-			return 0;
-		} else if (guess > number) {
-			printf("Zahl ist kleiner!\n");
-		} else {
-			printf("Zahl ist groesser!\n");
-		}
-	}
-	
+    tmp = *x;
+    *x = *y;
+    *y = tmp;
+    /* Der Stern vor einer Variablen bedeutet: Dereferenzieren
+        nutze den Wert, der in der Adresse von x steht (insbes. nicht die Adresse)
+    */
+}
+
+int main(){
+    int x = 4, y = 6;
+
+    printf("x = %d, y = %d \n", x, y);
+    swap(&x, &y);
+    /* Aufruf mit & vor einer Variablen gibt nur die Adresse 
+       der Variablen weiter, nicht aber deren Wert 
+       -> Änderung von globalen Variablen durch Funktionen möglich 
+       (aber nicht schön - vermeiden)
+    */
+    printf("x = %d, y = %d \n", x, y);
+
     return 0;
 }<!--
                 --></code></pre>
-            </li>
-          </ul>
+                </li>
+            </ul>
         </details>
-      </li>
+    </li>
 </ul>
