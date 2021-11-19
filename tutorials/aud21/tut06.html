@@ -51,19 +51,19 @@ date: 15.11. bis 19.11.2021
         <div style="text-align: left">
             <a
                 href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut06/tut06.pdf"
-                class="button primary disabled"
+                class="button primary"
                 >Slides</a
             >
             <a
                 href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut06/tut06_handout.pdf"
-                class="button disabled"
+                class="button"
                 >Handout</a
             >
             <a
                 style="margin-left: 2em"
                 href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut06/tut06-code.zip"
                 target="_blank"
-                class="button icon solid fa-download disabled"
+                class="button icon solid fa-download"
             >
                 Code
             </a>
@@ -87,128 +87,162 @@ date: 15.11. bis 19.11.2021
         </ul>
     </li>
 
-    <li style="display: none">
+    <li>
         <i class="fa-li fa fa-edit"></i>
         <details>
             <summary class="inline">Lösungen</summary>
 
             <ul>
                 <li>
-                    <strong>Aufgabe 1</strong>
+                    <strong>Aufgabe 1:</strong> Listen
                     <ol style="list-style-type: lower-alpha">
                         <li>
-                            Ackermann-Funktion
+                            Anhängen an eine Liste
                             <pre><code><!--
--->#include &lt;stdio.h&gt;
+-->void append(list *lp, int n)
+{
+    while (*lp != NULL)
+        lp = &((*lp)->next);
+    /* gehe bis zum ende der liste */
 
-int ack(int x, int y){
-    if ((x == 0) && (y >= 0))
-        return y + 1;
-    else if ((x > 0) && (y == 0)) 
-        return ack(x-1, 1);
-    else if ((x > 0) && (y > 0)){
-        return ack(x-1, ack(x, y-1));
-    }
-}
-
-int main() {
-    int x = 0, y = 0, a;
-    printf("\nAckermannfunktion\n");
-    printf("x = ");
-    scanf("%d", &x);
-    printf("y = ");
-    scanf("%d", &y);
-    
-    a = ack(x,y);
-    
-    printf("ack(%i,%i)=%i.\n", x, y, a);
-    
-    return 0;
+    (*lp) = malloc(sizeof(struct element));
+    /* erstelle ein neues element */
+    (*lp)->value = n;
+    /* fuelle den neuen container mit inhalt */
+    (*lp)->next = NULL;
 }<!--
                               --></code></pre>
                         </li>
                         <li>
-                            Prüfen eines Strings (Character-Array) auf die
-                            Palindrom-Eigenschaft
+                            Summe einer Liste
                             <pre><code><!--
--->#include &lt;stdio.h&gt;
+-->int sum_it(list l)
+{
+    int result = 0;
 
-void palindrom(char feld[], int l, int *korrekt) {
-    int i = 0;
-    l = l - 1;
-    *korrekt = 1;
-    
-    while(feld[l] == '\0')
-        l = l - 1;
-
-    while (i < l && *korrekt) {
-        *korrekt = feld[i] == feld[l];
-        i = i + 1;
-        l = l - 1;
+    while (l != NULL)
+    {
+        result += l->value; /* result = result + l -> value */
+        l = l->next;        /* schalte "start"zeiger ein element weiter */
     }
-} // kein return wegen void
+    return result;
+}
 
-int main() {
-    #define ANZ 20
+int sum_rec(list l)
+{
+    if (l == NULL)
+        return 0;
+    /* nach letztem element nichts mehr addieren */
 
-    char feld[ANZ];
-    int korr;
-
-    // Einlesen und Prüfen der Eingabe
-    scanf("%[^\n]s", feld);
-    printf("feld = %s\n",feld);
-    
-    // berechne Länge des Strings
-    int len = 0;
-    while(feld[len] != '\0')
-        len++; 
-
-    // teste Palindrom-Eigenschaft
-    palindrom(feld, len, &korr);
-
-    // drucke Palindrom-Eigenschaft aus
-    if(korr == 1)
-        printf("%s ist ein Palindrom.\n", feld);
-    else
-        printf("%s ist kein Plaindrom.\n", feld);
-    
-    return 0;
+    return l->value + sum_rec(l->next);
+    /* nehme immer einen key und addiere die summe der restliste */
 }<!--
                     --></code></pre>
+                        </li>
+                        <li>
+                            Entfernen aller gerade Listenelemente
+                            <pre><code><!--
+-->void rmEvens_rec(list *lp)
+{ /* *lp heißt: wir übergeben einen pointer (list pointer) */
+    if (lp == NULL || *lp == NULL)
+        return;
+    /* keine liste oder liste leer */
+
+    if ((*lp)->value % 2 == 0)
+    {
+        list tmp = *lp;
+        /* speicherung des zu löschenden elements (um speicher dann zu befreien, sonst speicherleichen) */
+        *lp = (*lp)->next;
+        /* weiterschalten des ersten pointers */
+        free(tmp);
+        /* speicher des zu löschenden elements befreien */
+    }
+    else
+    {
+        lp = &(*lp)->next;
+        /* startpointer weiterschalten - kein löschen notwendig */
+    }
+
+    rmEvens_rec(lp); /* verfahre so weiter mit der restlichen liste */
+}
+
+void rmEvens_it(list *lp)
+{
+    while (lp != NULL && *lp != NULL)
+    {
+        if ((*lp)->value % 2 == 0)
+        {
+            list tmp = *lp;
+            *lp = (*lp)->next;
+            free(tmp);
+        }
+        else
+            lp = &(*lp)->next;
+    }
+}<!--
+                                                --></code></pre>
                         </li>
                     </ol>
                 </li>
                 <li>
-                    <strong>Aufgabe 2:</strong>
-                    <pre><code><!--
--->#include &lt;stdio.h&gt;
-
-void swap(int *a, int *b) {  /* hier weist der Stern auf Zeiger hin */
-    int tmp;
-
-    tmp = *a;
-    *a = *b;
-    *b = tmp;
-    /* Der Stern vor einer Variablen bedeutet: Dereferenzieren
-        nutze den Wert, der in der Adresse von x steht (insbes. nicht die Adresse)
-    */
-}
-
-int main(){
-    int x = 4, y = 6;
-
-    printf("x = %d, y = %d \n", x, y);
-    swap(&x, &y);
-    /* Aufruf mit & vor einer Variablen gibt nur die Adresse 
-       der Variablen weiter, nicht aber deren Wert 
-       -> Änderung von globalen Variablen durch Funktionen möglich 
-       (aber nicht schön - vermeiden)
-    */
-    printf("x = %d, y = %d \n", x, y);
-
-    return 0;
+                    <strong>Aufgabe 2:</strong> Bäume
+                    <ol style="list-style-type: lower-alpha">
+                        <li>
+                            Erstellen eines neuen Knotens
+                            <pre><code><!--
+-->tree createNode(int n, tree l, tree r)
+{
+    tree t = malloc(sizeof(struct node));
+    t->left = l;
+    t->right = r;
+    t->key = n;
+    return t;
 }<!--
-                --></code></pre>
+                            --></code></pre>
+                        </li>
+                        <li>
+                            Einfügen eines Knotens am linkesten Blatt
+                            <pre><code><!--
+-->void insertl(tree *tp, int n)
+{
+    if (*tp != NULL)
+        insertl(&((*tp)->left), n);
+    else
+        *tp = createNode(n, NULL, NULL);
+}<!--
+                    --></code></pre>
+                        </li>
+                        <li>
+                            Produkt der Blätter
+                            <pre><code><!--
+-->int leafprod(tree t)
+{
+    if (t == NULL)
+        return 1;
+
+    if (t->left == NULL && t->right == NULL)
+        return t->key;
+
+    return leafprod(t->left) * leafprod(t->right);
+}<!--
+                            --></code></pre>
+                        </li>
+                        <li>
+                            Baum zu Liste umwandeln (nutzt
+                            <code>append</code> aus Aufgabe 1)
+                            <pre><code><!--
+-->void treeToList_rec(tree t, list *lp)
+{
+    if (t == NULL)
+        return;
+    treeToList_rec(t->left, lp);
+    if (t->key % 2 == 0)
+        append(lp, t->key);
+    treeToList_rec(t->right, lp);
+}<!--
+                            --></code></pre>
+                        </li>
+                    </ol>
                 </li>
             </ul>
         </details>
