@@ -52,7 +52,7 @@ title: Formale Systeme 2021/22
                 Herzlich Willkommen im Kurs "Formale Systeme" im Wintersemester
                 2021/22. Die Übungen starten ab dem 18.10.2021 in Präsenz oder
                 online (je nach Übungsgruppe). Meine Übung wird in Präsenz
-                stattfinden. Jedoch kann es sein, dass gestzliche Bestimmungen
+                stattfinden. Jedoch kann es sein, dass gesetzliche Bestimmungen
                 dazu führen, dass ich erst ab November vor euch stehen darf. Ob
                 dies wirklich der Fall sein wird und wie die Zwischenzeit
                 überbrückt wird, kann erst im Laufe der ersten Vorlesungswoche
@@ -121,6 +121,44 @@ title: Formale Systeme 2021/22
 
     <h3>Teil 1: Formale Sprachen & Automatentheorie</h3>
 
+    <div class="table-wrapper">
+		<table>
+		<!-- table class="alt" -->
+			<thead>
+				<tr>
+					<th>Blatt</th>
+					<th>Inhalte</th>
+					<th>Download</th>
+				</tr>
+			</thead>
+			<tbody>
+                {% for tut in site.pages %} {% if tut.type == 'fs21' %} {% if tut.section == "formale sprachen und automatentheorie" %}
+				<tr>
+					<td><a {% unless tut.link %} class="isDisabled" {% endunless %} href="{{tut.link}}" target="_blank">{{tut.nr}}</a></td>
+					<td><strong>{{tut.title}}</strong>
+						{{tut.content}}
+					</td>
+					<td width=300 align=center>
+                        {% if tut.locked %}
+                            <a href="#" class="button primary disabled">Slides</a>
+                            <a href="#" class="button disabled">Handout</a>
+                        {% else %}
+                            {% if tut.nr < 10 %}
+                            <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/formale-systeme-ws21/tut0{{tut.nr}}/tut0{{tut.nr}}.pdf" class="button primary">Slides</a>
+                            <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/formale-systeme-ws21/tut0{{tut.nr}}/tut0{{tut.nr}}_handout.pdf" class="button">Handout</a>
+                            {% else %}
+                            <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/formale-systeme-ws21/tut{{tut.nr}}/tut{{tut.nr}}.pdf" class="button primary">Slides</a>
+                            <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/formale-systeme-ws21/tut{{tut.nr}}/tut{{tut.nr}}_handout.pdf" class="button">Handout</a>
+                            {% endif %}
+                        {% endif %}
+                        
+					</td>
+				</tr>
+                {% endif %} {% endif %} {% endfor %}
+			</tbody>
+		</table>
+	</div>
+    <!--
     {% for tut in site.pages %} {% if tut.type == 'fs21' %} {% if tut.section ==
     "formale sprachen und automatentheorie" %}
     <details>
@@ -146,4 +184,5 @@ title: Formale Systeme 2021/22
         <div class="exercise-content">{{ tut.content }}</div>
     </details>
     {% endif %} {% endif %} {% endfor %}
+    -->
 </section>
