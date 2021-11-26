@@ -126,19 +126,19 @@ title: Formale Systeme 2021/22
 		<!-- table class="alt" -->
 			<thead>
 				<tr>
-					<th>Blatt</th>
+					<th style="width: 50px; text-align: left;">Blatt</th>
 					<th>Inhalte</th>
-					<th>Download</th>
+					<th style="width: 250px; text-align: center;">Download</th>
 				</tr>
 			</thead>
 			<tbody>
                 {% for tut in site.pages %} {% if tut.type == 'fs21' %} {% if tut.section == "formale sprachen und automatentheorie" %}
 				<tr>
-					<td><a {% unless tut.link %} class="isDisabled" {% endunless %} href="{{tut.link}}" target="_blank">{{tut.nr}}</a></td>
+					<td style="text-align: left;"><a {% unless tut.link %} class="isDisabled" {% endunless %} href="{{tut.link}}" target="_blank">{{tut.nr}}</a></td>
 					<td><strong>{{tut.title}}</strong>
 						{{tut.content}}
 					</td>
-					<td width=300 align=center>
+					<td style="width: 250px; text-align: center;">
                         {% if tut.locked %}
                             <a href="#" class="button primary disabled">Slides</a>
                             <a href="#" class="button disabled">Handout</a>
