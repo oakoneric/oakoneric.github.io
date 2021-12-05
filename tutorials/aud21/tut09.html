@@ -49,6 +49,14 @@ date: 06.12. bis 10.12.2021
     </li>
 
     <li>
+        <i class="fa-li fa fa-code"></i>
+        <a
+            href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut09/tut09-templates.zip"
+            >Coding Templates <span class="icon solid fa-download"></span
+        ></a>
+    </li>
+
+    <li>
         <i class="fa-li fa fa-edit"></i>
         <div style="text-align: left">
             <a
@@ -61,6 +69,15 @@ date: 06.12. bis 10.12.2021
                 class="button disabled"
                 >Handout</a
             >
+
+            <a
+                style="margin-left: 2em"
+                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut09/tut09-code.zip"
+                target="_blank"
+                class="button icon solid fa-download disabled"
+            >
+                Code
+            </a>
         </div>
     </li>
 
@@ -75,5 +92,61 @@ date: 06.12. bis 10.12.2021
                 aus dem letzten Jahr
             </li>
         </ul>
+    </li>
+
+    <li style="display: none">
+        <i class="fa-li fa fa-edit"></i>
+        <details>
+            <summary class="inline">Lösungen</summary>
+
+            <ul>
+                <li>
+                    <strong>Aufgabe 2:</strong> Implementierungen für AVL-Bäume
+                    <ol style="list-style-type: lower-alpha">
+                        <li>
+                            Ermitteln der Balancefaktoren
+                            <pre><code><!--
+-->int height(tree t)
+{
+    if (t == NULL)
+        return 0;
+
+    int hl = height(t->left);
+    int hr = height(t->right);
+
+    return (hl > hr) ? hl + 1 : hr + 1;
+}
+
+tree bfs(tree t)
+{
+    if (t == NULL)
+        return NULL;
+    tree bf = malloc(sizeof(struct node));
+    bf->key = height(t->right) - height(t->left);
+    bf->left = bfs(t->left);
+    bf->right = bfs(t->right);
+    return bf;
+}<!--
+                            --></code></pre>
+                        </li>
+                        <li>
+                            Linksrotation um die Wurzel
+                            <pre><code><!--
+-->void lRot(tree *tp)
+{
+    if (tp == NULL || *tp == NULL)
+        return;
+
+    tree rightChild = (*tp)->right;
+    (*tp)->right = rightChild->left;
+    rightChild->left = *tp;
+    *tp = rightChild;
+}<!--
+                    --></code></pre>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </details>
     </li>
 </ul>
