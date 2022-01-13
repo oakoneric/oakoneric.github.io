@@ -158,6 +158,47 @@ title: Formale Systeme 2021/22
 			</tbody>
 		</table>
 	</div>
+
+    <h3>Teil 2: Aussagenlogik</h3>
+
+    <div class="table-wrapper">
+		<table>
+		<!-- table class="alt" -->
+			<thead>
+				<tr>
+					<th style="width: 50px; text-align: left;">Blatt</th>
+					<th>Inhalte</th>
+					<th style="width: 250px; text-align: center;">Download</th>
+				</tr>
+			</thead>
+			<tbody>
+                {% for tut in site.pages %} {% if tut.type == 'fs21' %} {% if tut.section == "logik" %}
+				<tr>
+					<td style="text-align: left;"><a {% unless tut.link %} class="isDisabled" {% endunless %} href="{{tut.link}}" target="_blank">{{tut.nr}}</a></td>
+					<td><strong>{{tut.title}}</strong>
+						{{tut.content}}
+					</td>
+					<td style="width: 250px; text-align: center;">
+                        {% if tut.locked %}
+                            <a href="#" class="button primary disabled">Slides</a>
+                            <a href="#" class="button disabled">Handout</a>
+                        {% else %}
+                            {% if tut.nr < 10 %}
+                            <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/formale-systeme-ws21/tut0{{tut.nr}}/tut0{{tut.nr}}.pdf" class="button primary">Slides</a>
+                            <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/formale-systeme-ws21/tut0{{tut.nr}}/tut0{{tut.nr}}_handout.pdf" class="button">Handout</a>
+                            {% else %}
+                            <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/formale-systeme-ws21/tut{{tut.nr}}/tut{{tut.nr}}.pdf" class="button primary">Slides</a>
+                            <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/formale-systeme-ws21/tut{{tut.nr}}/tut{{tut.nr}}_handout.pdf" class="button">Handout</a>
+                            {% endif %}
+                        {% endif %}
+                        
+					</td>
+				</tr>
+                {% endif %} {% endif %} {% endfor %}
+			</tbody>
+		</table>
+	</div>
+
     <!--
     {% for tut in site.pages %} {% if tut.type == 'fs21' %} {% if tut.section ==
     "formale sprachen und automatentheorie" %}
