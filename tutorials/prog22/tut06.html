@@ -1,0 +1,259 @@
+---
+type: aud21
+section: programmieren mit c
+nr: 6
+title: Listen und Bäume
+date: 15.11. bis 19.11.2021
+---
+
+<ul class="fa-ul">
+    <li>
+        <i class="fa-li fa fa-video"></i>
+        <div style="text-align: left">
+            <ul class="vorlesungsvideo">
+                <li>
+                    <a
+                        href="https://www.orchid.inf.tu-dresden.de/videos/e-learning/aud-vorlesung/aud-06a-TgbtM3RY.mp4"
+                        target="_blank"
+                        >Vorlesungsvideo 1:
+                    </a>
+                    Listen und Bäume
+                </li>
+                <li>
+                    <a
+                        href="https://www.orchid.inf.tu-dresden.de/videos/e-learning/aud-vorlesung/aud-06b-TgbtM3RY.mp4"
+                        target="_blank"
+                        >Vorlesungsvideo 2:
+                    </a>
+                    Modularisierung
+                </li>
+            </ul>
+        </div>
+    </li>
+
+    <li>
+        <i class="fa-li fa fa-pen"></i>
+        <a
+            href="https://www.orchid.inf.tu-dresden.de/teaching/2021ws/aud/tut06.pdf"
+            target="_blank"
+            >Übungsblatt 6</a
+        >
+    </li>
+
+    <li>
+        <i class="fa-li fa fa-code"></i>
+        <a
+            href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut06/tut06-templates.zip"
+            >Coding Templates <span class="icon solid fa-download"></span
+        ></a>
+    </li>
+
+    <li>
+        <i class="fa-li fa fa-edit"></i>
+        <div style="text-align: left">
+            <a
+                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut06/tut06.pdf"
+                class="button primary"
+                >Slides</a
+            >
+            <a
+                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut06/tut06_handout.pdf"
+                class="button"
+                >Handout</a
+            >
+            <a
+                style="margin-left: 2em"
+                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut06/tut06-code.zip"
+                target="_blank"
+                class="button icon solid fa-download"
+            >
+                Code
+            </a>
+        </div>
+    </li>
+    <li>
+        <ul>
+            <li>
+                ausführliche Erklärung zur Notwendigkeit von Doppelreferenzen
+                als
+                <a
+                    href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut06/tut06_doppelreferenzen.pdf"
+                    >[PDF]</a
+                >
+                und im
+                <a
+                    href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut06/tut06_doppelreferenzen.c"
+                    >[Code]</a
+                >
+            </li>
+            <li>
+                <a
+                    href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/video/tut06.mp4"
+                    >Aufzeichnung</a
+                >
+                der verschobenen Mittwoch-Übung
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        <i class="fa-li fa fa-edit"></i>
+        <details>
+            <summary class="inline">Lösungen</summary>
+
+            <ul>
+                <li>
+                    <strong>Aufgabe 1:</strong> Listen
+                    <ol style="list-style-type: lower-alpha">
+                        <li>
+                            Anhängen an eine Liste
+                            <pre><code><!--
+-->void append(list *lp, int n)
+{
+    while (*lp != NULL)
+        lp = &((*lp)->next);
+    /* gehe bis zum ende der liste */
+
+    (*lp) = malloc(sizeof(struct element));
+    /* erstelle ein neues element */
+    (*lp)->value = n;
+    /* fuelle den neuen container mit inhalt */
+    (*lp)->next = NULL;
+}<!--
+                              --></code></pre>
+                        </li>
+                        <li>
+                            Summe einer Liste
+                            <pre><code><!--
+-->int sum_it(list l)
+{
+    int result = 0;
+
+    while (l != NULL)
+    {
+        result += l->value; /* result = result + l -> value */
+        l = l->next;        /* schalte "start"zeiger ein element weiter */
+    }
+    return result;
+}
+
+int sum_rec(list l)
+{
+    if (l == NULL)
+        return 0;
+    /* nach letztem element nichts mehr addieren */
+
+    return l->value + sum_rec(l->next);
+    /* nehme immer einen key und addiere die summe der restliste */
+}<!--
+                    --></code></pre>
+                        </li>
+                        <li>
+                            Entfernen aller gerade Listenelemente
+                            <pre><code><!--
+-->void rmEvens_rec(list *lp)
+{ /* *lp heißt: wir übergeben einen pointer (list pointer) */
+    if (lp == NULL || *lp == NULL)
+        return;
+    /* keine liste oder liste leer */
+
+    if ((*lp)->value % 2 == 0)
+    {
+        list tmp = *lp;
+        /* speicherung des zu löschenden elements (um speicher dann zu befreien, sonst speicherleichen) */
+        *lp = (*lp)->next;
+        /* weiterschalten des ersten pointers */
+        free(tmp);
+        /* speicher des zu löschenden elements befreien */
+    }
+    else
+    {
+        lp = &(*lp)->next;
+        /* startpointer weiterschalten - kein löschen notwendig */
+    }
+
+    rmEvens_rec(lp); /* verfahre so weiter mit der restlichen liste */
+}
+
+void rmEvens_it(list *lp)
+{
+    while (lp != NULL && *lp != NULL)
+    {
+        if ((*lp)->value % 2 == 0)
+        {
+            list tmp = *lp;
+            *lp = (*lp)->next;
+            free(tmp);
+        }
+        else
+            lp = &(*lp)->next;
+    }
+}<!--
+                                                --></code></pre>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <strong>Aufgabe 2:</strong> Bäume
+                    <ol style="list-style-type: lower-alpha">
+                        <li>
+                            Erstellen eines neuen Knotens
+                            <pre><code><!--
+-->tree createNode(int n, tree l, tree r)
+{
+    tree t = malloc(sizeof(struct node));
+    t->left = l;
+    t->right = r;
+    t->key = n;
+    return t;
+}<!--
+                            --></code></pre>
+                        </li>
+                        <li>
+                            Einfügen eines Knotens am linkesten Blatt
+                            <pre><code><!--
+-->void insertl(tree *tp, int n)
+{
+    if (*tp != NULL)
+        insertl(&((*tp)->left), n);
+    else
+        *tp = createNode(n, NULL, NULL);
+}<!--
+                    --></code></pre>
+                        </li>
+                        <li>
+                            Produkt der Blätter
+                            <pre><code><!--
+-->int leafprod(tree t)
+{
+    if (t == NULL)
+        return 1;
+
+    if (t->left == NULL && t->right == NULL)
+        return t->key;
+
+    return leafprod(t->left) * leafprod(t->right);
+}<!--
+                            --></code></pre>
+                        </li>
+                        <li>
+                            Baum zu Liste umwandeln (nutzt
+                            <code>append</code> aus Aufgabe 1)
+                            <pre><code><!--
+-->void treeToList_rec(tree t, list *lp)
+{
+    if (t == NULL)
+        return;
+    treeToList_rec(t->left, lp);
+    if (t->key % 2 == 0)
+        append(lp, t->key);
+    treeToList_rec(t->right, lp);
+}<!--
+                            --></code></pre>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </details>
+    </li>
+</ul>
