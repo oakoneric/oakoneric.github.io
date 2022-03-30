@@ -1,48 +1,16 @@
 ---
-type: aud21
-section: formale sprachen
+type: prog22
+section: funktionale_programmierung
 nr: 1
-title: Einführung & Grundlagen der formalen Sprachen
-date: 11.10. bis 15.10.2021
+title: Einführung in Haskell
+date: 11.04. bis 15.04.2022
 ---
 
 <ul class="fa-ul">
   <li>
-    <i class="fa-li fa fa-video"></i>
-    <div style="text-align: left">
-      <ul class="vorlesungsvideo">
-        <li>
-          <a
-            href="https://www.orchid.inf.tu-dresden.de/videos/e-learning/aud-01-hLZWl2pq-norm.mp4"
-            target="_blank"
-            >Vorlesungsvideo 1:
-          </a>
-          Vorstellung & Einleitung
-        </li>
-        <li>
-          <a
-            href="https://www.orchid.inf.tu-dresden.de/videos/e-learning/aud-02-47jeoQjX.mp4"
-            target="_blank"
-            >Vorlesungsvideo 2:
-          </a>
-          Vom Problem zum Programm
-        </li>
-        <li>
-          <a
-            href="https://www.orchid.inf.tu-dresden.de/videos/e-learning/aud-03-dRZE7idf.mp4"
-            target="_blank"
-            >Vorlesungsvideo 3:
-          </a>
-          Grundlagen der formalen Sprachen
-        </li>
-      </ul>
-    </div>
-  </li>
-
-  <li>
     <i class="fa-li fa fa-pen"></i>
     <a
-      href="https://www.orchid.inf.tu-dresden.de/teaching/2021ws/aud/tut01.pdf"
+      href="https://www.orchid.inf.tu-dresden.de/teaching/2022ss/prog/tut01.pdf"
       target="_blank"
       >Übungsblatt 1</a
     >
@@ -52,15 +20,92 @@ date: 11.10. bis 15.10.2021
     <i class="fa-li fa fa-edit"></i>
     <div style="text-align: left">
       <a
-        href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut01/tut01.pdf"
-        class="button primary"
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut01/tut01_slides.pdf"
+        class="button primary disabled"
         >Slides</a
       >
       <a
-        href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut01/tut01_handout.pdf"
-        class="button"
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss21/tut01/tut01_handout.pdf"
+        class="button disabled"
         >Handout</a
       >
     </div>
+  </li>
+
+  <li style="display: none">
+    <i class="fa-li fa fa-edit"></i>
+    <details>
+      <summary class="inline">Lösungen</summary>
+
+      <ul>
+        <li><strong>Aufgabe 1</strong>: siehe Slides</li>
+        <li>
+          <strong>Aufgabe 2</strong>
+          <p style="text-align: justify">
+            Wir berechnen die Fakultät \(n! = \prod_{i=1}^n i\).
+          </p>
+          <pre><code><!--
+  -->-- Aufgabe 2(a)
+fac :: Int -> Int
+fac 0 = 1
+fac n = n * fac (n-1)<!--
+      --></code></pre>
+          <p style="text-align: justify">
+            Wir summieren Fakultäten auf, d.h. berechnen
+            \(\operatorname{sumFacs}(n,m) = \sum_{i=n}^m i!\). Dabei können wir
+            wahlweise die obere Grenze oder die untere Grenze "rausziehen".
+          </p>
+          <pre><code><!--
+  -->-- Aufgabe 2(b)
+sumFacs :: Int -> Int -> Int
+sumFacs n m
+  | n > m = 0
+  | otherwise = fac n + sumFacs (n+1) m
+
+sumFacs' :: Int -> Int -> Int
+sumFacs' n m
+  | n > m = 0
+  | otherwise = fac m + sumFacs' n (m-1)<!--
+      --></code></pre>
+        </li>
+        <li>
+          <strong>Aufgabe 3</strong>
+          <p style="text-align: justify">
+            Wir berechnen die Fibonacci-Zahlen und nutzen dafür die bereits
+            gegebene Rekursionsvorschrift \(f_n = f_{n-1} + f_{n-2}\) mit den
+            Startwerten \(f_0 = 1\) und \(f_1 = 1\).
+          </p>
+          <pre><code><!--
+  -->fib :: Int -> Int
+fib 0 = 1
+fib 1 = 1
+fib n = fib (n-1) + fib (n-2)
+
+fib' :: Int -> Int
+fib' n = fib_help 1 1 n
+
+fib_help :: Int -> Int -> Int -> Int
+fib_help x _ 0 = x
+fib_help x y n = fib_help y (x+y) (n-1)<!--
+      --></code></pre>
+          <p style="text-align: justify">
+            Wenn man mittels <code>:set +s</code> die Laufzeitmessung in GHCi
+            aktiviert und <code>fib n</code> für große <code>n</code> versucht
+            zu berechnen, wird man feststellen, dass das sehr lange dauert.
+            Daher kann man eine alternative Variante implementieren, die drei
+            "Speicherplätze" nutzt und somit ein iteratives Verfahren nachahmt
+            (vgl. Slides).
+          </p>
+          <pre><code><!--
+  -->fib' :: Int -> Int
+fib' n = fib_help 1 1 n
+
+fib_help :: Int -> Int -> Int -> Int
+fib_help x _ 0 = x
+fib_help x y n = fib_help y (x+y) (n-1)<!--
+      --></code></pre>
+        </li>
+      </ul>
+    </details>
   </li>
 </ul>
