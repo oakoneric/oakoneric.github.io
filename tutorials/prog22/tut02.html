@@ -30,14 +30,131 @@ date: 19.04. bis 22.04.2022
     <div style="text-align: left">
       <a
         href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss22/tut02/tut02-slides.pdf"
-        class="button primary disabled"
+        class="button primary"
         >Slides</a
       >
       <a
         href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss22/tut02/tut02-handout.pdf"
-        class="button disabled"
+        class="button"
         >Handout</a
       >
     </div>
+  </li>
+  <li style="margin-left: -6pt">
+    <i class="fa-li fa fa-edit"></i>
+    <details>
+      <summary class="inline">Lösungen</summary>
+      <ul class="aufgabenloesungen">
+        <li>
+          <details>
+            <summary class="aufgabe">Aufgabe 1</summary>
+            <p style="text-align: justify">
+              Wir berechnen den Binomialkoeffizienten \(\binom{n}{k} =
+              \frac{n!}{k! \ (n-k)!}\). Man beachte dabei, dass die
+              Integer-Division in Haskell mit der Funktion
+              <code>div</code> erfolgen muss. Man kann die Funktion durch
+              <code>`div`</code> auch in Infixnotation zwischen die Operanten
+              schreiben.
+            </p>
+            <pre><code><!--
+-->bincoeff :: Int -> Int -> Int
+bincoeff n k = fac n ‘div‘ (fac (n-k) * fac k)
+    where
+        fac n
+            | n < 1     = 1
+            | otherwise = n * fac (n-1)<!--
+            --></code></pre>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary class="aufgabe">Aufgabe 2</summary>
+            <ol>
+              <li>
+                Produkt einer Liste
+                <pre><code><!--
+-->prod :: [Int] -> Int
+prod []     = 1
+prod (x:xs) = x * prod xs<!--
+                                        --></code></pre>
+              </li>
+              <li>
+                eine Liste umkehren
+                <pre><code><!--
+-->rev :: [Int] -> [Int]
+rev [] = []
+rev (x:xs) = rev xs ++ [x]<!--
+                                        --></code></pre>
+              </li>
+              <li>
+                Elemente einer Liste löschen
+                <pre><code><!--
+-->excl :: Int -> [Int] -> [Int]
+excl _  []    = []
+excl y (x:xs)
+    | x == y    = excl y xs
+    | otherwise = x : excl y xs<!--
+                                        --></code></pre>
+              </li>
+              <li>
+                Sortierung einer Liste prüfen
+                <pre><code><!--
+-->isOrd' :: [Int] -> Bool
+isOrd' [] = True
+isOrd' [x] = True
+isOrd' (x:y:xs) = x <= y && isOrd' (y:xs)<!--
+                                        --></code></pre>
+              </li>
+              <li>
+                (sortierte) Listen zusammenfügen
+                <pre><code><!--
+-->merge :: [Int] -> [Int] -> [Int]
+merge [] ys = ys
+merge xs [] = xs
+merge (x:xs) (y:ys)
+  | x < y = x : merge xs (y:ys)
+  | otherwise = y : merge (x:xs) ys<!--
+                                        --></code></pre>
+              </li>
+              <li>
+                (unendliche) Liste der Fibonacci-Zahlen
+                <pre><code><!--
+-->fib :: Int -> Int
+fib 0 = 1
+fib 1 = 1
+fib n = fib (n-1) + fib (n-2)
+
+fib' :: Int -> Int
+fib' i = stack 1 1 i
+    where 
+        stack f0 f1 0 = f0
+        stack f0 f1 i = stack f1 (f0 + f1) (i-1)
+
+fibs :: [Int]
+fibs = fibAppend 0
+where fibAppend x = fib x : fibAppend (x+1)
+
+fibs' :: [Int]
+fibs' = fib_stack 1 1
+    where
+      fib_stack x y =  x : fib_stack y (x+y)<!--
+                                        --></code></pre>
+                Testen kann man diese Funktion beispielsweise mittels
+                <code>take 7 fibs</code>, was uns die ersten sieben
+                Fibonacci-Zahlen zurückgibt. <code>take</code> ist dabei eine
+                Funktion aus der Standard-Bibliothek <code>Prelude</code> vom
+                Typ <code>take :: Int -> [Int] -> [Int]</code>, siehe auch
+                <a
+                  href="http://zvon.org/other/haskell/Outputprelude/take_f.html"
+                  >hier</a
+                >. Man kann nun zwischen den beiden Varianten
+                <code>fibs</code> und <code>fibs'</code> umschalten und die
+                Laufzeitunterschiede vergleichen.
+              </li>
+            </ol>
+          </details>
+        </li>
+      </ul>
+    </details>
   </li>
 </ul>
