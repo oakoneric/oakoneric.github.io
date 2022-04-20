@@ -38,6 +38,13 @@ date: 19.04. bis 22.04.2022
         class="button"
         >Handout</a
       >
+      <a
+        style="margin-left: 2em"
+        href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss22/tut02/tut02-all.hs"
+        target="_blank"
+        class="button icon solid fa-download"
+        >Code</a
+      >
     </div>
   </li>
   <li style="margin-left: -6pt">
@@ -152,6 +159,32 @@ fibs' = fib_stack 1 1
                 Laufzeitunterschiede vergleichen.
               </li>
             </ol>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary class="aufgabe">Zusatzaufgabe</summary>
+            <pre><code><!--
+-->cnext :: Int -> Int
+cnext n
+    | n `mod` 2 == 0 = n `div` 2
+    | otherwise      = 3 * n + 1
+
+ck :: Int -> Int
+ck 1 = 1
+ck n = 1 + ck (cnext n)
+
+cmax :: Int -> Int
+cmax 0 = 0
+cmax n = max (cmax (n-1)) (ck n) -- oder cmax (n-1) ‘max‘ ck n
+    where max a b
+        | a > b     = a
+        | otherwise = b
+
+collatz :: Int -> [Int]
+collatz 1 = [1]
+collatz n = n : collatz (cnext n)<!--
+            --></code></pre>
           </details>
         </li>
       </ul>
