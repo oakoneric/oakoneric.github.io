@@ -71,6 +71,15 @@ bincoeff n k = fac n ‘div‘ (fac (n-k) * fac k)
             | n < 1     = 1
             | otherwise = n * fac (n-1)<!--
             --></code></pre>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/Kz2oSSL3tR4"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </details>
         </li>
         <li>
@@ -84,6 +93,15 @@ bincoeff n k = fac n ‘div‘ (fac (n-k) * fac k)
 prod []     = 1
 prod (x:xs) = x * prod xs<!--
                                         --></code></pre>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/oYYLEjs7BGw"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
               </li>
               <li>
                 eine Liste umkehren
@@ -92,6 +110,15 @@ prod (x:xs) = x * prod xs<!--
 rev [] = []
 rev (x:xs) = rev xs ++ [x]<!--
                                         --></code></pre>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/ckJ88gWaAik"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
               </li>
               <li>
                 Elemente einer Liste löschen
@@ -102,6 +129,15 @@ excl y (x:xs)
     | x == y    = excl y xs
     | otherwise = x : excl y xs<!--
                                         --></code></pre>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/O7JvKHkaCrA"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
               </li>
               <li>
                 Sortierung einer Liste prüfen
@@ -111,6 +147,15 @@ isOrd' [] = True
 isOrd' [x] = True
 isOrd' (x:y:xs) = x <= y && isOrd' (y:xs)<!--
                                         --></code></pre>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/VaWY6oyFFiQ"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
               </li>
               <li>
                 (sortierte) Listen zusammenfügen
@@ -122,6 +167,15 @@ merge (x:xs) (y:ys)
   | x < y = x : merge xs (y:ys)
   | otherwise = y : merge (x:xs) ys<!--
                                         --></code></pre>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/zW4TL7fwzFQ"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
               </li>
               <li>
                 (unendliche) Liste der Fibonacci-Zahlen
@@ -146,17 +200,28 @@ fibs' = fib_stack 1 1
     where
       fib_stack x y =  x : fib_stack y (x+y)<!--
                                         --></code></pre>
-                Testen kann man diese Funktion beispielsweise mittels
-                <code>take 7 fibs</code>, was uns die ersten sieben
-                Fibonacci-Zahlen zurückgibt. <code>take</code> ist dabei eine
-                Funktion aus der Standard-Bibliothek <code>Prelude</code> vom
-                Typ <code>take :: Int -> [Int] -> [Int]</code>, siehe auch
-                <a
-                  href="http://zvon.org/other/haskell/Outputprelude/take_f.html"
-                  >hier</a
-                >. Man kann nun zwischen den beiden Varianten
-                <code>fibs</code> und <code>fibs'</code> umschalten und die
-                Laufzeitunterschiede vergleichen.
+                <p style="text-align: justify">
+                  Testen kann man diese Funktion beispielsweise mittels
+                  <code>take 7 fibs</code>, was uns die ersten sieben
+                  Fibonacci-Zahlen zurückgibt. <code>take</code> ist dabei eine
+                  Funktion aus der Standard-Bibliothek <code>Prelude</code> vom
+                  Typ <code>take :: Int -> [Int] -> [Int]</code>, siehe auch
+                  <a
+                    href="http://zvon.org/other/haskell/Outputprelude/take_f.html"
+                    >hier</a
+                  >. Man kann nun zwischen den beiden Varianten
+                  <code>fibs</code> und <code>fibs'</code> umschalten und die
+                  Laufzeitunterschiede vergleichen.
+                </p>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/L_JY_2HQnLs"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
               </li>
             </ol>
           </details>
