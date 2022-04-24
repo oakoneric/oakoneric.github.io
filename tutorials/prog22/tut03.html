@@ -47,7 +47,8 @@ date: 19.04. bis 22.04.2022
           <details>
             <summary class="aufgabe">Aufgabe 1</summary>
             <ol>
-              <li>Präfix-Test
+              <li>
+                Präfix-Test
                 <pre><code><!--
   -->isPrefix :: String -> String -> Bool
 isPrefix [] _ = True
@@ -64,7 +65,8 @@ isPrefix (p:ps) (c:cs) = p == c && isPrefix ps cs<!--
                   allowfullscreen
                 ></iframe>
               </li>
-              <li>Vorkommen eines Patterns zählen
+              <li>
+                Vorkommen eines Patterns zählen
                 <pre><code><!--
                 -->countPattern :: String -> String -> Int
 countPattern "" "" = 1
@@ -135,13 +137,13 @@ equal (Branch x l1 r1) (Branch y l2 r2) = (x == y) && (equal l1 l2) && (equal r1
                 <pre><code><!--
 -->insert :: BinTree -> [Int] -> BinTree
 insert t     [] = t
-insert t (x:xs) = insert t' xs
+insert t (n:ns) = insert t' ns
   where
-    t' = insertSingle t x
-    insertSingle Nil            x = Branch x Nil Nil
-    insertSingle (Branch y l r) x
-      | x < y     = Branch y (insertSingle l x) r
-      | otherwise = Branch y l                  (insertSingle r x)<!--
+    t' = insertSingle t n
+    insertSingle Nil            n = Branch n Nil Nil
+    insertSingle (Branch x l r) n
+      | n < x     = Branch x (insertSingle l n) r
+      | otherwise = Branch x l                  (insertSingle r n)<!--
                                         --></code></pre>
                 <iframe
                   width="560"
@@ -160,8 +162,8 @@ insert t (x:xs) = insert t' xs
 unwind t = go [t]
   where
       go []                  = []
-      go ((Branch a Nil Nil) : ts) = a : go ts
-      go ((Branch a l r)     : ts) = a : go (ts ++ [l,r])<!--
+      go ( Nil           : ts) = go ts
+      go ((Branch x l r) : ts) = x : go (ts ++ [l,r])<!--
                 --></code></pre>
                 <iframe
                   width="560"
