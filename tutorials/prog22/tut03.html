@@ -1,8 +1,9 @@
 ---
 type: prog22
 section: funktionale programmierung
+nr: 3
 title: Zeichenketten & Bäume
-date: 25.04. bis 29.04.2022
+date: 19.04. bis 22.04.2022
 ---
 
 <ul class="fa-ul">
@@ -36,5 +37,146 @@ date: 25.04. bis 29.04.2022
         >Code</a
       >
     </div>
+  </li>
+  <li style="display: none; margin-left: -6pt">
+    <i class="fa-li fa fa-edit" style="margin-left: 6pt"></i>
+    <details>
+      <summary class="inline">Lösungen</summary>
+      <ul class="aufgabenloesungen">
+        <li>
+          <details>
+            <summary class="aufgabe">Aufgabe 1</summary>
+            <ol>
+              <li>Präfix-Test
+                <pre><code><!--
+  -->isPrefix :: String -> String -> Bool
+isPrefix [] _ = True
+isPrefix _ [] = False
+isPrefix (p:ps) (c:cs) = p == c && isPrefix ps cs<!--
+                --></code></pre>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/SSJfQhxnpEI"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </li>
+              <li>Vorkommen eines Patterns zählen
+                <pre><code><!--
+                -->countPattern :: String -> String -> Int
+countPattern "" "" = 1
+countPattern _  "" = 0
+countPattern ps ccs@(c:cs)
+    | isPrefix ps ccs = 1 + countPattern ps cs
+    | otherwise       = countPattern ps cs<!--
+                --></code></pre>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/kU37judL4q8"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </li>
+            </ol>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary class="aufgabe">Aufgabe 2</summary>
+            <ol>
+              <li>
+                Beispielbaum
+                <pre><code><!--
+-->mytree :: BinTree
+mytree = Branch 0 
+          ( Nil )
+          ( Branch 3 
+            ( Branch 1 Nil Nil )
+            ( Branch 5 Nil Nil )
+          )<!--
+            --></code></pre>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/D8wWhfb687Y"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </li>
+              <li>
+                Test auf Baumgleichheit
+                <pre><code><!--
+-->equal :: BinTree -> BinTree -> Bool
+equal Nil              Nil              = True
+equal Nil              (Branch y l2 r2) = False
+equal (Branch x l1 r1) Nil              = False
+equal (Branch x l1 r1) (Branch y l2 r2) = (x == y) && (equal l1 l2) && (equal r1 r2)<!--
+                --></code></pre>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/RQPeEj2YoXE"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </li>
+              <li>
+                Schlüssel in einen (Such-)Baum einfügen
+                <pre><code><!--
+-->insert :: BinTree -> [Int] -> BinTree
+insert t     [] = t
+insert t (x:xs) = insert t' xs
+  where
+    t' = insertSingle t x
+    insertSingle Nil            x = Branch x Nil Nil
+    insertSingle (Branch y l r) x
+      | x < y     = Branch y (insertSingle l x) r
+      | otherwise = Branch y l                  (insertSingle r x)<!--
+                                        --></code></pre>
+                <iframe
+                  width="560"
+                  height="315"
+                  src=""
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </li>
+              <li>
+                Levelorder-Traversierung
+                <pre><code><!--
+-->unwind :: BinTree -> [Int]
+unwind t = go [t]
+  where
+      go []                  = []
+      go ((Branch a Nil Nil) : ts) = a : go ts
+      go ((Branch a l r)     : ts) = a : go (ts ++ [l,r])<!--
+                --></code></pre>
+                <iframe
+                  width="560"
+                  height="315"
+                  src=""
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </li>
+            </ol>
+          </details>
+        </li>
+      </ul>
+    </details>
   </li>
 </ul>
