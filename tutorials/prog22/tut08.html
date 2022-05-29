@@ -1,78 +1,132 @@
 ---
-type: aud21
-section: algorithmen
+type: prog22
+section: logik
 nr: 8
-title: Suchen & Ersetzen
-date: 29.11. bis 03.12.2021
+title: Prolog (Teil 1)
+date: 30.05. bis 03.06.2022
 ---
 
 <ul class="fa-ul">
     <li>
-        <i class="fa-li fa fa-video"></i>
-        <div style="text-align: left">
-            <ul class="vorlesungsvideo">
-                <li>
-                    <a
-                        href="https://www.orchid.inf.tu-dresden.de/videos/e-learning/aud-vorlesung/aud-08a-FTGWspgy.mp4"
-                        target="_blank"
-                        >Vorlesungsvideo 1:</a
-                    >
-                    KMP-Algorithmus
-                </li>
-                <li>
-                    <a
-                        href="https://www.orchid.inf.tu-dresden.de/videos/e-learning/aud-vorlesung/aud-08b-FTGWspgy.mp4"
-                        target="_blank"
-                        >Vorlesungsvideo 2:</a
-                    >
-                    Levenshtein-Distanz
-                </li>
-            </ul>
+        <i class="fa-li fa fa-question"></i>
+        <div style="text-align: justify">
+            Auch in diesem Jahr werden die Lehrveranstaltungen, insbesondere auch meine Übungen, evaluiert. Ich bitte
+            euch dazu die folgende <a href="
+            https://befragung.zqa.tu-dresden.de/uz/de/sl/7086HheP0Rky" target="_blank">Umfrage</a> auszufüllen. Nutzt
+            gern auch die Freitextkommentare, um eure Gedanken und Verbesserungsmöglichkeiten loszuwerden.
         </div>
     </li>
-
     <li>
         <i class="fa-li fa fa-pen"></i>
-        <a
-            href="https://www.orchid.inf.tu-dresden.de/teaching/2021ws/aud/tut08.pdf"
-            target="_blank"
-            >Übungsblatt 8</a
-        >
+        <a href="https://www.orchid.inf.tu-dresden.de/teaching/2022ss/prog/tut08.pdf" target="_blank">Übungsblatt 8</a>
     </li>
 
     <li>
         <i class="fa-li fa fa-edit"></i>
         <div style="text-align: left">
-            <a
-                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut08/tut08.pdf"
-                class="button primary"
-                >Slides</a
-            >
-            <a
-                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut08/tut08_handout.pdf"
-                class="button"
-                >Handout</a
-            >
+            <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss22/tut08/tut08-slides.pdf"
+                class="button primary disabled">Slides</a>
+            <a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss22/tut08/tut08-handout.pdf"
+                class="button disabled">Handout</a>
         </div>
+        <ul>
+            <li><a href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss22/tut08/tut08-notes.pdf"
+                    target="_blank" class="isDisabled">Notizen der Mittwoch-Übung</a></li>
+        </ul>
     </li>
 
-    <li>
-        <ul>
-            <li>
-                ausführliche Erklärung zur
-                <a
-                    href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut08/tut08_kmp.pdf"
-                    >Zweifingermethode</a
-                >
-                im KMP-Algorithmus
-            </li>
-            <li>
-                <a
-                    href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws20/tut09/tut09_notes.pdf"
-                    >Übungsmitschrift</a
-                >
-                aus dem letzten Jahr
-            </li>
-        </ul>
+    <li style="margin-left: -6pt; display: none;">
+        <i class="fa-li fa fa-edit" style="margin-left: 6pt"></i>
+        <details>
+            <summary class="inline">Lösungen</summary>
+            <ul class="aufgabenloesungen">
+                <li>
+                    <details>
+                        <summary class="aufgabe">Aufgabe 1</summary>
+                        <p style="text-align: justify; padding-top: 1em;">
+                            Achtung: die Zeilenangaben in den SLD-Refutationen können zwischen Übungsnotizen und Folien
+                            sowie den Lösungen hier abweichen.
+                        </p>
+                        <ol>
+                            <li>
+                                <p>
+                                    Abbildung der Kantenrelation des gegebenen Graphen durch ein Prädikat
+                                    <code>edge</code>
+                                </p>
+                                <pre><code><!--
+-->edge(1, 4).
+edge(1, 2).
+edge(3, 2).
+edge(4, 3).
+edge(1, 1).<!--
+                            --></code></pre>
+                            </li>
+                            <li>
+                                <p>Pfade als zweistelliges Prädikt <code>path</code></p>
+                                <pre><code><!--
+-->path(U, U).
+path(U, W) :- edge(U, V), path(V, W).<!--
+                            --></code></pre>
+                            </li>
+                            <li>
+                                <p>SLD-Refutationen für das Goal <code>?- path(4, X).</code></p>
+                                <pre><code><!--
+-->           ?- path(4,X).
+{ X = 4 }  ?- .                          % 7 <!--
+                            --></code></pre>
+                                <pre><code><!--
+-->           ?- path(4,X).
+           ?- edge(4,W), path(W,X).     % 8
+{ W = 3 }  ?- path(3,X).                % 5
+{ X = 3 }  ?- .                         % 6 <!--
+                            --></code></pre>
+                                <pre><code><!--
+-->           ?- path(4,X).
+           ?- edge(4,W), path(W,X).     % 8 
+{ W = 3 }  ?- path(3,X).                % 5
+           ?- edge(3,U), path(U,X).     % 8 
+{ U = 2 }  ?- path(2,X).                % 4
+{ X = 2 }  ?- .                         % 7 <!--
+                            --></code></pre>
+                                <p>Damit ist also \( X \in \{ 2,3,4 \} \).</p>
+                            </li>
+                        </ol>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary class="aufgabe">Aufgabe 2</summary>
+                        <ol>
+                            <li>
+                                <p>Prädikat <code>even</code>, das alle geraden Zahlen enthält</p>
+                                <pre><code><!--
+-->even(0).
+even(s(s(N))) :- even(N).<!--
+                            --></code></pre>
+                            </li>
+                            <li>
+                                <p>
+                                    Prädikt <code>div2</code>, dass alle Paare \( ( n, \lfloor \frac n 2
+                                    \rfloor ) \) enthält
+                                </p>
+                                <pre><code><!--
+-->div2(0, 0).
+div2(s(0), 0).
+div2(s(s(N)), s(M)) :- div2(N, M).<!--
+                            --></code></pre>
+                            </li>
+                            <li>
+                                <p>SLD-Refutation für das Goal <code>?- div2(<3>, <1>).</code></p>
+                                <pre><code><!--
+-->?- div2(<3>, <1>).
+?- div2(<1>, 0)           % 12
+?- .                      % 11 <!--
+                            --></code></pre>
+                            </li>
+                        </ol>
+                    </details>
+                </li>
+            </ul>
+        </details>
     </li>
 </ul>
