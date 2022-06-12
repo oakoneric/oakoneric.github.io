@@ -1,151 +1,156 @@
 ---
-type: aud21
-section: algorithmen
+type: prog22
+section: logik
 nr: 9
-title: AVL-Bäume &amp; Topologisches Sortieren
-date: 06.12. bis 10.12.2021
+title: Prolog (Teil 2)
+date: 13.06. bis 17.06.2022
 ---
 
 <ul class="fa-ul">
     <li>
-        <i class="fa-li fa fa-video"></i>
-        <div style="text-align: left">
-            <ul class="vorlesungsvideo">
-                <li>
-                    <a
-                        href="https://www.orchid.inf.tu-dresden.de/videos/e-learning/aud-vorlesung/aud-09a-cLroPQN9.mp4"
-                        target="_blank"
-                        >Vorlesungsvideo 1:</a
-                    >
-                    AVL-Bäume
-                </li>
-                <li>
-                    <a
-                        href="https://www.orchid.inf.tu-dresden.de/videos/e-learning/aud-vorlesung/aud-09b-cLroPQN9.mp4"
-                        target="_blank"
-                        >Vorlesungsvideo 2:</a
-                    >
-                    Graphen
-                </li>
-                <li>
-                    <a
-                        href="https://www.orchid.inf.tu-dresden.de/videos/e-learning/aud-vorlesung/aud-09c-cLroPQN9.mp4"
-                        target="_blank"
-                        >Vorlesungsvideo 3:</a
-                    >
-                    Topologisches Sortieren
-                </li>
-            </ul>
-        </div>
-    </li>
-
-    <li>
         <i class="fa-li fa fa-pen"></i>
         <a
-            href="https://www.orchid.inf.tu-dresden.de/teaching/2021ws/aud/tut09.pdf"
+            href="https://www.orchid.inf.tu-dresden.de/teaching/2022ss/prog/tut09.pdf"
             target="_blank"
             >Übungsblatt 9</a
         >
     </li>
 
     <li>
-        <i class="fa-li fa fa-code"></i>
-        <a
-            href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut09/tut09-templates.zip"
-            >Coding Templates <span class="icon solid fa-download"></span
-        ></a>
-    </li>
-
-    <li>
         <i class="fa-li fa fa-edit"></i>
         <div style="text-align: left">
             <a
-                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut09/tut09.pdf"
-                class="button primary"
+                href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss22/tut09/tut09-slides.pdf"
+                class="button primary disabled"
                 >Slides</a
             >
             <a
-                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut09/tut09_handout.pdf"
-                class="button"
+                href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss22/tut09/tut09-handout.pdf"
+                class="button disabled"
                 >Handout</a
             >
-
-            <a
-                style="margin-left: 2em"
-                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut09/tut09-code.zip"
-                target="_blank"
-                class="button icon solid fa-download"
-            >
-                Code
-            </a>
         </div>
     </li>
 
-    <li>
-        <ul>
+  
+<li style="margin-left: -6pt;">
+    <i class="fa-li fa fa-edit" style="margin-left: 6pt"></i>
+    <details>
+        <summary class="inline">Lösungen</summary>
+        <ul class="aufgabenloesungen">
             <li>
-                <a
-                    href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws20/tut10/tut10_notes.pdf"
-                    >Übungsmitschrift</a
-                >
-                aus dem letzten Jahr
+                <details>
+                    <summary class="aufgabe">Aufgabe 1</summary>
+                    <p style="text-align: justify; padding-top: 1em;">
+                        Achtung: die Zeilenangaben in den SLD-Refutationen können zwischen Übungsnotizen und Folien
+                        sowie den Lösungen hier abweichen.
+                    </p>
+                    
+                    <ol>
+                        <li><p>Prüfen der Teillisteneigenschaft durch ein Prädikat <code>sublist</code></p>
+                          <pre><code><!--
+-->nat (0).
+nat(s(X)) :- nat(X).
+
+listnat ([]).
+listnat ([X|XS]) :- nat(X), listnat(XS).
+
+prefix([]    , Ys )    :- listnat(Ys).
+prefix([X|Xs], [X|Ys]) :- nat(X), prefix(Xs, Ys).
+
+sublist(Xs   , [Y|Ys]) :- nat(Y), sublist(Xs, Ys).
+sublist(Xs   , Ys )    :- prefix(Xs, Ys).<!--
+                          --></code></pre>
+                        </li>
+                        <li><p>SLD-Refutationen für das Goal <code>?- sublist([<4>|XS], [<5>, <4>, <3>]).</code></p>
+                          <pre><code><!--
+-->                ?-  sublist ([<4>|Xs], [<5>, <4>, <3>]).
+                ?-  nat(<5>), sublist ([<4>|Xs], [<4>, <3>]). % 6
+                ?-* nat(0), sublist ([<4>|Xs], [<4>, <3>]).   % 2
+                ?-  sublist ([<4>|Xs], [<4>, <3>]).           % 1
+                ?-  prefix ([<4>|Xs], [<4>, <3>]).            % 7
+                ?-  nat(<4>), prefix(Xs , [<3>]).             % 10
+                ?-* nat(0), prefix(Xs , [<3>]).               % 2
+                ?-  prefix(Xs , [<3>]).                       % 1
+{Xs = []}       ?-  listnat ([<3>]).                          % 9
+                ?-  nat(<3>), listnat ([]).                   % 5
+                ?-* nat(0), listnat ([]).                     % 2
+                ?-  listnat ([]).                             % 1
+                ?-  .                                         % 4<!--
+                          --></code></pre>
+                          <pre><code><!--
+-->                ?-  sublist ([<4>|Xs], [<5>, <4>, <3>]).
+                ?-  nat(<5>), sublist ([<4>|Xs], [<4>, <3>]). % 6
+                ?-* nat(0), sublist ([<4>|Xs], [<4>, <3>]).   % 2
+                ?-  sublist ([<4>|Xs], [<4>, <3>]).           % 1
+                ?-  prefix ([<4>|Xs], [<4>, <3>]).            % 7
+                ?-  nat(<4>), prefix(Xs , [<3>]).             % 10
+                ?-* nat(0), prefix(Xs , [<3>]).               % 2
+                ?-  prefix(Xs , [<3>]).                       % 1
+{Xs=[<3>|Xs1]}  ?-  nat(<3>), prefix(Xs1 , []).               % 10
+                ?-* nat(0), prefix(Xs1 , []).                 % 2
+                ?-  prefix(Xs1 , []).                         % 1
+{Xs1 = []}      ?-  listnat ([]).                             % 9
+                ?-  .                                         % 4<!--
+                          --></code></pre>
+                        </li>														
+                    </ol>
+                </details>
+            </li>
+
+            <li>
+                <details>
+                    <summary class="aufgabe">Aufgabe 2</summary>
+                    <ol>
+                        <li><p>Evaluierung eines binären Termbaums mit dem Prädikat <code>eval</code></p>
+                          <pre><code><!--
+-->sum(0, Y, Y) :- nat(Y).
+sum(s(X), Y, s(S)) :- sum(X, Y, S).
+
+eval( X         , X ) :-  nat(X).
+eval( plus (L,R), X ) :-  eval(L, LE), eval(R, RE), sum(LE, RE,  X).
+eval( minus(L,R), X ) :-  eval(L, LE), eval(R, RE), sum(RE,  X, LE).<!--
+                          --></code></pre>
+                        </li>
+                        <li><p>SLD-Refutation für das Goal <code>?- insert(&lt;t1&gt;, &lt;t2&gt;, X).</code></p>
+                          <p style="font-style: italic; text-align: justify;">
+                            Ausführlichere Hinweise zu Anschauung des Prädikats <code>insert</code> finden sich in den Slides.
+                          </p>
+                          <ol>
+                            <li>
+                              <pre><code><!--
+-->                           ?-  insert(&lt;t1&gt;, &lt;t2&gt;, X).
+{X = tree(a, LT1, RT1)}    ?-  insert(tree(b, nil, nil), &lt;t2&gt;, LT1), 
+                               insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 6
+{LT1 = tree(b, LT2, RT2)}  ?-  insert(nil , &lt;t2&gt;, LT2), 
+                               insert(nil, &lt;t2&gt;, RT2), 
+                               insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 6
+{LT2 = nil, RT2 = nil}     ?-* insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 4
+{RT1 = &lt;t2&gt;}               ?-  istree(&lt;t2&gt;).                           % 5
+                           ?-* istree(nil), istree(nil), istree(nil).  % 2
+                           ?-* .                                       % 4<!--
+                              --></code></pre>
+                            </li>
+                            <li>
+                              <pre><code><!--
+-->                           ?-  insert(&lt;t1&gt;, &lt;t2&gt;, X).
+{X = tree(a, LT1, RT1)}    ?-  insert(tree(b, nil, nil), &lt;t2&gt;, LT1), 
+                               insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 6
+{LT1 = tree(b, LT2, RT2)}  ?-  insert(nil , &lt;t2&gt;, LT2), 
+                               insert(nil, &lt;t2&gt;, RT2), 
+                               insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 6
+{LT2 = nil, RT2 = nil}     ?-* insert(tree(v, nil, nil), &lt;t2&gt;, RT1).   % 4
+{RT1 = tree(v, LT3, RT3)}  ?-  insert(nil, &lt;t2&gt;, LT3),
+                               insert(nil, &lt;t2&gt;, RT3).                 % 6
+{RT3 = nil, LT3 = nil}     ?-* .                                       % 4<!--
+                              --></code></pre>
+                            </li>
+                          </ol>
+                        </li>
+                    </ol>    
+                </details>
             </li>
         </ul>
-    </li>
-
-    <li>
-        <i class="fa-li fa fa-edit"></i>
-        <details>
-            <summary class="inline">Lösungen</summary>
-
-            <ul>
-                <li>
-                    <strong>Aufgabe 2:</strong> Implementierungen für AVL-Bäume
-                    <ol style="list-style-type: lower-alpha">
-                        <li>
-                            Ermitteln der Balancefaktoren
-                            <pre><code><!--
--->int height(tree t)
-{
-    if (t == NULL)
-        return 0;
-
-    int hl = height(t->left);
-    int hr = height(t->right);
-
-    return (hl > hr) ? hl + 1 : hr + 1;
-}
-
-tree bfs(tree t)
-{
-    if (t == NULL)
-        return NULL;
-    tree bf = malloc(sizeof(struct node));
-    bf->key = height(t->right) - height(t->left);
-    bf->left = bfs(t->left);
-    bf->right = bfs(t->right);
-    return bf;
-}<!--
-                            --></code></pre>
-                        </li>
-                        <li>
-                            Linksrotation um die Wurzel
-                            <pre><code><!--
--->void lRot(tree *tp)
-{
-    if (tp == NULL || *tp == NULL)
-        return;
-
-    tree rightChild = (*tp)->right;
-    (*tp)->right = rightChild->left;
-    rightChild->left = *tp;
-    *tp = rightChild;
-}<!--
-                    --></code></pre>
-                        </li>
-                    </ol>
-                </li>
-            </ul>
-        </details>
-    </li>
+    </details>
+</li>
 </ul>
