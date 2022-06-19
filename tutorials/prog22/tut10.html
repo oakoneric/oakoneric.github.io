@@ -1,135 +1,41 @@
 ---
-type: aud21
-section: algorithmen
+type: prog22
+section: compilerbau
 nr: 10
-title: Topologisches Sortieren &amp; Graphensuche
-date: 13.12. bis 17.12.2021
+title: Abstrakte Maschine AM<sub>0</sub>
+date: 20.06. bis 25.06.2022
 ---
 
 <ul class="fa-ul">
     <li>
-        <i style="color: #f69200" class="fa-li fa fa-exclamation-triangle"></i>
-        <div style="text-align: justify">
-            Die Mittwoch-Übung am 15.12.2021 findet nicht statt! Das Übungsblatt
-            10 wird am Mittwoch, dem 22.12.2021 in einer Online-Übung besprochen
-            (siehe
-            <a href="#weihnachten">oben</a>). Wir verwenden dafür wie bereits
-            erprobt Zoom. Den Link findet ihr unten.
-        </div>
-    </li>
-    <li>
-        <i class="fa-li fa fa-video"></i>
-        <div style="text-align: left">
-            <a
-                href="https://www.orchid.inf.tu-dresden.de/videos/e-learning/aud-vorlesung/aud-10-iGayuVjV.mp4"
-                target="_blank"
-                >Vorlesungsvideo:</a
-            >
-            Graphensuche
-        </div>
-    </li>
-
+        <i style="color: #f69200;" class="fa-li fa fa-exclamation-triangle"></i>
+        <p style="text-align: justify;">
+          Es gibt einen (vorläufigen) <a href="https://tu-dresden.de/ing/informatik/studium/news/pruefungsplan-sose2022">Prüfungsplan</a> der Fakultät Informatik. 
+          Bitte beachtet die darin angebebenen Daten zur Prüfung, achtet stets auf Aktualisierungen und meldet euch rechtzeitig an.
+        </p>
+      </li>
     <li>
         <i class="fa-li fa fa-pen"></i>
         <a
-            href="https://www.orchid.inf.tu-dresden.de/teaching/2021ws/aud/tut10.pdf"
+            href="https://www.orchid.inf.tu-dresden.de/teaching/2022ss/prog/tut10.pdf"
             target="_blank"
             >Übungsblatt 10</a
         >
     </li>
 
     <li>
-        <i class="fa-li fa fa-video"></i>
-        <a
-            href="https://us02web.zoom.us/j/86288374492?pwd=NDJiQmcrQmh3N2J2TVVUSlRwNkVqQT09"
-            class="button icon solid fa-link"
-            >zum Meeting am 22.12.2021</a
-        >
-    </li>
-
-    <li>
-        <i class="fa-li fa fa-code"></i>
-        <a
-            href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut10/tut10-1-template.c"
-            >Coding Templates <span class="icon solid fa-download"></span
-        ></a>
-    </li>
-
-    <li>
         <i class="fa-li fa fa-edit"></i>
         <div style="text-align: left">
             <a
-                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut10/tut10.pdf"
-                class="button primary"
+                href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss22/tut10/tut10-slides.pdf"
+                class="button primary disabled"
                 >Slides</a
             >
             <a
-                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut10/tut10_handout.pdf"
-                class="button"
+                href="https://wwwpub.zih.tu-dresden.de/~s8071551/programmierung-ss22/tut10/tut10-handout.pdf"
+                class="button disabled"
                 >Handout</a
             >
-
-            <a
-                style="margin-left: 2em"
-                href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut10/tut10-1.c"
-                target="_blank"
-                class="button icon solid fa-download"
-            >
-                Code
-            </a>
         </div>
-    </li>
-
-    <li>
-        <ul>
-            <li>
-                <a
-                    href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/tut10/tut10_notes-mi.pdf"
-                    >Übungsmitschrift</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://wwwpub.zih.tu-dresden.de/~s8071551/algorithmen-datenstrukturen-ws21/video/tut10-mi.mp4"
-                    >Videoaufzeichnung</a
-                >
-                der Mittwoch-Übung
-            </li>
-        </ul>
-    </li>
-
-    <li style="display: none">
-        <i class="fa-li fa fa-edit"></i>
-        <details>
-            <summary class="inline">Lösungen</summary>
-            <strong>Aufgabe 1:</strong> Implementierung des Topologischen
-            Sortierens
-            <pre><code><!--
--->void topsort(int n, int e, struct Edge edges[], int ord[])
-{
-    int j = 1, node, edge, ok;
-    while (j <= n)
-    {
-        for (node = 0; node < n; ++node)
-        {
-            if (ord[node] == -1)
-            {
-                ok = 1;
-                for (edge = 0; edge < e; ++edge)
-                    if (edges[edge].to == node && ord[edges[edge].from] == -1)
-                        ok = 0;
-                if (ok)
-                {
-                    printf("Knoten %d bekommt Nummer %d. \n", node, j);
-                    ord[node] = j;
-                    j++;
-                    break;
-                }
-            }
-        }
-    }
-}<!--
-                            --></code></pre>
-        </details>
     </li>
 </ul>
